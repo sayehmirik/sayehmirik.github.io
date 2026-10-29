@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sayehmiri Biostatistics — Led by Prof. Kourosh Sayehmiri</title>
+<meta name="description" content="Professor of Biostatistics offering remote study design, statistical analysis, systematic review & meta-analysis, survival analysis and manuscript statistics support. 400+ published articles, 185+ meta-analyses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f9f9; --surface:#fff; --ink:#13171c; --muted:#5a6471; --line:#e1e6e8;
+  --accent:#1d5e72; --accent-2:#164a5a; --accent-soft:#e6f0f2; --amber:#c47a22; --amber-soft:#fbf1e4;
+  --display:'Space Grotesk','IBM Plex Sans',sans-serif;
+  --body:'IBM Plex Sans',-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  --r:14px; --shadow:0 6px 28px rgba(19,23,28,.07);
+}
+html[lang="fa"],html[lang="ar"]{--display:'Vazirmatn',sans-serif;--body:'Vazirmatn',sans-serif}
+html[lang="zh"]{--display:'Space Grotesk','PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;--body:'IBM Plex Sans','PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(247,249,249,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav.wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
+.brand{display:flex;flex-direction:column;line-height:1.15}
+.brand b{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.02rem;letter-spacing:-.01em}
+.brand small{font-family:'Vazirmatn',sans-serif;color:var(--muted);font-size:.78rem}
+.nav-right{display:flex;align-items:center;gap:18px}
+.nav-links{display:flex;gap:22px}
+.nav-links a{font-size:.9rem;color:var(--muted);font-weight:500}
+.nav-links a:hover{color:var(--ink)}
+.lang{display:flex;gap:2px;background:var(--line);padding:3px;border-radius:8px}
+.lang button{border:0;background:transparent;padding:5px 9px;border-radius:6px;font-size:.72rem;font-weight:600;color:var(--muted)}
+.lang button.active{background:var(--surface);color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:8px;font-weight:500;font-size:.94rem;padding:12px 22px;border:1px solid transparent;transition:.2s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-2);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line);background:var(--surface)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-sm{padding:8px 14px;font-size:.82rem}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:52px;align-items:center;padding:72px 0 60px}
+.eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+html[lang="fa"] .eyebrow,html[lang="ar"] .eyebrow,html[lang="zh"] .eyebrow{font-family:var(--body);letter-spacing:0;font-size:.82rem}
+.eyebrow::before{content:'';width:26px;height:2px;background:currentColor;flex:none}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(2.1rem,4.4vw,3.4rem);line-height:1.08;letter-spacing:-.02em;margin-bottom:20px}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:1.08rem;color:var(--muted);max-width:52ch;margin-bottom:28px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:38px;padding-top:24px;border-top:1px solid var(--line)}
+.stats b{display:block;font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:600;line-height:1.1}
+.stats span{display:block;font-size:.78rem;color:var(--muted);margin-top:4px;line-height:1.35}
+.plot-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 16px;box-shadow:var(--shadow)}
+.plot-card svg{width:100%;height:auto;display:block}
+.plot-cap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:.7rem;color:var(--muted);margin-top:10px}
+.fp-row{opacity:0;animation:fade .5s ease-out forwards}
+.fp-diamond{opacity:0;animation:fade .8s ease-out forwards 1.5s}
+@keyframes fade{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.fp-row,.fp-diamond{animation:none;opacity:1}}
+
+/* Trust strip */
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}
+.trust .wrap{display:flex;align-items:center;gap:22px;flex-wrap:wrap;padding-top:18px;padding-bottom:18px}
+.trust .label{font-size:.78rem;color:var(--muted);font-weight:500}
+.trust ul{display:flex;gap:22px;flex-wrap:wrap;list-style:none;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:.92rem;color:#38414c}
+
+/* Sections */
+section{padding:80px 0}
+section + section{border-top:1px solid var(--line)}
+.head{max-width:62ch;margin-bottom:40px}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(1.6rem,2.6vw,2.2rem);letter-spacing:-.01em;line-height:1.2;margin-bottom:10px}
+.head p{color:var(--muted)}
+
+/* Needs */
+.needs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.need{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:8px;transition:.2s}
+.need:hover{border-color:var(--accent);box-shadow:var(--shadow);transform:translateY(-2px)}
+.need .ic{width:40px;height:40px;border-radius:10px;background:var(--accent-soft);display:grid;place-items:center;margin-bottom:6px}
+.need h3{font-family:var(--display);font-size:1.06rem;font-weight:600;line-height:1.3}
+.need p{color:var(--muted);font-size:.92rem;flex:1}
+.need button{align-self:flex-start;border:0;background:none;color:var(--accent);font-weight:600;font-size:.88rem;padding:6px 0}
+.need button:hover{text-decoration:underline}
+
+/* Services */
+.services{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.svc{background:var(--surface);padding:26px;display:flex;gap:16px}
+.svc .n{font-family:var(--mono);color:var(--accent);font-size:.78rem;padding-top:3px;flex:none}
+.svc h3{font-family:var(--display);font-size:1.05rem;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.svc p{color:var(--muted);font-size:.92rem}
+.svc.featured{background:linear-gradient(180deg,var(--accent-soft),var(--surface))}
+.pill{font-family:var(--body);font-size:.68rem;font-weight:600;background:var(--amber);color:#fff;padding:2px 9px;border-radius:99px}
+
+/* Methods */
+.methods{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.mcat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px}
+.mcat h3{font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:14px;color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:.84rem;background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:4px 12px;direction:ltr}
+.software{margin-top:22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.software b{font-size:.84rem;color:var(--muted);font-weight:500}
+.software span{font-family:var(--mono);font-size:.8rem;background:var(--ink);color:#fff;border-radius:6px;padding:4px 10px}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.step{border-top:3px solid var(--accent);padding-top:18px}
+.step .n{font-family:var(--mono);color:var(--accent);font-size:.8rem}
+.step h3{font-family:var(--display);font-size:1.02rem;font-weight:600;margin:6px 0}
+.step p{color:var(--muted);font-size:.9rem}
+
+/* Publications */
+.pubs{display:grid;gap:0;border-top:1px solid var(--line)}
+.pub{display:grid;grid-template-columns:64px 1fr auto;gap:18px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);direction:ltr;text-align:left}
+.pub .y{font-family:var(--mono);color:var(--accent);font-size:.84rem}
+.pub .t{font-weight:500}
+.pub .j{color:var(--muted);font-size:.86rem;font-style:italic}
+.pub a{font-family:var(--mono);font-size:.76rem;color:var(--accent);white-space:nowrap}
+.pub a:hover{text-decoration:underline}
+.books{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.book{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;direction:ltr;text-align:left}
+.book b{display:block;font-family:'Space Grotesk',sans-serif;font-weight:600}
+.book span{font-size:.82rem;color:var(--muted)}
+.more{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+
+/* Teaching */
+.tfilter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tfilter button{border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:99px;padding:6px 14px;font-size:.85rem;font-weight:500}
+.tfilter button[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.clist{border-top:1px solid var(--line)}
+.crow{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto;gap:18px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.crow .ct{font-family:var(--display);font-weight:600;font-size:1.02rem;direction:ltr;text-align:start}
+.crow .ca{color:var(--muted);font-size:.86rem;direction:ltr;text-align:start}
+.crow .cy{font-family:var(--mono);font-size:.74rem;color:var(--accent);margin-top:2px}
+.cfiles{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.cfile{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:6px 11px;font-size:.82rem;font-weight:500;color:var(--ink)}
+.cfile:hover{border-color:var(--accent);color:var(--accent)}
+.cfile svg{flex:none}
+.csoon{font-size:.8rem;color:var(--muted);font-style:italic}
+.tbooks{margin-top:44px}
+.tbooks h3{font-family:var(--display);font-size:1.15rem;font-weight:600;margin-bottom:14px}
+.tbook-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.tbook{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:14px;direction:ltr;text-align:left}
+.tbook b{display:block;font-family:'Space Grotesk',sans-serif;font-weight:600}
+.tbook span{font-size:.82rem;color:var(--muted)}
+.tnote{margin-top:22px;font-size:.84rem;color:var(--muted);max-width:70ch}
+@media (max-width:760px){.crow{grid-template-columns:1fr;gap:8px}.cfiles{justify-content:flex-start}.tbook-grid{grid-template-columns:1fr}}
+
+/* About */
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start}
+.about p{color:var(--muted);margin-bottom:14px}
+.cred{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:8px 24px;box-shadow:var(--shadow)}
+.cred div{padding:14px 0;border-bottom:1px dashed var(--line)}
+.cred div:last-child{border:0}
+.cred dt{font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);font-weight:600}
+.cred dd{font-size:.92rem;margin-top:2px}
+
+/* Brief form */
+#brief{background:var(--ink);color:#eef2f4}
+#brief .head p{color:#a7b1bb}
+#brief .eyebrow{color:#e0a45e}
+.form{background:#1c2229;border:1px solid #2c343d;border-radius:var(--r);padding:30px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px 22px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field.full{grid-column:1/-1}
+.field label,.field legend{font-size:.86rem;font-weight:500;color:#cfd6dc}
+fieldset{border:0}
+.field input,.field select,.field textarea{background:#12171c;border:1px solid #333c46;color:#fff;border-radius:8px;padding:11px 13px;font:inherit;font-size:.93rem;width:100%}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:#e0a45e}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.checks label{cursor:pointer}
+.checks input{position:absolute;opacity:0;pointer-events:none}
+.checks span{display:inline-block;border:1px solid #3a444f;border-radius:99px;padding:6px 14px;font-size:.85rem;color:#cfd6dc;transition:.15s}
+.checks input:checked + span{background:var(--amber);border-color:var(--amber);color:#fff}
+.checks input:focus-visible + span{outline:2px solid #e0a45e;outline-offset:2px}
+.form-actions{grid-column:1/-1;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.form-actions .btn-primary{background:var(--amber)}
+.form-actions .btn-primary:hover{background:#a8661a}
+.form-actions .btn-ghost{background:transparent;border-color:#3a444f;color:#eef2f4}
+.note{font-size:.84rem;color:#a7b1bb}
+.note.err{color:#ff9d8a}
+.note.ok{color:#8fd6b0}
+
+/* FAQ */
+.faq{display:grid;gap:10px;max-width:820px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:0 20px}
+.faq summary{cursor:pointer;list-style:none;padding:17px 0;font-weight:600;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--accent);font-size:1.2rem;line-height:1}
+.faq details[open] summary::after{content:'–'}
+.faq details p{color:var(--muted);padding-bottom:18px}
+
+/* Contact */
+.contact{background:var(--accent);color:#fff;border-radius:var(--r);padding:44px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.contact h2{color:#fff}
+.contact p{color:#cfe2e7;max-width:46ch}
+.contact .btn{background:#fff;color:var(--accent)}
+.contact .em{font-family:var(--mono);font-size:.9rem;color:#dbe9ed;margin-top:10px;direction:ltr}
+footer{padding:30px 0 44px;text-align:center;color:var(--muted);font-size:.8rem}
+
+/* Responsive */
+@media (max-width:960px){
+  .nav-links{display:none}
+  .hero,.about{grid-template-columns:1fr;gap:34px}
+  .hero{padding-top:44px}
+  .needs{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .services,.methods{grid-template-columns:1fr}
+}
+@media (max-width:620px){
+  .wrap{padding:0 16px}
+  nav.wrap{height:64px}
+  .brand small{display:none}
+  .nav-right .btn{display:none}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .needs,.steps,.books,.form{grid-template-columns:1fr}
+  .form{padding:20px}
+  .pub{grid-template-columns:1fr;gap:4px}
+  .contact{padding:28px 22px}
+  section{padding:60px 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap" aria-label="Main">
+    <a href="#top" class="brand" aria-label="Sayehmiri Biostatistics — led by Prof. Kourosh Sayehmiri"><b>Sayehmiri Biostatistics</b><small>Led by Prof. Kourosh Sayehmiri · دکتر کوروش سایه‌میری</small></a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#needs" data-i18n="nav.start">Start here</a>
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#methods" data-i18n="nav.methods">Methods</a>
+        <a href="#work" data-i18n="nav.work">Publications</a>
+        <a href="#teaching" data-i18n="nav.teach">Teaching</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      </div>
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="en">EN</button>
+        <button data-lang="fa">فارسی</button>
+        <button data-lang="ar">عربي</button>
+        <button data-lang="zh">中文</button>
+      </div>
+      <a href="#brief" class="btn btn-primary btn-sm" data-i18n="nav.cta">Request a quote</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<div class="wrap hero">
+  <div>
+    <div class="eyebrow" data-i18n="hero.eyebrow">Professor of Biostatistics · Remote consulting worldwide</div>
+    <h1 data-i18n-html="hero.title">Statistics that hold up <em>under peer review</em>.</h1>
+    <p class="lead" data-i18n="hero.lead">I design studies, analyse data and write the statistical Methods and Results for clinical and public-health research — from protocol to publication, and through reviewer comments.</p>
+    <div class="ctas">
+      <a href="#needs" class="btn btn-primary" data-i18n="hero.cta1">Tell me what you need</a>
+      <a href="#services" class="btn btn-ghost" data-i18n="hero.cta2">Browse services</a>
+    </div>
+    <div class="stats">
+      <div><b>400+</b><span data-i18n="stat1">published research articles</span></div>
+      <div><b>185+</b><span data-i18n="stat2">systematic reviews &amp; meta-analyses</span></div>
+      <div><b>14,000+</b><span data-i18n="stat3">citations</span></div>
+      <div><b>Top 2%</b><span data-i18n="stat4">World's Top 2% Scientists — listed 5 times</span></div>
+    </div>
+  </div>
+
+  <div class="plot-card" dir="ltr">
+    <svg viewBox="0 0 380 250" role="img" aria-label="Illustrative forest plot of a random-effects meta-analysis">
+      <g font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a6471">
+        <text x="0" y="16" font-weight="500" fill="#13171c">Study</text>
+        <text x="300" y="16" font-weight="500" fill="#13171c">RR [95% CI]</text>
+      </g>
+      <line x1="196" y1="24" x2="196" y2="214" stroke="#c9d1d5" stroke-dasharray="3 3"/>
+      <line x1="80" y1="214" x2="290" y2="214" stroke="#c9d1d5"/>
+      <g font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#5a6471">
+        <text x="92" y="228" text-anchor="middle">0.5</text>
+        <text x="196" y="228" text-anchor="middle">1</text>
+        <text x="282" y="228" text-anchor="middle">2</text>
+        <text x="120" y="244" text-anchor="middle">favours treatment</text>
+        <text x="258" y="244" text-anchor="middle">favours control</text>
+      </g>
+      <!-- rows: x = 196 + 150*log10(RR)/log10(2)*0.58 approx -->
+      <g font-family="IBM Plex Mono, monospace" font-size="9" fill="#13171c">
+        <g class="fp-row" style="animation-delay:.2s"><text x="0" y="42">Study A 2016</text><line x1="120" y1="39" x2="214" y2="39" stroke="#1d5e72" stroke-width="1.5"/><rect x="157" y="35" width="8" height="8" fill="#1d5e72"/><text x="300" y="42">0.72 [0.48–1.09]</text></g>
+        <g class="fp-row" style="animation-delay:.4s"><text x="0" y="68">Study B 2018</text><line x1="150" y1="65" x2="200" y2="65" stroke="#1d5e72" stroke-width="1.5"/><rect x="168" y="60" width="11" height="11" fill="#1d5e72"/><text x="300" y="68">0.81 [0.69–0.97]</text></g>
+        <g class="fp-row" style="animation-delay:.6s"><text x="0" y="94">Study C 2019</text><line x1="170" y1="91" x2="252" y2="91" stroke="#1d5e72" stroke-width="1.5"/><rect x="200" y="87" width="8" height="8" fill="#1d5e72"/><text x="300" y="94">1.05 [0.84–1.58]</text></g>
+        <g class="fp-row" style="animation-delay:.8s"><text x="0" y="120">Study D 2021</text><line x1="112" y1="117" x2="188" y2="117" stroke="#1d5e72" stroke-width="1.5"/><rect x="144" y="113" width="9" height="9" fill="#1d5e72"/><text x="300" y="120">0.64 [0.45–0.94]</text></g>
+        <g class="fp-row" style="animation-delay:1s"><text x="0" y="146">Study E 2023</text><line x1="158" y1="143" x2="216" y2="143" stroke="#1d5e72" stroke-width="1.5"/><rect x="179" y="137" width="12" height="12" fill="#1d5e72"/><text x="300" y="146">0.88 [0.74–1.10]</text></g>
+        <g class="fp-row" style="animation-delay:1.2s"><text x="0" y="172">Study F 2024</text><line x1="132" y1="169" x2="202" y2="169" stroke="#1d5e72" stroke-width="1.5"/><rect x="162" y="165" width="9" height="9" fill="#1d5e72"/><text x="300" y="172">0.76 [0.57–0.99]</text></g>
+        <g class="fp-diamond"><text x="0" y="200" font-weight="600">Pooled (RE)</text><polygon points="160,197 174,190 188,197 174,204" fill="#c47a22"/><text x="300" y="200" font-weight="600">0.78 [0.68–0.90]</text></g>
+      </g>
+    </svg>
+    <div class="plot-cap"><span data-i18n="plot.cap1">Random-effects meta-analysis (illustrative)</span><span>I² = 41% · τ² = 0.02</span></div>
+  </div>
+</div>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="wrap" dir="ltr">
+    <span class="label" data-i18n="trust.label">Peer reviewer for</span>
+    <ul>
+      <li>BMJ Open</li><li>BMC Public Health</li><li>Journal of Affective Disorders</li><li>BMC Medical Research Methodology</li><li>BMC Women's Health</li>
+    </ul>
+  </div>
+</div>
+
+<!-- NEEDS -->
+<section id="needs">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" data-i18n="needs.eyebrow">Start here</div>
+      <h2 data-i18n="needs.title">Where is your project right now?</h2>
+      <p data-i18n="needs.sub">Pick the situation closest to yours. It pre-fills the request form, so you can describe your project in about two minutes.</p>
+    </div>
+    <div class="needs">
+      <div class="need"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d5e72" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+        <h3 data-i18n="n1.t">I'm planning a study</h3><p data-i18n="n1.d">Design, sample-size calculation and a statistical analysis plan for a proposal, grant or ethics submission.</p>
+        <button data-pick="design" data-stage="Planning" data-i18n="pick">This is my situation →</button></div>
+      <div class="need"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d5e72" stroke-width="1.8"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+        <h3 data-i18n="n2.t">I have data and need it analysed</h3><p data-i18n="n2.d">Data cleaning, choosing the right model, and publication-ready tables and figures.</p>
+        <button data-pick="analysis" data-stage="Data collected" data-i18n="pick">This is my situation →</button></div>
+      <div class="need"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d5e72" stroke-width="1.8"><path d="M3 6h7M3 11h9M3 16h6"/><rect x="11" y="4.5" width="3" height="3" fill="#1d5e72"/><path d="M14 20l3-2.5 3 2.5-3 2.5z" fill="#c47a22" stroke="#c47a22"/><path d="M17 3v14"/></svg></div>
+        <h3 data-i18n="n3.t">I'm doing a systematic review / meta-analysis</h3><p data-i18n="n3.d">Protocol, search strategy, risk of bias, pooling, network meta-analysis and GRADE.</p>
+        <button data-pick="meta" data-stage="Planning" data-design="Systematic review / meta-analysis" data-i18n="pick">This is my situation →</button></div>
+      <div class="need"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d5e72" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M9 10h.01M12 10h.01M15 10h.01"/></svg></div>
+        <h3 data-i18n="n4.t">Reviewers questioned my statistics</h3><p data-i18n="n4.d">Re-analysis and clear, point-by-point responses to statistical reviewer comments.</p>
+        <button data-pick="reviewer" data-stage="Under peer review" data-i18n="pick">This is my situation →</button></div>
+      <div class="need"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d5e72" stroke-width="1.8"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></div>
+        <h3 data-i18n="n5.t">I'm writing an MSc / PhD thesis</h3><p data-i18n="n5.d">Ongoing statistical advice from proposal to defence.</p>
+        <button data-pick="thesis" data-i18n="pick">This is my situation →</button></div>
+      <div class="need"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d5e72" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14.5 14.5c3 0 6.5 1.5 6.5 5.5"/></svg></div>
+        <h3 data-i18n="n6.t">My team wants to learn</h3><p data-i18n="n6.d">Workshops and one-to-one mentorship in biostatistics, Stata/R and meta-analysis.</p>
+        <button data-pick="training" data-i18n="pick">This is my situation →</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" data-i18n="svc.eyebrow">Services</div>
+      <h2 data-i18n="svc.title">Take one piece, or the whole pipeline</h2>
+      <p data-i18n="svc.sub">From the first sample-size calculation to the last reviewer response.</p>
+    </div>
+    <div class="services">
+      <div class="svc"><span class="n">01</span><div><h3 data-i18n="s1.t">Study design &amp; sample size</h3><p data-i18n="s1.d">Clinical trials, cohort, case-control and cross-sectional designs; power and sample-size calculations; statistical analysis plans.</p></div></div>
+      <div class="svc"><span class="n">02</span><div><h3 data-i18n="s2.t">Statistical analysis</h3><p data-i18n="s2.d">From descriptive statistics to multivariable models, with re-runnable syntax in SPSS, Stata, R, SAS or Python.</p></div></div>
+      <div class="svc featured"><span class="n">03</span><div><h3><span data-i18n="s3.t">Systematic review &amp; meta-analysis</span><span class="pill" data-i18n="featured">Most requested</span></h3><p data-i18n="s3.d">Fixed- and random-effects and network meta-analysis, heterogeneity, subgroup and meta-regression, publication bias, forest and funnel plots, diagnostic-accuracy meta-analysis.</p></div></div>
+      <div class="svc"><span class="n">04</span><div><h3 data-i18n="s4.t">Survival &amp; longitudinal analysis</h3><p data-i18n="s4.d">Kaplan–Meier, Cox models with time-dependent covariates, Weibull/AFT models, competing risks, semi-Markov multistate models, mixed models and GEE.</p></div></div>
+      <div class="svc"><span class="n">05</span><div><h3 data-i18n="s5.t">Methods &amp; Results writing</h3><p data-i18n="s5.d">Statistical sections written to your target journal's style and reporting guidelines (CONSORT, STROBE, PRISMA).</p></div></div>
+      <div class="svc"><span class="n">06</span><div><h3 data-i18n="s6.t">Reviewer-response support</h3><p data-i18n="s6.d">Additional analyses and clear replies to statistical comments during revision.</p></div></div>
+      <div class="svc"><span class="n">07</span><div><h3 data-i18n="s7.t">Thesis &amp; research advisory</h3><p data-i18n="s7.d">Statistical advisor for MSc and PhD students and research teams — design review and second opinions.</p></div></div>
+      <div class="svc featured"><span class="n">08</span><div><h3 data-i18n="s8.t">Workshops &amp; meta-analysis mentorship</h3><p data-i18n="s8.d">Hands-on training: search strategy, risk-of-bias assessment, data extraction, pooling and writing results for high-impact journals.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODS -->
+<section id="methods">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" data-i18n="m.eyebrow">Methods</div>
+      <h2 data-i18n="m.title">Models I work with</h2>
+      <p data-i18n="m.sub">For when you already know which method your study needs.</p>
+    </div>
+    <div class="methods">
+      <div class="mcat"><h3 data-i18n="m.c1">Evidence synthesis</h3><div class="chips"><span>Pairwise meta-analysis</span><span>Network meta-analysis</span><span>Meta-regression</span><span>Subgroup &amp; sensitivity</span><span>Publication bias</span><span>Diagnostic-accuracy MA</span><span>Risk of bias / GRADE</span><span>Cochrane methods</span></div></div>
+      <div class="mcat"><h3 data-i18n="m.c2">Time-to-event</h3><div class="chips"><span>Kaplan–Meier &amp; log-rank</span><span>Cox regression</span><span>Time-dependent covariates</span><span>Weibull / AFT models</span><span>Competing risks</span><span>Semi-Markov multistate</span><span>Cure models</span><span>Random survival forest</span></div></div>
+      <div class="mcat"><h3 data-i18n="m.c3">Regression &amp; longitudinal</h3><div class="chips"><span>Generalized linear models</span><span>Logistic / ordinal logistic</span><span>Linear mixed models</span><span>GEE</span><span>Nonlinear regression</span><span>Time series (Box–Jenkins)</span><span>Epidemic (SIR) models</span></div></div>
+      <div class="mcat"><h3 data-i18n="m.c4">Multivariate, prediction &amp; ML</h3><div class="chips"><span>Structural equation models</span><span>Factor analysis</span><span>Principal component analysis</span><span>Discriminant function</span><span>ROC analysis</span><span>Classification trees (CART)</span><span>Population attributable fraction</span></div></div>
+    </div>
+    <div class="software" dir="ltr"><b data-i18n="m.sw">Software</b><span>SPSS</span><span>Stata</span><span>R</span><span>SAS</span><span>Python</span><span>RevMan</span><span>Meta-DiSc</span></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" data-i18n="p.eyebrow">Process</div>
+      <h2 data-i18n="p.title">How a project runs</h2>
+      <p data-i18n="p.sub">The same four steps whether it's a single analysis or a full manuscript.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="n">01</span><h3 data-i18n="p1.t">Send your question</h3><p data-i18n="p1.d">A short description, your data (or a sample) and your deadline.</p></div>
+      <div class="step"><span class="n">02</span><h3 data-i18n="p2.t">Scope &amp; quote</h3><p data-i18n="p2.d">I reply with recommended methods, a timeline and a quote before any work starts.</p></div>
+      <div class="step"><span class="n">03</span><h3 data-i18n="p3.t">Analysis</h3><p data-i18n="p3.d">Full analysis with tables, figures and the syntax, so every result is reproducible.</p></div>
+      <div class="step"><span class="n">04</span><h3 data-i18n="p4.t">Write-up &amp; revisions</h3><p data-i18n="p4.d">Methods and Results text, plus support through peer review.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="work">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" data-i18n="w.eyebrow">Track record</div>
+      <h2 data-i18n="w.title">Selected publications</h2>
+      <p data-i18n="w.sub">A small sample of more than 400 articles. The full list is on Google Scholar.</p>
+    </div>
+    <div class="pubs">
+      <div class="pub"><span class="y">2025</span><div><div class="t">Comparing the effectiveness of rosuvastatin and atorvastatin on LDL, TG and HDL: a systematic review and meta-analysis</div><div class="j">Life Sciences</div></div><span></span></div>
+      <div class="pub"><span class="y">2024</span><div><div class="t">Predicting suicidal behavior outcomes: an analysis of key factors and machine learning models</div><div class="j">BMC Psychiatry 24, 841</div></div><a href="https://doi.org/10.1186/s12888-024-06273-2" target="_blank" rel="noopener">DOI ↗</a></div>
+      <div class="pub"><span class="y">2024</span><div><div class="t">Emotional intelligence, spiritual intelligence and student achievement: a systematic review and meta-analysis</div><div class="j">BMC Medical Education 24, 217</div></div><a href="https://doi.org/10.1186/s12909-024-05208-5" target="_blank" rel="noopener">DOI ↗</a></div>
+      <div class="pub"><span class="y">2020</span><div><div class="t">The relationship between personality traits and marital satisfaction: a systematic review and meta-analysis</div><div class="j">BMC Psychology 8, 15</div></div><span></span></div>
+      <div class="pub"><span class="y">2019</span><div><div class="t">Prevalence of unwanted pregnancy among Iranian women: an updated meta-analysis</div><div class="j">BMC Pregnancy and Childbirth 19, 491</div></div><a href="https://doi.org/10.1186/s12884-019-2640-9" target="_blank" rel="noopener">DOI ↗</a></div>
+      <div class="pub"><span class="y">2017</span><div><div class="t">Mass media interventions for preventing smoking in young people</div><div class="j">Cochrane Database of Systematic Reviews</div></div><a href="https://doi.org/10.1002/14651858.CD001006.pub3" target="_blank" rel="noopener">DOI ↗</a></div>
+      <div class="pub"><span class="y">2008</span><div><div class="t">Prognostic factors of survival after haematopoietic stem cell transplant in ALL: Cox vs accelerated failure time models</div><div class="j">Journal of Experimental &amp; Clinical Cancer Research 27:74</div></div><a href="https://doi.org/10.1186/1756-9966-27-74" target="_blank" rel="noopener">DOI ↗</a></div>
+    </div>
+    <div class="more">
+      <a class="btn btn-ghost btn-sm" href="https://scholar.google.com/citations?user=KaWMGUAAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
+      <a class="btn btn-ghost btn-sm" href="https://www.researchgate.net/profile/Kourosh_Sayehmiri2" target="_blank" rel="noopener">ResearchGate ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING / COURSE MATERIALS -->
+<section id="teaching">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" data-i18n="t.eyebrow">For my students</div>
+      <h2 data-i18n="t.title">Courses &amp; teaching materials</h2>
+      <p data-i18n="t.sub">Syllabi, slides, notes and exercises for the courses I teach at Ilam University of Medical Sciences. Choose your course and download what you need.</p>
+    </div>
+    <div class="tfilter" role="group" aria-label="Filter courses">
+      <button type="button" data-level="all" aria-pressed="true" data-i18n="t.all">All courses</button>
+      <button type="button" data-level="grad" aria-pressed="false" data-i18n="t.grad">MSc &amp; PhD</button>
+      <button type="button" data-level="ug" aria-pressed="false" data-i18n="t.ug">BSc &amp; medical students</button>
+    </div>
+    <div class="clist" id="courseList"></div>
+    <div class="tbooks">
+      <h3 data-i18n="t.books">Textbooks by Prof. Sayehmiri</h3>
+      <div class="tbook-grid" id="bookList"></div>
+    </div>
+    <p class="tnote" data-i18n="t.note">Materials are for students' personal study. For other authors' textbooks used in class, please use the library or buy your own copy.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <div class="eyebrow" data-i18n="a.eyebrow">About</div>
+      <h2 data-i18n="a.title">Kourosh Sayehmiri, PhD</h2>
+      <p data-i18n="a.p1">Professor of Biostatistics and Head of the Department of Biostatistics at Ilam University of Medical Sciences. For more than 27 years I have designed studies, chosen analysis methods and reported findings for clinical and public-health research — contributing to over 400 published articles and 185+ systematic reviews and meta-analyses, including a Cochrane review.</p>
+      <p data-i18n="a.p2">I hold a PhD and MSc in Biostatistics from Tehran University of Medical Sciences and completed a fellowship in semi-Markov models at the University of Nantes, France. I teach biostatistics, survival analysis, regression, categorical and multivariate data analysis to MSc and PhD students, and have run meta-analysis and statistics workshops at universities in Iran and abroad.</p>
+      <p data-i18n="a.p3">Projects run fully remote: data, questions and drafts move by email, with a call whenever it's quicker to talk.</p>
+      <a class="btn btn-ghost btn-sm" id="cvLink" href="https://drive.google.com/file/d/1j5kOX9DpjhH4ZDkUg_ILBblndv7zmUlu/view?usp=sharing" target="_blank" rel="noopener" data-i18n="a.cv">View full CV ↗</a>
+    </div>
+    <dl class="cred">
+      <div><dt data-i18n="c1.l">Education</dt><dd data-i18n="c1.v">PhD &amp; MSc Biostatistics, Tehran University of Medical Sciences · Fellowship, University of Nantes</dd></div>
+      <div><dt data-i18n="c2.l">Current role</dt><dd data-i18n="c2.v">Professor &amp; Head, Department of Biostatistics, Ilam University of Medical Sciences (since 2017)</dd></div>
+      <div><dt data-i18n="c3.l">Previous roles</dt><dd data-i18n="c3.v">Research Manager, Ilam UMS (2015–2018) · Director, Psychosocial Injuries Research Center</dd></div>
+      <div><dt data-i18n="c4.l">Recognition</dt><dd data-i18n="c4.v">World's Top 2% Scientists (Stanford/Elsevier) 2020, 2022, 2023, 2024, 2025 · Repeatedly named top researcher at Ilam UMS</dd></div>
+      <div><dt data-i18n="c5.l">Working languages</dt><dd data-i18n="c5.v">English · Persian</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- BRIEF FORM -->
+<section id="brief">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" data-i18n="b.eyebrow">Request a quote</div>
+      <h2 data-i18n="b.title">Tell me about your project</h2>
+      <p data-i18n="b.sub">Takes about two minutes. Your brief opens as an email to me — nothing is stored on this website.</p>
+    </div>
+    <form class="form" id="briefForm" novalidate>
+      <fieldset class="field full">
+        <legend data-i18n="f.need">What do you need? (choose any)</legend>
+        <div class="checks" id="needChecks">
+          <label><input type="checkbox" value="design"><span data-i18n="s1.t">Study design &amp; sample size</span></label>
+          <label><input type="checkbox" value="analysis"><span data-i18n="s2.t">Statistical analysis</span></label>
+          <label><input type="checkbox" value="meta"><span data-i18n="s3.t">Systematic review &amp; meta-analysis</span></label>
+          <label><input type="checkbox" value="survival"><span data-i18n="s4.t">Survival &amp; longitudinal analysis</span></label>
+          <label><input type="checkbox" value="writing"><span data-i18n="s5.t">Methods &amp; Results writing</span></label>
+          <label><input type="checkbox" value="reviewer"><span data-i18n="s6.t">Reviewer-response support</span></label>
+          <label><input type="checkbox" value="thesis"><span data-i18n="s7.t">Thesis &amp; research advisory</span></label>
+          <label><input type="checkbox" value="training"><span data-i18n="s8.t">Workshops &amp; meta-analysis mentorship</span></label>
+        </div>
+      </fieldset>
+      <div class="field"><label for="stage" data-i18n="f.stage">Project stage</label>
+        <select id="stage">
+          <option value="Planning" data-i18n="o.st1">Planning</option>
+          <option value="Data collected" data-i18n="o.st2">Data collected</option>
+          <option value="Analysis started" data-i18n="o.st3">Analysis started</option>
+          <option value="Manuscript drafted" data-i18n="o.st4">Manuscript drafted</option>
+          <option value="Under peer review" data-i18n="o.st5">Under peer review</option>
+        </select></div>
+      <div class="field"><label for="design" data-i18n="f.design">Study type</label>
+        <select id="design">
+          <option value="Not sure" data-i18n="o.d0">Not sure yet</option>
+          <option value="Randomized clinical trial" data-i18n="o.d1">Randomized clinical trial</option>
+          <option value="Cohort" data-i18n="o.d2">Cohort</option>
+          <option value="Case-control" data-i18n="o.d3">Case-control</option>
+          <option value="Cross-sectional" data-i18n="o.d4">Cross-sectional</option>
+          <option value="Systematic review / meta-analysis" data-i18n="o.d5">Systematic review / meta-analysis</option>
+          <option value="Other" data-i18n="o.d6">Other</option>
+        </select></div>
+      <div class="field"><label for="software" data-i18n="f.sw">Preferred software</label>
+        <select id="software">
+          <option value="No preference" data-i18n="o.sw0">No preference</option>
+          <option>SPSS</option><option>Stata</option><option>R</option><option>SAS</option><option>Python</option><option>RevMan</option>
+        </select></div>
+      <div class="field"><label for="deadline" data-i18n="f.deadline">Deadline (if any)</label><input type="date" id="deadline"></div>
+      <div class="field"><label for="name" data-i18n="f.name">Your name</label><input id="name" autocomplete="name"></div>
+      <div class="field"><label for="email" data-i18n="f.email">Your email</label><input id="email" type="email" autocomplete="email" dir="ltr"></div>
+      <div class="field full"><label for="inst" data-i18n="f.inst">Institution / country (optional)</label><input id="inst" autocomplete="organization"></div>
+      <div class="field full"><label for="msg" data-i18n="f.msg">Briefly describe your research question and data</label>
+        <textarea id="msg" data-i18n-ph="f.ph" placeholder="e.g. 3 treatment groups, 240 patients, outcome = 1-year survival; target journal …"></textarea></div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary" data-i18n="f.send">Send by email</button>
+        <button type="button" class="btn btn-ghost" id="copyBtn" data-i18n="f.copy">Copy brief</button>
+        <span class="note" id="formNote" aria-live="polite"></span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" data-i18n="q.eyebrow">FAQ</div>
+      <h2 data-i18n="q.title">Common questions</h2>
+    </div>
+    <div class="faq">
+      <details><summary data-i18n="q1">How much does it cost?</summary><p data-i18n="a1">Every project is quoted individually once I have seen the question and data. You receive a quote before any work begins.</p></details>
+      <details><summary data-i18n="q2">How long does it take?</summary><p data-i18n="a2">It depends on the scope: a single analysis is much quicker than a full systematic review. You'll get a timeline together with the quote.</p></details>
+      <details><summary data-i18n="q3">Is my data kept confidential?</summary><p data-i18n="a3">Yes. Your data are used only for your project and are not shared with anyone. Anonymised data are preferred.</p></details>
+      <details><summary data-i18n="q4">Which software will you use?</summary><p data-i18n="a4">Whatever suits your team — SPSS, Stata, R, SAS or Python. You receive the syntax so every analysis can be re-run.</p></details>
+      <details><summary data-i18n="q5">Can you help after I submit my paper?</summary><p data-i18n="a5">Yes. I support additional analyses and responses to statistical reviewer comments during revision.</p></details>
+      <details><summary data-i18n="q6">Do you run workshops for institutions?</summary><p data-i18n="a6">Yes — biostatistics, survival analysis, Stata/R and systematic review &amp; meta-analysis workshops, online or in person.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <h2 data-i18n="ct.title">Have data and a deadline?</h2>
+        <p data-i18n="ct.sub">Send a short description of your study — I'll reply with the scope, a timeline and a quote.</p>
+        <div class="em" id="contactLine">kourosh86@gmail.com</div>
+      </div>
+      <a class="btn" href="#brief" data-i18n="ct.btn">Start your request</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="wrap"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--ink);font-size:.95rem;margin-bottom:4px">Sayehmiri Biostatistics</div><div style="margin-bottom:6px" dir="ltr">Led by Prof. Kourosh Sayehmiri, PhD · Department of Biostatistics, Ilam University of Medical Sciences</div><span>© <span id="yr"></span> Sayehmiri Biostatistics · </span><span data-i18n="footer">Biostatistics consulting — study design, statistical analysis, meta-analysis and manuscript support</span></div></footer>
+
+<script>
+/* ===== Settings you can edit ===== */
+const CONTACT_EMAIL = 'kourosh86@gmail.com';
+const PHONE = '';  // e.g. '+98 918 000 0000' — leave empty to hide
+
+/* ===== Translations ===== */
+const T = {
+en:{},  // English is the text already in the page
+fa:{
+'a.cv':'مشاهده رزومه کامل ↗','nav.teach':'آموزش','t.eyebrow':'برای دانشجویان','t.title':'دروس و منابع آموزشی','t.sub':'طرح درس، اسلاید، جزوه و تمرین دروسی که در دانشگاه علوم پزشکی ایلام تدریس می‌کنم. درس خود را انتخاب کنید و فایل‌ها را دانلود کنید.','t.all':'همه دروس','t.grad':'ارشد و دکتری','t.ug':'کارشناسی و پزشکی','t.books':'کتاب‌های دکتر سایه‌میری','t.note':'این منابع برای مطالعه شخصی دانشجویان است. برای کتاب‌های سایر نویسندگان از کتابخانه استفاده کنید یا نسخه خود را تهیه کنید.',
+'nav.start':'شروع','nav.services':'خدمات','nav.methods':'روش‌ها','nav.work':'مقالات','nav.about':'درباره من','nav.faq':'پرسش‌ها','nav.cta':'درخواست مشاوره',
+'hero.eyebrow':'استاد آمار زیستی · مشاوره از راه دور در سراسر جهان',
+'hero.title':'تحلیل آماری که <em>در داوری</em> سربلند بیرون می‌آید.',
+'hero.lead':'طراحی مطالعه، تحلیل داده و نگارش بخش روش‌ها و نتایج آماری پژوهش‌های بالینی و بهداشت عمومی — از پروپوزال تا انتشار و پاسخ به داوران.',
+'hero.cta1':'نیازتان را بگویید','hero.cta2':'مشاهده خدمات',
+'stat1':'مقاله پژوهشی منتشرشده','stat2':'مرور سیستماتیک و متاآنالیز','stat3':'استناد','stat4':'جزو ۲٪ دانشمندان برتر جهان — ۵ دوره',
+'plot.cap1':'متاآنالیز اثرات تصادفی (نمونه)','trust.label':'داور مجلات',
+'needs.eyebrow':'از اینجا شروع کنید','needs.title':'پروژه شما الان در چه مرحله‌ای است؟','needs.sub':'نزدیک‌ترین وضعیت را انتخاب کنید؛ فرم درخواست به‌صورت خودکار پر می‌شود و در حدود دو دقیقه می‌توانید پروژه‌تان را شرح دهید.',
+'n1.t':'در حال طراحی مطالعه هستم','n1.d':'طراحی، محاسبه حجم نمونه و برنامه تحلیل آماری برای پروپوزال، طرح پژوهشی یا کمیته اخلاق.',
+'n2.t':'داده دارم و تحلیل می‌خواهم','n2.d':'پاکسازی داده، انتخاب مدل مناسب و جداول و نمودارهای آماده انتشار.',
+'n3.t':'مرور سیستماتیک / متاآنالیز انجام می‌دهم','n3.d':'پروتکل، استراتژی جستجو، ارزیابی خطر سوگیری، ترکیب نتایج، متاآنالیز شبکه‌ای و GRADE.',
+'n4.t':'داوران به آمار مقاله‌ام ایراد گرفته‌اند','n4.d':'تحلیل مجدد و پاسخ دقیق و بند‌به‌بند به نظرات آماری داوران.',
+'n5.t':'پایان‌نامه ارشد / دکتری می‌نویسم','n5.d':'مشاوره آماری مستمر از پروپوزال تا دفاع.',
+'n6.t':'تیم ما می‌خواهد یاد بگیرد','n6.d':'کارگاه و آموزش فردی آمار زیستی، Stata/R و متاآنالیز.',
+'pick':'این وضعیت من است ←',
+'svc.eyebrow':'خدمات','svc.title':'یک بخش یا کل مسیر را به من بسپارید','svc.sub':'از اولین محاسبه حجم نمونه تا آخرین پاسخ به داور.',
+'s1.t':'طراحی مطالعه و حجم نمونه','s1.d':'کارآزمایی بالینی، کوهورت، مورد-شاهدی و مقطعی؛ محاسبه توان و حجم نمونه؛ برنامه تحلیل آماری.',
+'s2.t':'تحلیل آماری','s2.d':'از آمار توصیفی تا مدل‌های چندمتغیره، همراه با کد قابل اجرای مجدد در SPSS، Stata، R، SAS یا Python.',
+'s3.t':'مرور سیستماتیک و متاآنالیز','featured':'پرتقاضاترین','s3.d':'متاآنالیز اثرات ثابت، تصادفی و شبکه‌ای، ناهمگونی، زیرگروه و متارگرسیون، سوگیری انتشار، نمودار جنگلی و قیفی، متاآنالیز دقت تشخیصی.',
+'s4.t':'تحلیل بقا و داده‌های طولی','s4.d':'کاپلان-مایر، مدل کاکس با متغیرهای وابسته به زمان، مدل‌های ویبول/AFT، خطرات رقابتی، مدل‌های چندحالته نیمه‌مارکف، مدل‌های آمیخته و GEE.',
+'s5.t':'نگارش روش‌ها و نتایج','s5.d':'نگارش بخش‌های آماری مطابق سبک مجله هدف و راهنماهای گزارش‌دهی (CONSORT، STROBE، PRISMA).',
+'s6.t':'پشتیبانی پاسخ به داوران','s6.d':'تحلیل‌های تکمیلی و پاسخ روشن به نظرات آماری در مرحله اصلاح.',
+'s7.t':'مشاوره پایان‌نامه و پژوهش','s7.d':'مشاور آماری دانشجویان ارشد و دکتری و تیم‌های پژوهشی — بازبینی طراحی و نظر دوم.',
+'s8.t':'کارگاه و راهنمایی متاآنالیز','s8.d':'آموزش عملی: استراتژی جستجو، ارزیابی خطر سوگیری، استخراج داده، ترکیب نتایج و نگارش برای مجلات معتبر.',
+'m.eyebrow':'روش‌ها','m.title':'مدل‌هایی که با آن‌ها کار می‌کنم','m.sub':'برای زمانی که می‌دانید مطالعه‌تان به چه روشی نیاز دارد.',
+'m.c1':'ترکیب شواهد','m.c2':'تحلیل زمان تا رویداد','m.c3':'رگرسیون و داده‌های طولی','m.c4':'چندمتغیره، پیش‌بینی و یادگیری ماشین','m.sw':'نرم‌افزار',
+'p.eyebrow':'فرآیند','p.title':'روند انجام پروژه','p.sub':'چهار گام یکسان، چه یک تحلیل ساده و چه یک مقاله کامل.',
+'p1.t':'سؤال خود را بفرستید','p1.d':'توضیح کوتاه، داده‌ها (یا نمونه‌ای از آن) و مهلت زمانی.',
+'p2.t':'تعیین دامنه و هزینه','p2.d':'پیش از شروع کار، روش‌های پیشنهادی، زمان‌بندی و هزینه را اعلام می‌کنم.',
+'p3.t':'تحلیل','p3.d':'تحلیل کامل با جداول، نمودارها و کد، تا همه نتایج قابل تکرار باشند.',
+'p4.t':'نگارش و اصلاحات','p4.d':'متن روش‌ها و نتایج، به همراه پشتیبانی در طول داوری.',
+'w.eyebrow':'سوابق','w.title':'مقالات منتخب','w.sub':'نمونه‌ای کوچک از بیش از ۴۰۰ مقاله. فهرست کامل در گوگل اسکالر.',
+'a.eyebrow':'درباره من','a.title':'دکتر کوروش سایه‌میری',
+'a.p1':'استاد آمار زیستی و مدیر گروه آمار زیستی دانشگاه علوم پزشکی ایلام. بیش از ۲۷ سال است که برای پژوهش‌های بالینی و بهداشت عمومی مطالعه طراحی می‌کنم، روش تحلیل را انتخاب می‌کنم و یافته‌ها را گزارش می‌دهم — با مشارکت در بیش از ۴۰۰ مقاله منتشرشده و بیش از ۱۸۵ مرور سیستماتیک و متاآنالیز، از جمله یک مرور کاکرین.',
+'a.p2':'دکتری و کارشناسی ارشد آمار زیستی را از دانشگاه علوم پزشکی تهران گرفته‌ام و دوره فلوشیپ مدل‌های نیمه‌مارکف را در دانشگاه نانت فرانسه گذرانده‌ام. آمار زیستی، تحلیل بقا، رگرسیون، تحلیل داده‌های رسته‌ای و چندمتغیره را به دانشجویان ارشد و دکتری تدریس می‌کنم و کارگاه‌های متعدد متاآنالیز و آمار را در دانشگاه‌های ایران و خارج برگزار کرده‌ام.',
+'a.p3':'پروژه‌ها کاملاً از راه دور انجام می‌شوند: داده‌ها، پرسش‌ها و پیش‌نویس‌ها از طریق ایمیل، و در صورت نیاز تماس تلفنی.',
+'c1.l':'تحصیلات','c1.v':'دکتری و کارشناسی ارشد آمار زیستی، دانشگاه علوم پزشکی تهران · فلوشیپ، دانشگاه نانت فرانسه',
+'c2.l':'سمت فعلی','c2.v':'استاد و مدیر گروه آمار زیستی، دانشگاه علوم پزشکی ایلام (از ۱۳۹۶)',
+'c3.l':'سوابق مدیریتی','c3.v':'مدیر پژوهش دانشگاه علوم پزشکی ایلام (۲۰۱۵–۲۰۱۸) · رئیس مرکز تحقیقات آسیب‌های روانی-اجتماعی',
+'c4.l':'افتخارات','c4.v':'جزو ۲٪ دانشمندان برتر جهان (استنفورد/الزویر) ۲۰۲۰، ۲۰۲۲، ۲۰۲۳، ۲۰۲۴، ۲۰۲۵ · پژوهشگر برتر مکرر دانشگاه',
+'c5.l':'زبان‌های کاری','c5.v':'انگلیسی · فارسی',
+'b.eyebrow':'درخواست مشاوره','b.title':'پروژه‌تان را برایم شرح دهید','b.sub':'حدود دو دقیقه زمان می‌برد. شرح پروژه به‌صورت ایمیل برای من باز می‌شود — هیچ اطلاعاتی در این سایت ذخیره نمی‌شود.',
+'f.need':'به چه چیزی نیاز دارید؟ (چند گزینه مجاز است)','f.stage':'مرحله پروژه','f.design':'نوع مطالعه','f.sw':'نرم‌افزار مورد نظر','f.deadline':'مهلت (در صورت وجود)',
+'f.name':'نام شما','f.email':'ایمیل شما','f.inst':'دانشگاه / کشور (اختیاری)','f.msg':'سؤال پژوهشی و داده‌های خود را کوتاه شرح دهید',
+'f.ph':'مثلاً: ۳ گروه درمانی، ۲۴۰ بیمار، پیامد = بقای یک‌ساله؛ مجله هدف …','f.send':'ارسال با ایمیل','f.copy':'کپی متن',
+'o.st1':'طراحی','o.st2':'داده‌ها جمع‌آوری شده','o.st3':'تحلیل شروع شده','o.st4':'پیش‌نویس مقاله آماده است','o.st5':'در حال داوری',
+'o.d0':'هنوز مطمئن نیستم','o.d1':'کارآزمایی بالینی تصادفی','o.d2':'کوهورت','o.d3':'مورد-شاهدی','o.d4':'مقطعی','o.d5':'مرور سیستماتیک / متاآنالیز','o.d6':'سایر','o.sw0':'فرقی نمی‌کند',
+'msg.err':'لطفاً نام، ایمیل و شرح کوتاهی وارد کنید.','msg.copied':'کپی شد — آن را در هر ایمیل یا پیامی بچسبانید.','msg.opened':'برنامه ایمیل شما باز شد. اگر باز نشد، از «کپی متن» استفاده کنید.',
+'q.eyebrow':'پرسش‌ها','q.title':'پرسش‌های رایج',
+'q1':'هزینه چقدر است؟','a1':'هزینه هر پروژه پس از بررسی سؤال و داده‌ها به‌صورت جداگانه اعلام می‌شود و پیش از شروع کار آن را دریافت می‌کنید.',
+'q2':'چقدر زمان می‌برد؟','a2':'بستگی به دامنه کار دارد؛ یک تحلیل ساده بسیار سریع‌تر از یک مرور سیستماتیک کامل است. زمان‌بندی همراه با هزینه اعلام می‌شود.',
+'q3':'آیا داده‌های من محرمانه می‌ماند؟','a3':'بله. داده‌ها فقط برای پروژه شما استفاده می‌شوند و با هیچ‌کس به اشتراک گذاشته نمی‌شوند. داده‌های بی‌نام ترجیح داده می‌شوند.',
+'q4':'از چه نرم‌افزاری استفاده می‌کنید؟','a4':'هر نرم‌افزاری که برای تیم شما مناسب است — SPSS، Stata، R، SAS یا Python — و کد تحلیل را هم دریافت می‌کنید.',
+'q5':'پس از ارسال مقاله هم کمک می‌کنید؟','a5':'بله. در مرحله اصلاح، تحلیل‌های تکمیلی و پاسخ به نظرات آماری داوران را انجام می‌دهم.',
+'q6':'برای دانشگاه‌ها و مؤسسات کارگاه برگزار می‌کنید؟','a6':'بله — کارگاه آمار زیستی، تحلیل بقا، Stata/R و مرور سیستماتیک و متاآنالیز، به‌صورت آنلاین یا حضوری.',
+'ct.title':'داده و مهلت دارید؟','ct.sub':'توضیح کوتاهی از مطالعه‌تان بفرستید — دامنه کار، زمان‌بندی و هزینه را اعلام می‌کنم.','ct.btn':'شروع درخواست',
+'footer':'مشاوره آمار زیستی — طراحی مطالعه، تحلیل آماری، متاآنالیز و پشتیبانی نگارش مقاله'
+},
+ar:{
+'a.cv':'عرض السيرة الذاتية الكاملة ↗','nav.teach':'التدريس','t.eyebrow':'لطلابي','t.title':'المقررات والمواد التعليمية','t.sub':'خطط المقررات والشرائح والمذكرات والتمارين للمقررات التي أدرّسها في جامعة إيلام للعلوم الطبية. اختر مقررك وحمّل ما تحتاجه.','t.all':'كل المقررات','t.grad':'الماجستير والدكتوراه','t.ug':'البكالوريوس وطلاب الطب','t.books':'كتب د. سايه ميري','t.note':'هذه المواد للدراسة الشخصية للطلاب. للكتب المرجعية لمؤلفين آخرين يرجى استخدام المكتبة أو شراء نسختك.',
+'nav.start':'ابدأ هنا','nav.services':'الخدمات','nav.methods':'الطرائق','nav.work':'المنشورات','nav.about':'نبذة','nav.faq':'الأسئلة','nav.cta':'اطلب عرض سعر',
+'hero.eyebrow':'أستاذ الإحصاء الحيوي · استشارات عن بُعد حول العالم',
+'hero.title':'إحصاء يصمد <em>أمام تحكيم المراجعين</em>.',
+'hero.lead':'أصمّم الدراسات وأحلّل البيانات وأكتب قسمي الطرائق والنتائج الإحصائية للأبحاث السريرية وأبحاث الصحة العامة — من البروتوكول حتى النشر والرد على المراجعين.',
+'hero.cta1':'أخبرني بما تحتاجه','hero.cta2':'تصفّح الخدمات',
+'stat1':'بحثاً علمياً منشوراً','stat2':'مراجعة منهجية وتحليلاً تلوياً','stat3':'استشهاد','stat4':'ضمن أفضل ٢٪ من علماء العالم — ٥ مرات',
+'plot.cap1':'تحليل تلوي بالتأثيرات العشوائية (توضيحي)','trust.label':'محكّم في مجلات',
+'needs.eyebrow':'ابدأ هنا','needs.title':'في أي مرحلة مشروعك الآن؟','needs.sub':'اختر الحالة الأقرب إليك؛ ستُملأ استمارة الطلب تلقائياً لتصف مشروعك في نحو دقيقتين.',
+'n1.t':'أخطط لدراسة','n1.d':'التصميم وحساب حجم العينة وخطة التحليل الإحصائي لمقترح بحثي أو منحة أو لجنة أخلاقيات.',
+'n2.t':'لدي بيانات وأحتاج إلى تحليلها','n2.d':'تنظيف البيانات واختيار النموذج المناسب وجداول وأشكال جاهزة للنشر.',
+'n3.t':'أُجري مراجعة منهجية / تحليلاً تلوياً','n3.d':'البروتوكول واستراتيجية البحث وتقييم خطر التحيز والدمج والتحليل التلوي الشبكي وGRADE.',
+'n4.t':'المراجعون انتقدوا التحليل الإحصائي','n4.d':'إعادة التحليل وردود واضحة نقطة بنقطة على الملاحظات الإحصائية.',
+'n5.t':'أكتب رسالة ماجستير / دكتوراه','n5.d':'إرشاد إحصائي مستمر من المقترح حتى المناقشة.',
+'n6.t':'فريقي يريد أن يتعلم','n6.d':'ورش عمل وإرشاد فردي في الإحصاء الحيوي وStata/R والتحليل التلوي.',
+'pick':'هذه حالتي ←',
+'svc.eyebrow':'الخدمات','svc.title':'جزء واحد أو المسار بالكامل','svc.sub':'من أول حساب لحجم العينة حتى آخر رد على المراجعين.',
+'s1.t':'تصميم الدراسة وحجم العينة','s1.d':'التجارب السريرية ودراسات الأتراب والحالات والشواهد والمقطعية؛ حساب القوة وحجم العينة؛ خطط التحليل الإحصائي.',
+'s2.t':'التحليل الإحصائي','s2.d':'من الإحصاء الوصفي إلى النماذج متعددة المتغيرات، مع شيفرة قابلة لإعادة التشغيل في SPSS أو Stata أو R أو SAS أو Python.',
+'s3.t':'المراجعة المنهجية والتحليل التلوي','featured':'الأكثر طلباً','s3.d':'التحليل التلوي بالتأثيرات الثابتة والعشوائية والشبكي، عدم التجانس، المجموعات الفرعية والانحدار التلوي، تحيز النشر، مخططات الغابة والقمع، والتحليل التلوي لدقة التشخيص.',
+'s4.t':'تحليل البقاء والبيانات الطولية','s4.d':'كابلان-ماير، نماذج كوكس بمتغيرات معتمدة على الزمن، نماذج ويبل/AFT، المخاطر المتنافسة، نماذج متعددة الحالات شبه ماركوفية، النماذج المختلطة وGEE.',
+'s5.t':'كتابة الطرائق والنتائج','s5.d':'أقسام إحصائية مكتوبة وفق أسلوب المجلة المستهدفة وإرشادات التقارير (CONSORT وSTROBE وPRISMA).',
+'s6.t':'دعم الرد على المراجعين','s6.d':'تحليلات إضافية وردود واضحة على الملاحظات الإحصائية أثناء التعديل.',
+'s7.t':'إرشاد الرسائل والبحوث','s7.d':'مستشار إحصائي لطلاب الماجستير والدكتوراه والفرق البحثية — مراجعة التصميم ورأي ثانٍ.',
+'s8.t':'ورش عمل وإرشاد في التحليل التلوي','s8.d':'تدريب عملي: استراتيجية البحث، تقييم خطر التحيز، استخراج البيانات، الدمج، وكتابة النتائج للمجلات عالية التأثير.',
+'m.eyebrow':'الطرائق','m.title':'النماذج التي أعمل بها','m.sub':'عندما تعرف مسبقاً الطريقة التي تحتاجها دراستك.',
+'m.c1':'تجميع الأدلة','m.c2':'تحليل الزمن حتى الحدث','m.c3':'الانحدار والبيانات الطولية','m.c4':'متعدد المتغيرات والتنبؤ وتعلّم الآلة','m.sw':'البرمجيات',
+'p.eyebrow':'آلية العمل','p.title':'كيف يسير المشروع','p.sub':'الخطوات الأربع نفسها سواء كان تحليلاً واحداً أو مخطوطة كاملة.',
+'p1.t':'أرسل سؤالك','p1.d':'وصف موجز وبياناتك (أو عينة منها) والموعد النهائي.',
+'p2.t':'النطاق وعرض السعر','p2.d':'أرد بالطرائق المقترحة والجدول الزمني وعرض السعر قبل بدء أي عمل.',
+'p3.t':'التحليل','p3.d':'تحليل كامل مع الجداول والأشكال والشيفرة لتكون كل النتائج قابلة للتكرار.',
+'p4.t':'الكتابة والتعديلات','p4.d':'نص الطرائق والنتائج، مع الدعم خلال التحكيم.',
+'w.eyebrow':'السجل العلمي','w.title':'منشورات مختارة','w.sub':'عينة صغيرة من أكثر من ٤٠٠ بحث. القائمة الكاملة على Google Scholar.',
+'a.eyebrow':'نبذة','a.title':'د. كوروش سايه ميري',
+'a.p1':'أستاذ الإحصاء الحيوي ورئيس قسم الإحصاء الحيوي في جامعة إيلام للعلوم الطبية. منذ أكثر من ٢٧ عاماً أصمّم الدراسات وأختار طرائق التحليل وأعرض النتائج للأبحاث السريرية وأبحاث الصحة العامة، وقد شاركت في أكثر من ٤٠٠ بحث منشور وأكثر من ١٨٥ مراجعة منهجية وتحليلاً تلوياً، منها مراجعة كوكرين.',
+'a.p2':'حاصل على الدكتوراه والماجستير في الإحصاء الحيوي من جامعة طهران للعلوم الطبية، وأكملت زمالة في النماذج شبه الماركوفية في جامعة نانت بفرنسا. أدرّس الإحصاء الحيوي وتحليل البقاء والانحدار وتحليل البيانات الفئوية ومتعددة المتغيرات لطلاب الماجستير والدكتوراه، وقدّمت ورش عمل عديدة في التحليل التلوي والإحصاء داخل إيران وخارجها.',
+'a.p3':'تُدار المشاريع عن بُعد بالكامل: البيانات والأسئلة والمسودات عبر البريد الإلكتروني، مع مكالمة عند الحاجة.',
+'c1.l':'التعليم','c1.v':'دكتوراه وماجستير في الإحصاء الحيوي، جامعة طهران للعلوم الطبية · زمالة، جامعة نانت',
+'c2.l':'المنصب الحالي','c2.v':'أستاذ ورئيس قسم الإحصاء الحيوي، جامعة إيلام للعلوم الطبية (منذ ٢٠١٧)',
+'c3.l':'مناصب سابقة','c3.v':'مدير البحث العلمي، جامعة إيلام للعلوم الطبية (٢٠١٥–٢٠١٨) · مدير مركز أبحاث الإصابات النفسية والاجتماعية',
+'c4.l':'التكريم','c4.v':'ضمن أفضل ٢٪ من علماء العالم (ستانفورد/إلسفير) ٢٠٢٠، ٢٠٢٢، ٢٠٢٣، ٢٠٢٤، ٢٠٢٥ · باحث متميز في الجامعة مرات عدة',
+'c5.l':'لغات العمل','c5.v':'الإنجليزية · الفارسية',
+'b.eyebrow':'اطلب عرض سعر','b.title':'حدّثني عن مشروعك','b.sub':'يستغرق نحو دقيقتين. يُفتح وصف مشروعك كرسالة بريد إلكتروني إليّ — لا يُخزَّن أي شيء على هذا الموقع.',
+'f.need':'ماذا تحتاج؟ (اختر ما يناسبك)','f.stage':'مرحلة المشروع','f.design':'نوع الدراسة','f.sw':'البرنامج المفضل','f.deadline':'الموعد النهائي (إن وجد)',
+'f.name':'اسمك','f.email':'بريدك الإلكتروني','f.inst':'المؤسسة / البلد (اختياري)','f.msg':'صف باختصار سؤالك البحثي وبياناتك',
+'f.ph':'مثال: ٣ مجموعات علاجية، ٢٤٠ مريضاً، النتيجة = البقاء لسنة؛ المجلة المستهدفة …','f.send':'إرسال بالبريد','f.copy':'نسخ الوصف',
+'o.st1':'التخطيط','o.st2':'تم جمع البيانات','o.st3':'بدأ التحليل','o.st4':'المسودة جاهزة','o.st5':'قيد التحكيم',
+'o.d0':'لست متأكداً بعد','o.d1':'تجربة سريرية عشوائية','o.d2':'دراسة أتراب','o.d3':'حالات وشواهد','o.d4':'مقطعية','o.d5':'مراجعة منهجية / تحليل تلوي','o.d6':'أخرى','o.sw0':'لا تفضيل',
+'msg.err':'يرجى إدخال الاسم والبريد الإلكتروني ووصف موجز.','msg.copied':'تم النسخ — الصقه في أي رسالة.','msg.opened':'تم فتح تطبيق البريد. إن لم يُفتح، استخدم «نسخ الوصف».',
+'q.eyebrow':'الأسئلة','q.title':'أسئلة شائعة',
+'q1':'كم التكلفة؟','a1':'يُسعَّر كل مشروع على حدة بعد الاطلاع على السؤال والبيانات، وتحصل على عرض السعر قبل بدء العمل.',
+'q2':'كم يستغرق العمل؟','a2':'يعتمد على النطاق؛ فالتحليل الواحد أسرع بكثير من مراجعة منهجية كاملة. تحصل على جدول زمني مع عرض السعر.',
+'q3':'هل تبقى بياناتي سرية؟','a3':'نعم. تُستخدم البيانات لمشروعك فقط ولا تُشارك مع أحد. يُفضَّل إرسال بيانات مجهولة الهوية.',
+'q4':'ما البرنامج الذي ستستخدمه؟','a4':'ما يناسب فريقك — SPSS أو Stata أو R أو SAS أو Python — مع تسليم الشيفرة لإعادة التحليل.',
+'q5':'هل تساعد بعد إرسال البحث؟','a5':'نعم. أدعم التحليلات الإضافية والرد على الملاحظات الإحصائية خلال التعديل.',
+'q6':'هل تقدّم ورش عمل للمؤسسات؟','a6':'نعم — ورش في الإحصاء الحيوي وتحليل البقاء وStata/R والمراجعة المنهجية والتحليل التلوي، عبر الإنترنت أو حضورياً.',
+'ct.title':'لديك بيانات وموعد نهائي؟','ct.sub':'أرسل وصفاً موجزاً لدراستك — سأرد بالنطاق والجدول الزمني وعرض السعر.','ct.btn':'ابدأ طلبك',
+'footer':'استشارات الإحصاء الحيوي — تصميم الدراسات والتحليل الإحصائي والتحليل التلوي ودعم المخطوطات'
+},
+zh:{
+'a.cv':'查看完整简历 ↗','nav.teach':'教学','t.eyebrow':'致我的学生','t.title':'课程与教学资料','t.sub':'我在伊拉姆医科大学所授课程的教学大纲、课件、讲义和练习。选择课程即可下载所需资料。','t.all':'全部课程','t.grad':'硕士与博士','t.ug':'本科与医学生','t.books':'Sayehmiri 教授编著教材','t.note':'资料仅供学生个人学习。其他作者的教材请通过图书馆借阅或自行购买。',
+'nav.start':'从这里开始','nav.services':'服务','nav.methods':'方法','nav.work':'论文','nav.about':'关于','nav.faq':'常见问题','nav.cta':'获取报价',
+'hero.eyebrow':'生物统计学教授 · 面向全球的远程咨询',
+'hero.title':'经得起<em>同行评审</em>的统计分析。',
+'hero.lead':'为临床与公共卫生研究进行研究设计、数据分析，并撰写统计方法与结果部分——从研究方案到发表，直至回复审稿意见。',
+'hero.cta1':'告诉我您的需求','hero.cta2':'浏览服务',
+'stat1':'篇已发表研究论文','stat2':'篇系统综述与Meta分析','stat3':'次引用','stat4':'五次入选全球前2%顶尖科学家',
+'plot.cap1':'随机效应Meta分析（示意图）','trust.label':'担任审稿人的期刊',
+'needs.eyebrow':'从这里开始','needs.title':'您的项目目前处于哪个阶段？','needs.sub':'选择最接近您情况的一项，系统会自动预填申请表，约两分钟即可描述您的项目。',
+'n1.t':'我正在规划一项研究','n1.d':'为课题申请、基金或伦理审查提供研究设计、样本量计算和统计分析计划。',
+'n2.t':'我有数据，需要分析','n2.d':'数据清理、选择合适的模型，以及可直接发表的表格和图形。',
+'n3.t':'我在做系统综述 / Meta分析','n3.d':'研究方案、检索策略、偏倚风险评估、合并分析、网状Meta分析和GRADE。',
+'n4.t':'审稿人质疑了我的统计方法','n4.d':'重新分析，并逐条清晰回复统计相关审稿意见。',
+'n5.t':'我在撰写硕士 / 博士论文','n5.d':'从开题到答辩的持续统计指导。',
+'n6.t':'我的团队想学习','n6.d':'生物统计、Stata/R与Meta分析的工作坊和一对一指导。',
+'pick':'这就是我的情况 →',
+'svc.eyebrow':'服务','svc.title':'单项委托，或全流程交给我','svc.sub':'从第一次样本量计算到最后一次回复审稿人。',
+'s1.t':'研究设计与样本量','s1.d':'临床试验、队列、病例对照和横断面研究设计；检验效能与样本量计算；统计分析计划。',
+'s2.t':'统计分析','s2.d':'从描述性统计到多变量模型，提供可在SPSS、Stata、R、SAS或Python中重复运行的代码。',
+'s3.t':'系统综述与Meta分析','featured':'最受欢迎','s3.d':'固定/随机效应与网状Meta分析、异质性、亚组与Meta回归、发表偏倚、森林图和漏斗图、诊断准确性Meta分析。',
+'s4.t':'生存分析与纵向数据分析','s4.d':'Kaplan–Meier、含时依协变量的Cox模型、Weibull/AFT模型、竞争风险、半马尔可夫多状态模型、混合模型与GEE。',
+'s5.t':'方法与结果撰写','s5.d':'按照目标期刊风格和报告规范（CONSORT、STROBE、PRISMA）撰写统计部分。',
+'s6.t':'审稿回复支持','s6.d':'修稿阶段的补充分析以及对统计意见的清晰回复。',
+'s7.t':'论文与科研顾问','s7.d':'为硕博研究生和科研团队提供统计顾问服务——设计审查与第二意见。',
+'s8.t':'工作坊与Meta分析指导','s8.d':'实操培训：检索策略、偏倚风险评估、数据提取、合并分析以及面向高影响力期刊的结果撰写。',
+'m.eyebrow':'方法','m.title':'我常用的模型','m.sub':'适用于您已明确研究所需方法的情况。',
+'m.c1':'证据合成','m.c2':'生存分析','m.c3':'回归与纵向数据','m.c4':'多变量、预测与机器学习','m.sw':'软件',
+'p.eyebrow':'流程','p.title':'项目如何进行','p.sub':'无论是单项分析还是完整稿件，都遵循相同的四个步骤。',
+'p1.t':'发送您的问题','p1.d':'简要说明、数据（或样例数据）以及截止日期。',
+'p2.t':'确定范围与报价','p2.d':'开始工作前，我会告知推荐方法、时间安排和报价。',
+'p3.t':'分析','p3.d':'完整分析，附表格、图形和代码，确保所有结果可重复。',
+'p4.t':'撰写与修改','p4.d':'方法与结果文本，并在同行评审期间提供支持。',
+'w.eyebrow':'学术成果','w.title':'代表性论文','w.sub':'400余篇论文中的一小部分。完整列表见Google Scholar。',
+'a.eyebrow':'关于','a.title':'Kourosh Sayehmiri 博士',
+'a.p1':'伊拉姆医科大学生物统计学教授、生物统计系主任。27年多来，我为临床与公共卫生研究设计研究、选择分析方法并呈现结果，参与发表400余篇论文和185篇以上系统综述与Meta分析，其中包括一篇Cochrane综述。',
+'a.p2':'我在德黑兰医科大学获得生物统计学博士和硕士学位，并在法国南特大学完成半马尔可夫模型方向的访学研修。我为硕博研究生讲授生物统计、生存分析、回归、分类数据与多变量分析，并在伊朗国内外高校举办过多场Meta分析与统计工作坊。',
+'a.p3':'项目全程远程进行：数据、问题和草稿通过电子邮件往来，必要时通话沟通。',
+'c1.l':'教育背景','c1.v':'德黑兰医科大学生物统计学博士、硕士 · 法国南特大学研修',
+'c2.l':'现任职务','c2.v':'伊拉姆医科大学生物统计学教授、系主任（2017年至今）',
+'c3.l':'曾任职务','c3.v':'伊拉姆医科大学科研处处长（2015–2018）· 心理社会伤害研究中心主任',
+'c4.l':'荣誉','c4.v':'全球前2%顶尖科学家（斯坦福/爱思唯尔）2020、2022、2023、2024、2025 · 多次获评校级优秀研究者',
+'c5.l':'工作语言','c5.v':'英语 · 波斯语',
+'b.eyebrow':'获取报价','b.title':'介绍一下您的项目','b.sub':'约需两分钟。您的项目简介将以电子邮件形式发给我——本网站不存储任何信息。',
+'f.need':'您需要什么？（可多选）','f.stage':'项目阶段','f.design':'研究类型','f.sw':'首选软件','f.deadline':'截止日期（如有）',
+'f.name':'您的姓名','f.email':'您的邮箱','f.inst':'单位 / 国家（可选）','f.msg':'请简要描述您的研究问题和数据',
+'f.ph':'例如：3个治疗组，240名患者，结局为1年生存率；目标期刊……','f.send':'通过邮件发送','f.copy':'复制简介',
+'o.st1':'规划中','o.st2':'数据已收集','o.st3':'已开始分析','o.st4':'稿件已起草','o.st5':'同行评审中',
+'o.d0':'尚不确定','o.d1':'随机对照试验','o.d2':'队列研究','o.d3':'病例对照研究','o.d4':'横断面研究','o.d5':'系统综述 / Meta分析','o.d6':'其他','o.sw0':'无偏好',
+'msg.err':'请填写姓名、邮箱和简要说明。','msg.copied':'已复制——可粘贴到任何邮件或消息中。','msg.opened':'已打开您的邮件应用。如未打开，请使用“复制简介”。',
+'q.eyebrow':'常见问题','q.title':'常见问题',
+'q1':'费用是多少？','a1':'每个项目在了解问题和数据后单独报价，开始工作前您会收到报价。',
+'q2':'需要多长时间？','a2':'取决于工作范围；单项分析比完整的系统综述快得多。时间安排会随报价一并告知。',
+'q3':'我的数据会保密吗？','a3':'会。数据仅用于您的项目，不会与任何人共享。建议提供去标识化数据。',
+'q4':'使用什么软件？','a4':'根据您团队的需要——SPSS、Stata、R、SAS或Python——并提供分析代码以便重复运行。',
+'q5':'投稿后还能提供帮助吗？','a5':'可以。修稿期间我提供补充分析并协助回复统计相关审稿意见。',
+'q6':'是否为机构举办工作坊？','a6':'是的——生物统计、生存分析、Stata/R以及系统综述与Meta分析工作坊，线上或线下均可。',
+'ct.title':'有数据，也有截止日期？','ct.sub':'发送研究的简要说明——我会回复工作范围、时间安排和报价。','ct.btn':'开始申请',
+'footer':'生物统计咨询——研究设计、统计分析、Meta分析与稿件支持'
+}};
+T.en['msg.err']='Please add your name, email and a short description.';
+T.en['msg.copied']='Copied — paste it into any email or message.';
+T.en['msg.opened']='Your email app should now be open. If not, use "Copy brief".';
+
+/* Capture English originals */
+const els = document.querySelectorAll('[data-i18n],[data-i18n-html],[data-i18n-ph]');
+els.forEach(el=>{
+  if(el.dataset.i18n) T.en[el.dataset.i18n] ??= el.textContent;
+  if(el.dataset.i18nHtml) T.en[el.dataset.i18nHtml] ??= el.innerHTML;
+  if(el.dataset.i18nPh) T.en[el.dataset.i18nPh] ??= el.placeholder;
+});
+let lang='en';
+const t = k => (T[lang] && T[lang][k]) ?? T.en[k] ?? k;
+
+function setLang(l){
+  lang = T[l] ? l : 'en';
+  els.forEach(el=>{
+    if(el.dataset.i18n) el.textContent = t(el.dataset.i18n);
+    if(el.dataset.i18nHtml) el.innerHTML = t(el.dataset.i18nHtml);
+    if(el.dataset.i18nPh) el.placeholder = t(el.dataset.i18nPh);
+  });
+  const root=document.documentElement;
+  root.lang = lang;
+  root.dir = (lang==='fa'||lang==='ar') ? 'rtl' : 'ltr';
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+  try{localStorage.setItem('ks-lang',lang)}catch(e){}
+  if(window.renderCourses) renderCourses();
+}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+let initial='en';
+try{
+  const q=new URLSearchParams(location.search).get('lang');
+  initial = q || localStorage.getItem('ks-lang') || ((navigator.language||'').slice(0,2)) || 'en';
+}catch(e){}
+setLang(initial);
+
+/* Contact line + year */
+document.getElementById('yr').textContent = new Date().getFullYear();
+document.getElementById('contactLine').textContent = CONTACT_EMAIL + (PHONE ? '  ·  ' + PHONE : '');
+
+/* "This is my situation" → pre-fill form */
+document.querySelectorAll('[data-pick]').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('#needChecks input').forEach(c=>c.checked = c.value===btn.dataset.pick);
+  if(btn.dataset.stage) document.getElementById('stage').value = btn.dataset.stage;
+  if(btn.dataset.design) document.getElementById('design').value = btn.dataset.design;
+  document.getElementById('brief').scrollIntoView({behavior:'smooth'});
+  setTimeout(()=>document.getElementById('msg').focus({preventScroll:true}),600);
+}));
+
+/* Build brief (always in English for the consultant) */
+const NEED_EN = {design:'Study design & sample size',analysis:'Statistical analysis',meta:'Systematic review & meta-analysis',survival:'Survival & longitudinal analysis',writing:'Methods & Results writing',reviewer:'Reviewer-response support',thesis:'Thesis & research advisory',training:'Workshops & mentorship'};
+const v = id => document.getElementById(id).value.trim();
+function buildBrief(){
+  const needs=[...document.querySelectorAll('#needChecks input:checked')].map(c=>NEED_EN[c.value]);
+  return [
+    'Project brief — via website',
+    '',
+    'Name: '+v('name'),
+    'Email: '+v('email'),
+    'Institution / country: '+(v('inst')||'—'),
+    'Services needed: '+(needs.join(', ')||'Not specified'),
+    'Project stage: '+v('stage'),
+    'Study type: '+v('design'),
+    'Preferred software: '+v('software'),
+    'Deadline: '+(v('deadline')||'—'),
+    'Site language: '+lang,
+    '',
+    'Description:',
+    v('msg')
+  ].join('\n');
+}
+const note=document.getElementById('formNote');
+function say(key,cls){note.textContent=t(key);note.className='note '+(cls||'')}
+function valid(){
+  const ok = v('name') && /\S+@\S+\.\S+/.test(v('email')) && v('msg').length>5;
+  if(!ok) say('msg.err','err');
+  return ok;
+}
+document.getElementById('briefForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!valid()) return;
+  const subject='Statistics consulting request — '+v('name');
+  location.href='mailto:'+CONTACT_EMAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(buildBrief());
+  say('msg.opened','ok');
+});
+document.getElementById('copyBtn').addEventListener('click',async()=>{
+  if(!valid()) return;
+  const text=buildBrief();
+  try{await navigator.clipboard.writeText(text)}
+  catch(e){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove()}
+  say('msg.copied','ok');
+});
+</script>
+<script>
+/* ===== COURSE MATERIALS — edit this list =====
+   To add a file: put the PDF in a folder named "materials" next to this page,
+   then add it to the course's files list, for example:
+     files:[ {type:'syllabus', url:'materials/survival-syllabus.pdf'},
+             {type:'slides',   url:'materials/survival-slides.pdf'} ]
+   You can also paste a Google Drive share link as the url.
+   type can be: syllabus, slides, notes, exercises, exam, data — or use label:'Any text'.
+   A course with no files shows "Materials coming soon".
+
+   GOOGLE DRIVE (easiest): make one Drive folder per course, set sharing to
+   "Anyone with the link — Viewer", copy the link and paste it as folder:'...'
+   Example:
+     {level:'grad', title:'Survival Analysis', who:'MSc Biostatistics', years:5,
+      folder:'https://drive.google.com/drive/folders/XXXXXXXX', files:[]},
+   Single Drive files work as url:'https://drive.google.com/file/d/XXXX/view'. */
+const CV_URL = 'https://drive.google.com/file/d/1j5kOX9DpjhH4ZDkUg_ILBblndv7zmUlu/view?usp=sharing';
+const COURSES = [
+  {level:'grad', title:'Survival Analysis', who:'MSc Biostatistics', years:5, files:[]},
+  {level:'grad', title:'Generalized Linear Models', who:'MSc Biostatistics', years:5, files:[]},
+  {level:'grad', title:'Categorical Data Analysis', who:'MSc Biostatistics', years:5, files:[]},
+  {level:'grad', title:'Multivariate Statistics', who:'MSc Biostatistics', years:5, files:[]},
+  {level:'grad', title:'Time Series', who:'MSc Biostatistics', years:5, files:[]},
+  {level:'grad', title:'Biostatistics I & II', who:'MSc Biostatistics · MSc Epidemiology', years:16, files:[]},
+  {level:'grad', title:'Statistical Methods in Epidemiology', who:'MSc Epidemiology', years:16, files:[]},
+  {level:'grad', title:'Advanced Statistics', who:'MSc & PhD Nursing', years:8, files:[]},
+  {level:'grad', title:'Advanced Research Methods', who:'PhD Epidemiology · PhD Psychology', years:3, files:[]},
+  {level:'grad', title:'Statistical Methods in Medical Research', who:'PhD Microbiology', years:3, files:[]},
+  {level:'ug', title:'Medical Statistics', who:'Medical students', years:27, files:[]},
+  {level:'ug', title:'Mathematical Statistics I & II', who:'BSc Statistics & Mathematics · MSc Biostatistics', files:[]},
+  {level:'ug', title:'Regression', who:'BSc Statistics', files:[]},
+  {level:'ug', title:'Sampling I & II', who:'BSc Statistics', files:[]},
+  {level:'ug', title:'Nonparametric Statistics', who:'BSc Statistics', files:[]},
+  {level:'ug', title:'Introductory Statistics', who:'Public health, nursing, midwifery, environmental health, psychology', files:[]}
+];
+/* Your own books. Add url:'materials/file.pdf' only if the publisher allows free sharing. */
+const BOOKS = [
+  {title:'Applied Biostatistics', info:'Ilam UMS · 2005, 2nd ed. 2014, 3rd ed. 2016', url:'https://drive.google.com/file/d/1zHLlxNL8DIrQ9CJ6Z0wbCLpMJamgCHY8/view?usp=sharing'},
+  {title:'Statistics for Medicine', info:'With Asadollahi K. & Hashemi J. · Ilam UMS · 2014', url:''},
+  {title:'An Introduction to Stata', info:'Ilam UMS · 2022', url:''},
+  {title:'Survival Random Forest', info:'Ilam UMS · 2021', url:''}
+];
+
+const TT = {
+ en:{'t.folder':'Course folder','t.syllabus':'Syllabus','t.slides':'Slides','t.notes':'Lecture notes','t.exercises':'Exercises','t.exam':'Past exams','t.data':'Datasets','t.soon':'Materials coming soon','t.years':'years taught','t.download':'Download','t.avail':'Ask in class for a copy'},
+ fa:{'t.folder':'پوشه درس','t.syllabus':'طرح درس','t.slides':'اسلایدها','t.notes':'جزوه','t.exercises':'تمرین‌ها','t.exam':'سؤالات امتحانی','t.data':'داده‌ها','t.soon':'به‌زودی بارگذاری می‌شود','t.years':'سال تدریس','t.download':'دانلود','t.avail':'برای دریافت نسخه در کلاس بپرسید'},
+ ar:{'t.folder':'مجلد المقرر','t.syllabus':'خطة المقرر','t.slides':'الشرائح','t.notes':'المذكرات','t.exercises':'التمارين','t.exam':'امتحانات سابقة','t.data':'البيانات','t.soon':'المواد قريباً','t.years':'سنوات التدريس','t.download':'تحميل','t.avail':'اطلب نسخة في الصف'},
+ zh:{'t.folder':'课程文件夹','t.syllabus':'教学大纲','t.slides':'课件','t.notes':'讲义','t.exercises':'练习','t.exam':'往年试题','t.data':'数据集','t.soon':'资料即将上传','t.years':'年教学','t.download':'下载','t.avail':'请在课堂上索取'}
+};
+const tc = k => (TT[lang]&&TT[lang][k]) || TT.en[k] || k;
+const FD = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>';
+const DL = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>';
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let level='all';
+function renderCourses(){
+  const list=document.getElementById('courseList'); if(!list) return;
+  list.innerHTML = COURSES.filter(c=>level==='all'||c.level===level).map(c=>{
+    const folder = c.folder ? `<a class="cfile" href="${esc(c.folder)}" target="_blank" rel="noopener">${FD}${tc('t.folder')}</a>` : '';
+    const files = folder + (c.files||[]).filter(f=>f.url).map(f=>
+      `<a class="cfile" href="${esc(f.url)}" target="_blank" rel="noopener">${DL}${esc(f.label||tc('t.'+f.type))}</a>`).join('');
+    return `<div class="crow"><div><div class="ct">${esc(c.title)}</div>${c.years?`<div class="cy">${c.years} ${tc('t.years')}</div>`:''}</div>
+      <div class="ca">${esc(c.who)}</div>
+      <div class="cfiles">${files||`<span class="csoon">${tc('t.soon')}</span>`}</div></div>`;
+  }).join('');
+  document.getElementById('bookList').innerHTML = BOOKS.map(b=>
+    `<div class="tbook"><div><b>${esc(b.title)}</b><span>${esc(b.info)}</span></div>${b.url?`<a class="cfile" href="${esc(b.url)}" target="_blank" rel="noopener">${DL}${tc('t.download')}</a>`:`<span class="csoon">${tc('t.avail')}</span>`}</div>`).join('');
+}
+document.querySelectorAll('.tfilter button').forEach(b=>b.addEventListener('click',()=>{
+  level=b.dataset.level;
+  document.querySelectorAll('.tfilter button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  renderCourses();
+}));
+renderCourses();
+</script>
+</body>
+</html>
