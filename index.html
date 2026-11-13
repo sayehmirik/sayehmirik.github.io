@@ -1,255 +1,345 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="zh" dir="ltr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sayehmiri Biostatistics — Led by Prof. Kourosh Sayehmiri</title>
-<meta name="description" content="Professor of Biostatistics offering remote study design, statistical analysis, systematic review & meta-analysis, survival analysis and manuscript statistics support. 400+ published articles, 185+ meta-analyses.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sayehmiri 生物统计 · Meta分析导师计划</title>
+<meta name="description" content="Prof. Kourosh Sayehmiri — Supporting researchers at every stage: meta-analysis mentorship (learning by doing) and biostatistics consulting for health researchers. 400+ articles, 185+ meta-analyses.">
+
 <style>
+/* Layout: lapis-and-saffron academic identity; hero → two paths → dark mentorship band with an 8-stage timeline → consulting → teaching → record → apply. */
 :root{
-  --bg:#f7f9f9; --surface:#fff; --ink:#13171c; --muted:#5a6471; --line:#e1e6e8;
-  --accent:#1d5e72; --accent-2:#164a5a; --accent-soft:#e6f0f2; --amber:#c47a22; --amber-soft:#fbf1e4;
-  --display:'Space Grotesk','IBM Plex Sans',sans-serif;
-  --body:'IBM Plex Sans',-apple-system,'Segoe UI',sans-serif;
-  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
-  --r:14px; --shadow:0 6px 28px rgba(19,23,28,.07);
+  --bg:#f5f6f9; --surface:#ffffff; --ink:#141a2e; --muted:#555d73; --line:#dde1ea;
+  --lapis:#25356f; --lapis-soft:#e9ecf7; --btn:#25356f; --btn-hover:#1a2654;
+  --saffron:#c9850a; --saffron-ink:#8f5c00; --saffron-soft:#fbf1dc;
+  --band:#18224d; --band-2:#212d5e; --band-ink:#eef0f9; --band-muted:#aeb6d4; --band-line:#2f3b70;
+  --form:#141a2e; --form-2:#1c2340; --form-line:#323a5a;
+  --shadow:0 8px 30px rgba(20,26,46,.07);
+  --display:'Songti SC','Noto Serif SC','Times New Roman',Georgia,serif;
+  --body:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',Roboto,sans-serif;
+  --mono:ui-monospace,Consolas,Menlo,monospace;
+  --fa:Tahoma,'Segoe UI','Noto Naskh Arabic',sans-serif;
+  --zh:-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans SC',sans-serif;
+  --r:14px;
 }
-html[lang="fa"],html[lang="ar"]{--display:'Vazirmatn',sans-serif;--body:'Vazirmatn',sans-serif}
-html[lang="zh"]{--display:'Space Grotesk','PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;--body:'IBM Plex Sans','PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0d1020; --surface:#151a2e; --ink:#e8ebf5; --muted:#9ba3bd; --line:#262c47;
+  --lapis:#a3b3f2; --lapis-soft:#1d2446; --btn:#4b5fb6; --btn-hover:#5a6ec6;
+  --saffron:#e3a63c; --saffron-ink:#f0bf66; --saffron-soft:#2e2615;
+  --band:#0a0d1c; --band-2:#121735; --band-line:#252c52;
+  --form:#0a0d1c; --form-2:#121735; --form-line:#2a3256;
+  --shadow:0 8px 30px rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d1020; --surface:#151a2e; --ink:#e8ebf5; --muted:#9ba3bd; --line:#262c47;
+  --lapis:#a3b3f2; --lapis-soft:#1d2446; --btn:#4b5fb6; --btn-hover:#5a6ec6;
+  --saffron:#e3a63c; --saffron-ink:#f0bf66; --saffron-soft:#2e2615;
+  --band:#0a0d1c; --band-2:#121735; --band-line:#252c52;
+  --form:#0a0d1c; --form-2:#121735; --form-line:#2a3256;
+  --shadow:0 8px 30px rgba(0,0,0,.35); color-scheme:dark}
+html[lang="fa"],html[lang="ar"]{--display:var(--fa);--body:var(--fa)}
+html[lang="zh"]{--display:var(--zh);--body:var(--zh)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.65;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1140px;margin:0 auto;padding:0 28px}
-button{font:inherit;cursor:pointer}
-:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:2px solid var(--saffron);outline-offset:2px}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(28px,env(safe-area-inset-left,0px));padding-right:max(28px,env(safe-area-inset-right,0px))}
+h1,h2,h3{text-wrap:balance}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--saffron-ink);margin-bottom:14px;display:block}
+html[lang="fa"] .eyebrow,html[lang="ar"] .eyebrow,html[lang="zh"] .eyebrow{font-family:var(--body);letter-spacing:0;font-size:.85rem;font-weight:600}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(1.75rem,3vw,2.5rem);line-height:1.15;letter-spacing:-.01em;margin-bottom:12px}
+.head{max-width:64ch;margin-bottom:40px}
+.head p{color:var(--muted);font-size:1.03rem}
+section{padding-block:88px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;font-weight:600;font-size:.95rem;padding:12px 24px;border:1px solid transparent;transition:background .2s,border-color .2s,transform .2s}
+.btn-primary{background:var(--btn);color:#fff}
+.btn-primary:hover{background:var(--btn-hover);transform:translateY(-1px)}
+.btn-saffron{background:var(--saffron);color:#1b1402}
+.btn-saffron:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line);background:var(--surface)}
+.btn-ghost:hover{border-color:var(--lapis);color:var(--lapis)}
+.btn-sm{padding:8px 16px;font-size:.84rem}
 
 /* Header */
-header{position:sticky;top:0;z-index:50;background:rgba(247,249,249,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-nav.wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
-.brand{display:flex;flex-direction:column;line-height:1.15}
-.brand b{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.02rem;letter-spacing:-.01em}
-.brand small{font-family:'Vazirmatn',sans-serif;color:var(--muted);font-size:.78rem}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav.wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:74px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.mark{width:36px;height:36px;flex:none}
+.brand-t{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.brand-t b{font-family:var(--display);font-weight:600;font-size:1.12rem;white-space:nowrap}
+.brand-t small{color:var(--muted);font-size:.76rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .nav-right{display:flex;align-items:center;gap:18px}
 .nav-links{display:flex;gap:22px}
 .nav-links a{font-size:.9rem;color:var(--muted);font-weight:500}
 .nav-links a:hover{color:var(--ink)}
-.lang{display:flex;gap:2px;background:var(--line);padding:3px;border-radius:8px}
-.lang button{border:0;background:transparent;padding:5px 9px;border-radius:6px;font-size:.72rem;font-weight:600;color:var(--muted)}
-.lang button.active{background:var(--surface);color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.07)}
-.btn{display:inline-flex;align-items:center;gap:8px;border-radius:8px;font-weight:500;font-size:.94rem;padding:12px 22px;border:1px solid transparent;transition:.2s}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-primary:hover{background:var(--accent-2);transform:translateY(-1px)}
-.btn-ghost{border-color:var(--line);background:var(--surface)}
-.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
-.btn-sm{padding:8px 14px;font-size:.82rem}
+.lang{display:flex;gap:2px;background:var(--line);padding:3px;border-radius:999px}
+.lang button{white-space:nowrap;border:0;background:transparent;padding:5px 10px;border-radius:999px;font-size:.72rem;font-weight:600;color:var(--muted)}
+.lang button.active{background:var(--surface);color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.08)}
 
 /* Hero */
-.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:52px;align-items:center;padding:72px 0 60px}
-.eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
-html[lang="fa"] .eyebrow,html[lang="ar"] .eyebrow,html[lang="zh"] .eyebrow{font-family:var(--body);letter-spacing:0;font-size:.82rem}
-.eyebrow::before{content:'';width:26px;height:2px;background:currentColor;flex:none}
-h1{font-family:var(--display);font-weight:600;font-size:clamp(2.1rem,4.4vw,3.4rem);line-height:1.08;letter-spacing:-.02em;margin-bottom:20px}
-h1 em{font-style:normal;color:var(--accent)}
-.lead{font-size:1.08rem;color:var(--muted);max-width:52ch;margin-bottom:28px}
+.hero{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:56px;align-items:center;padding-block:72px 64px}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(2.4rem,5.2vw,4rem);line-height:1.04;letter-spacing:-.02em;margin-bottom:22px}
+h1 em{font-style:italic;color:var(--lapis)}
+html[lang="fa"] h1 em,html[lang="ar"] h1 em,html[lang="zh"] h1 em{font-style:normal}
+html[lang="fa"] h1,html[lang="ar"] h1,html[lang="zh"] h1{line-height:1.25;font-weight:700;font-size:clamp(2rem,4.4vw,3.3rem)}
+.lead{font-size:1.1rem;color:var(--muted);max-width:54ch;margin-bottom:30px}
 .ctas{display:flex;gap:12px;flex-wrap:wrap}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:38px;padding-top:24px;border-top:1px solid var(--line)}
-.stats b{display:block;font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:600;line-height:1.1}
-.stats span{display:block;font-size:.78rem;color:var(--muted);margin-top:4px;line-height:1.35}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
+.stats b{display:block;font-family:var(--display);font-size:1.8rem;font-weight:600;line-height:1.05;font-variant-numeric:tabular-nums}
+.stats span{display:block;font-size:.78rem;color:var(--muted);margin-top:6px;line-height:1.35}
 .plot-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 16px;box-shadow:var(--shadow)}
 .plot-card svg{width:100%;height:auto;display:block}
+.plot-card text{font-family:var(--mono);font-size:9px;fill:var(--muted)}
+.plot-card .tk{fill:var(--ink)}
+.plot-card .hd{fill:var(--ink);font-weight:600}
+.fp-ci{stroke:var(--lapis);stroke-width:1.5}
+.fp-sq{fill:var(--lapis)}
+.fp-d{fill:var(--saffron)}
+.fp-ax{stroke:var(--line)}
+.fp-null{stroke:var(--muted);stroke-dasharray:3 3;opacity:.6}
 .plot-cap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:.7rem;color:var(--muted);margin-top:10px}
-.fp-row{opacity:0;animation:fade .5s ease-out forwards}
-.fp-diamond{opacity:0;animation:fade .8s ease-out forwards 1.5s}
-@keyframes fade{to{opacity:1}}
-@media (prefers-reduced-motion:reduce){.fp-row,.fp-diamond{animation:none;opacity:1}}
+.fp-row{animation:fade .5s ease-out both}
+@keyframes fade{from{opacity:.15}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.fp-row{animation:none}}
 
-/* Trust strip */
-.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}
-.trust .wrap{display:flex;align-items:center;gap:22px;flex-wrap:wrap;padding-top:18px;padding-bottom:18px}
+.trust{border-block:1px solid var(--line);background:var(--surface)}
+.trust .wrap{display:flex;align-items:center;gap:22px;flex-wrap:wrap;padding-block:18px}
 .trust .label{font-size:.78rem;color:var(--muted);font-weight:500}
-.trust ul{display:flex;gap:22px;flex-wrap:wrap;list-style:none;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:.92rem;color:#38414c}
+.trust ul{display:flex;gap:22px;flex-wrap:wrap;list-style:none;font-family:var(--display);font-weight:600;font-size:.98rem;color:var(--ink);opacity:.8}
 
-/* Sections */
-section{padding:80px 0}
-section + section{border-top:1px solid var(--line)}
-.head{max-width:62ch;margin-bottom:40px}
-h2{font-family:var(--display);font-weight:600;font-size:clamp(1.6rem,2.6vw,2.2rem);letter-spacing:-.01em;line-height:1.2;margin-bottom:10px}
-.head p{color:var(--muted)}
+/* Two paths */
+.paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.path{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:30px;display:flex;flex-direction:column;gap:12px}
+.path.mentor{background:linear-gradient(180deg,var(--saffron-soft),var(--surface) 60%);border-color:color-mix(in srgb,var(--saffron) 40%,var(--line))}
+.tag{align-self:flex-start;font-size:.74rem;font-weight:600;border-radius:999px;padding:4px 12px;background:var(--lapis-soft);color:var(--lapis)}
+.mentor .tag{background:var(--saffron);color:#1b1402}
+.path h3{font-family:var(--display);font-size:1.6rem;font-weight:600;line-height:1.2}
+.path > p{color:var(--muted)}
+.sits{list-style:none;margin-top:6px;border-top:1px solid var(--line)}
+.sits li{border-bottom:1px solid var(--line)}
+.sits button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;background:none;border:0;padding:13px 2px;text-align:start;font-size:.95rem;font-weight:500}
+.sits button::after{content:'→';color:var(--lapis);transition:transform .2s;flex:none}
+html[dir="rtl"] .sits button::after{content:'←'}
+.sits button:hover{color:var(--lapis)}
+.sits button:hover::after{transform:translateX(3px)}
+html[dir="rtl"] .sits button:hover::after{transform:translateX(-3px)}
+.path .more{margin-top:auto;padding-top:8px;font-size:.88rem;font-weight:600;color:var(--lapis)}
 
-/* Needs */
-.needs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.need{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:8px;transition:.2s}
-.need:hover{border-color:var(--accent);box-shadow:var(--shadow);transform:translateY(-2px)}
-.need .ic{width:40px;height:40px;border-radius:10px;background:var(--accent-soft);display:grid;place-items:center;margin-bottom:6px}
-.need h3{font-family:var(--display);font-size:1.06rem;font-weight:600;line-height:1.3}
-.need p{color:var(--muted);font-size:.92rem;flex:1}
-.need button{align-self:flex-start;border:0;background:none;color:var(--accent);font-weight:600;font-size:.88rem;padding:6px 0}
-.need button:hover{text-decoration:underline}
+/* Mentorship band */
+#mentorship{background:var(--band);color:var(--band-ink)}
+#mentorship .eyebrow{color:var(--saffron)}
+.m-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:64px;align-items:start}
+.m-intro{position:sticky;top:110px}
+.m-intro > p{color:var(--band-muted);margin-bottom:16px;max-width:52ch}
+.quote{margin:28px 0;padding:24px 0;border-block:1px solid var(--band-line)}
+.quote q{display:block;font-family:var(--display);font-style:italic;font-size:clamp(1.8rem,3vw,2.4rem);line-height:1.1;color:var(--band-ink);quotes:'“' '”'}
+html[lang="fa"] .quote q,html[lang="ar"] .quote q,html[lang="zh"] .quote q{font-style:normal;font-weight:700}
+.quote q::before,.quote q::after{color:var(--saffron)}
+.quote span{display:block;margin-top:10px;color:var(--band-muted);font-size:.95rem}
+.m-meta{display:grid;gap:18px;margin-bottom:28px}
+.m-meta h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--band-muted);font-weight:600;margin-bottom:8px}
+html[lang="fa"] .m-meta h4,html[lang="ar"] .m-meta h4,html[lang="zh"] .m-meta h4{letter-spacing:0;text-transform:none;font-size:.88rem}
+.m-chips{display:flex;flex-wrap:wrap;gap:8px}
+.m-chips span{font-size:.84rem;border:1px solid var(--band-line);background:var(--band-2);border-radius:999px;padding:5px 13px}
+.m-fmt{list-style:none;display:grid;gap:6px;font-size:.92rem}
+.m-fmt li{display:flex;gap:10px;align-items:baseline}
+.m-fmt li::before{content:'';width:7px;height:7px;transform:rotate(45deg);background:var(--saffron);flex:none;position:relative;top:-1px}
+.steps{list-style:none;position:relative;display:grid;gap:14px}
+.steps::before{content:'';position:absolute;inset-inline-start:23px;top:24px;bottom:24px;width:1px;background:var(--band-line)}
+.step{display:grid;grid-template-columns:48px minmax(0,1fr);gap:18px;position:relative}
+.step .n{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--band);border:1.5px solid var(--saffron);color:var(--saffron);font-family:var(--mono);font-weight:500;font-size:.9rem;position:relative;z-index:1}
+.step .card{background:var(--band-2);border:1px solid var(--band-line);border-radius:14px;padding:18px 20px}
+.step h3{font-family:var(--display);font-size:1.22rem;font-weight:600;margin-bottom:6px;color:var(--band-ink)}
+.step p{color:var(--band-muted);font-size:.93rem}
+.step .got{margin-top:12px;padding-top:10px;border-top:1px dashed var(--band-line);display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;font-size:.88rem;color:var(--band-ink)}
+.step .got b{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--saffron);font-weight:500}
+html[lang="fa"] .step .got b,html[lang="ar"] .step .got b,html[lang="zh"] .step .got b{font-family:var(--body);letter-spacing:0;font-size:.8rem;text-transform:none}
+.step:last-child .n{background:var(--saffron);color:#1b1402}
 
 /* Services */
-.services{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.svc{background:var(--surface);padding:26px;display:flex;gap:16px}
-.svc .n{font-family:var(--mono);color:var(--accent);font-size:.78rem;padding-top:3px;flex:none}
-.svc h3{font-family:var(--display);font-size:1.05rem;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.svc p{color:var(--muted);font-size:.92rem}
-.svc.featured{background:linear-gradient(180deg,var(--accent-soft),var(--surface))}
-.pill{font-family:var(--body);font-size:.68rem;font-weight:600;background:var(--amber);color:#fff;padding:2px 9px;border-radius:99px}
+.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.svc{background:var(--surface);padding:26px 28px}
+.svc h3{font-family:var(--display);font-size:1.18rem;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.svc p{color:var(--muted);font-size:.93rem}
+.pill{font-family:var(--body);font-size:.68rem;font-weight:600;background:var(--saffron);color:#1b1402;padding:2px 10px;border-radius:99px}
+.process{margin-top:44px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px}
+.process h4{grid-column:1/-1;font-family:var(--display);font-size:1.3rem;font-weight:600}
+.pstep{border-top:2px solid var(--lapis);padding-top:14px}
+.pstep span{font-family:var(--mono);color:var(--lapis);font-size:.78rem}
+.pstep h5{font-size:1rem;font-weight:600;margin:4px 0}
+.pstep p{color:var(--muted);font-size:.9rem}
 
 /* Methods */
-.methods{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.methods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .mcat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px}
-.mcat h3{font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:14px;color:var(--accent)}
+.mcat h3{font-size:.98rem;font-weight:600;margin-bottom:14px;color:var(--lapis)}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips span{font-size:.84rem;background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:4px 12px;direction:ltr}
-.software{margin-top:22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.software{margin-top:22px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .software b{font-size:.84rem;color:var(--muted);font-weight:500}
-.software span{font-family:var(--mono);font-size:.8rem;background:var(--ink);color:#fff;border-radius:6px;padding:4px 10px}
-
-/* Steps */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
-.step{border-top:3px solid var(--accent);padding-top:18px}
-.step .n{font-family:var(--mono);color:var(--accent);font-size:.8rem}
-.step h3{font-family:var(--display);font-size:1.02rem;font-weight:600;margin:6px 0}
-.step p{color:var(--muted);font-size:.9rem}
-
-/* Publications */
-.pubs{display:grid;gap:0;border-top:1px solid var(--line)}
-.pub{display:grid;grid-template-columns:64px 1fr auto;gap:18px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);direction:ltr;text-align:left}
-.pub .y{font-family:var(--mono);color:var(--accent);font-size:.84rem}
-.pub .t{font-weight:500}
-.pub .j{color:var(--muted);font-size:.86rem;font-style:italic}
-.pub a{font-family:var(--mono);font-size:.76rem;color:var(--accent);white-space:nowrap}
-.pub a:hover{text-decoration:underline}
-.books{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.book{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;direction:ltr;text-align:left}
-.book b{display:block;font-family:'Space Grotesk',sans-serif;font-weight:600}
-.book span{font-size:.82rem;color:var(--muted)}
-.more{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+.software span{font-family:var(--mono);font-size:.8rem;background:var(--lapis-soft);color:var(--lapis);border-radius:6px;padding:4px 10px}
 
 /* Teaching */
+#teaching{background:var(--surface);border-block:1px solid var(--line)}
 .tfilter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
-.tfilter button{border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:99px;padding:6px 14px;font-size:.85rem;font-weight:500}
-.tfilter button[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.tfilter button{border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:99px;padding:6px 14px;font-size:.85rem;font-weight:500}
+.tfilter button[aria-pressed="true"]{background:var(--lapis-soft);border-color:var(--lapis);color:var(--lapis)}
 .clist{border-top:1px solid var(--line)}
-.crow{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto;gap:18px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
-.crow .ct{font-family:var(--display);font-weight:600;font-size:1.02rem;direction:ltr;text-align:start}
+.crow{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto;gap:18px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line)}
+.crow .ct{font-weight:600;direction:ltr;text-align:start}
 .crow .ca{color:var(--muted);font-size:.86rem;direction:ltr;text-align:start}
-.crow .cy{font-family:var(--mono);font-size:.74rem;color:var(--accent);margin-top:2px}
+.crow .cy{font-family:var(--mono);font-size:.72rem;color:var(--saffron-ink);margin-top:2px}
 .cfiles{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-.cfile{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:6px 11px;font-size:.82rem;font-weight:500;color:var(--ink)}
-.cfile:hover{border-color:var(--accent);color:var(--accent)}
-.cfile svg{flex:none}
+.cfile{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:6px 11px;font-size:.82rem;font-weight:500}
+.cfile:hover{border-color:var(--lapis);color:var(--lapis)}
 .csoon{font-size:.8rem;color:var(--muted);font-style:italic}
-.tbooks{margin-top:44px}
-.tbooks h3{font-family:var(--display);font-size:1.15rem;font-weight:600;margin-bottom:14px}
+.tbooks{margin-top:40px}
+.tbooks h3{font-family:var(--display);font-size:1.3rem;font-weight:600;margin-bottom:14px}
 .tbook-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.tbook{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:14px;direction:ltr;text-align:left}
-.tbook b{display:block;font-family:'Space Grotesk',sans-serif;font-weight:600}
+.tbook{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:14px;direction:ltr;text-align:left}
+.tbook b{display:block;font-family:var(--display);font-weight:600;font-size:1.05rem}
 .tbook span{font-size:.82rem;color:var(--muted)}
-.tnote{margin-top:22px;font-size:.84rem;color:var(--muted);max-width:70ch}
-@media (max-width:760px){.crow{grid-template-columns:1fr;gap:8px}.cfiles{justify-content:flex-start}.tbook-grid{grid-template-columns:1fr}}
+.tnote{margin-top:20px;font-size:.84rem;color:var(--muted);max-width:70ch}
+
+/* Publications */
+.pubs{border-top:1px solid var(--line)}
+.pub{display:grid;grid-template-columns:60px minmax(0,1fr) auto;gap:18px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);direction:ltr;text-align:left}
+.pub .y{font-family:var(--mono);color:var(--saffron-ink);font-size:.84rem}
+.pub .t{font-weight:500}
+.pub .j{color:var(--muted);font-size:.86rem;font-style:italic}
+.pub a{font-family:var(--mono);font-size:.76rem;color:var(--lapis);white-space:nowrap}
+.more{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
 
 /* About */
-.about{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start}
-.about p{color:var(--muted);margin-bottom:14px}
-.cred{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:8px 24px;box-shadow:var(--shadow)}
+.about{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:52px;align-items:start}
+.about p{color:var(--muted);margin-bottom:14px;max-width:62ch}
+.cred{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:6px 24px;box-shadow:var(--shadow)}
 .cred div{padding:14px 0;border-bottom:1px dashed var(--line)}
 .cred div:last-child{border:0}
-.cred dt{font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);font-weight:600}
+.cred dt{font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--saffron-ink);font-weight:600}
 .cred dd{font-size:.92rem;margin-top:2px}
 
-/* Brief form */
-#brief{background:var(--ink);color:#eef2f4}
-#brief .head p{color:#a7b1bb}
-#brief .eyebrow{color:#e0a45e}
-.form{background:#1c2229;border:1px solid #2c343d;border-radius:var(--r);padding:30px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px 22px}
-.field{display:flex;flex-direction:column;gap:8px}
+/* Form */
+#apply{background:var(--form);color:#eef0f8}
+#apply .head p{color:#a9b0c9}
+#apply .eyebrow{color:#e3a63c}
+.form{background:var(--form-2);border:1px solid var(--form-line);border-radius:18px;padding:30px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 22px}
+.field{display:flex;flex-direction:column;gap:8px;min-width:0}
 .field.full{grid-column:1/-1}
-.field label,.field legend{font-size:.86rem;font-weight:500;color:#cfd6dc}
+.field label,.field legend{font-size:.86rem;font-weight:500;color:#cfd4e6}
 fieldset{border:0}
-.field input,.field select,.field textarea{background:#12171c;border:1px solid #333c46;color:#fff;border-radius:8px;padding:11px 13px;font:inherit;font-size:.93rem;width:100%}
+.field input,.field select,.field textarea{background:#0c1022;border:1px solid var(--form-line);color:#fff;border-radius:10px;padding:11px 13px;font:inherit;font-size:.93rem;width:100%;color-scheme:dark}
 .field textarea{min-height:120px;resize:vertical}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:#e0a45e}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:#e3a63c}
 .checks{display:flex;flex-wrap:wrap;gap:8px}
-.checks label{cursor:pointer}
+.checks label{cursor:pointer;position:relative}
 .checks input{position:absolute;opacity:0;pointer-events:none}
-.checks span{display:inline-block;border:1px solid #3a444f;border-radius:99px;padding:6px 14px;font-size:.85rem;color:#cfd6dc;transition:.15s}
-.checks input:checked + span{background:var(--amber);border-color:var(--amber);color:#fff}
-.checks input:focus-visible + span{outline:2px solid #e0a45e;outline-offset:2px}
+.checks span{display:inline-block;border:1px solid #3a4366;border-radius:99px;padding:6px 14px;font-size:.85rem;color:#cfd4e6;transition:.15s}
+.checks input:checked + span{background:#e3a63c;border-color:#e3a63c;color:#1b1402}
+.checks input:focus-visible + span{outline:2px solid #e3a63c;outline-offset:2px}
+.checks .hl span{border-color:#e3a63c}
 .form-actions{grid-column:1/-1;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-.form-actions .btn-primary{background:var(--amber)}
-.form-actions .btn-primary:hover{background:#a8661a}
-.form-actions .btn-ghost{background:transparent;border-color:#3a444f;color:#eef2f4}
-.note{font-size:.84rem;color:#a7b1bb}
+.form-actions .btn-ghost{background:transparent;border-color:#3a4366;color:#eef0f8}
+.note{font-size:.86rem;color:#a9b0c9}
 .note.err{color:#ff9d8a}
 .note.ok{color:#8fd6b0}
+.mailline{grid-column:1/-1;font-size:.84rem;color:#a9b0c9}
+.mailline b{font-family:var(--mono);color:#eef0f8;font-weight:500;direction:ltr;unicode-bidi:isolate}
 
 /* FAQ */
-.faq{display:grid;gap:10px;max-width:820px}
+.faq{display:grid;gap:10px;max-width:840px}
 .faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:0 20px}
 .faq summary{cursor:pointer;list-style:none;padding:17px 0;font-weight:600;display:flex;justify-content:space-between;gap:16px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:'+';color:var(--accent);font-size:1.2rem;line-height:1}
+.faq summary::after{content:'+';color:var(--lapis);font-size:1.2rem;line-height:1}
 .faq details[open] summary::after{content:'–'}
 .faq details p{color:var(--muted);padding-bottom:18px}
 
 /* Contact */
-.contact{background:var(--accent);color:#fff;border-radius:var(--r);padding:44px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
-.contact h2{color:#fff}
-.contact p{color:#cfe2e7;max-width:46ch}
-.contact .btn{background:#fff;color:var(--accent)}
-.contact .em{font-family:var(--mono);font-size:.9rem;color:#dbe9ed;margin-top:10px;direction:ltr}
-footer{padding:30px 0 44px;text-align:center;color:var(--muted);font-size:.8rem}
+.contact{background:var(--band);color:var(--band-ink);border-radius:20px;padding:44px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.contact h2{color:var(--band-ink)}
+.contact p{color:var(--band-muted);max-width:50ch}
+.contact .em{font-family:var(--mono);font-size:.9rem;color:var(--band-ink);margin-top:10px;direction:ltr;unicode-bidi:isolate}
+footer{padding-block:30px 46px;text-align:center;color:var(--muted);font-size:.8rem}
+footer .fn{font-family:var(--display);font-weight:600;color:var(--ink);font-size:1.05rem;margin-bottom:4px}
 
 /* Responsive */
+@media (max-width:1020px){.nav-links{display:none}}
 @media (max-width:960px){
-  .nav-links{display:none}
-  .hero,.about{grid-template-columns:1fr;gap:34px}
-  .hero{padding-top:44px}
-  .needs{grid-template-columns:repeat(2,1fr)}
-  .steps{grid-template-columns:repeat(2,1fr)}
-  .services,.methods{grid-template-columns:1fr}
+  .hero,.about,.m-grid{grid-template-columns:1fr;gap:36px}
+  .m-intro{position:static}
+  .paths,.services,.methods{grid-template-columns:1fr}
+  .process{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-@media (max-width:620px){
-  .wrap{padding:0 16px}
+@media (max-width:640px){
+  .wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
   nav.wrap{height:64px}
-  .brand small{display:none}
+  .brand-t small,.mark{display:none}
   .nav-right .btn{display:none}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .needs,.steps,.books,.form{grid-template-columns:1fr}
+  .lang button{padding:5px 8px}
+  .hero{padding-block:44px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .process,.tbook-grid,.form{grid-template-columns:1fr}
   .form{padding:20px}
+  .path{padding:22px}
+  .crow{grid-template-columns:1fr;gap:6px}
+  .cfiles{justify-content:flex-start}
   .pub{grid-template-columns:1fr;gap:4px}
   .contact{padding:28px 22px}
-  section{padding:60px 0}
+  section{padding-block:64px}
+  .steps::before{inset-inline-start:19px}
+  .step{grid-template-columns:40px minmax(0,1fr);gap:12px}
+  .step .n{width:40px;height:40px;font-size:.8rem}
 }
+
+/* Portrait + lifecycle */
+.side{position:relative}
+.portrait{margin:0;border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#fff;position:relative}
+.portrait img{display:block;width:100%;height:360px;object-fit:cover;object-position:50% 14%}
+.portrait figcaption{position:absolute;inset:auto 0 0 0;padding:34px 20px 14px;color:#fff;background:linear-gradient(0deg,rgba(14,20,50,.82),rgba(14,20,50,0));font-size:.82rem;line-height:1.35;direction:ltr;text-align:left}
+.portrait figcaption b{display:block;font-family:var(--display);font-size:1.05rem;font-weight:600}
+.side .plot-card{position:relative;width:88%;margin:-56px 0 0 auto}
+#lifecycle{background:var(--surface);border-block:1px solid var(--line)}
+.life{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.lstage{position:relative;background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:22px 20px;display:flex;flex-direction:column;gap:8px;transition:transform .2s,border-color .2s}
+.lstage:hover{transform:translateY(-3px);border-color:var(--saffron)}
+.lstage .ic{width:42px;height:42px;border-radius:12px;background:var(--lapis-soft);color:var(--lapis);display:grid;place-items:center;margin-bottom:4px}
+.lstage .no{position:absolute;top:16px;inset-inline-end:18px;font-family:var(--mono);font-size:.72rem;color:var(--saffron-ink)}
+.lstage h3{font-family:var(--display);font-size:1.12rem;font-weight:600;line-height:1.25}
+.lstage p{color:var(--muted);font-size:.9rem}
+.lstage .go{margin-top:auto;padding-top:6px;font-size:.82rem;font-weight:600;color:var(--lapis)}
+.lstage.cta{background:var(--saffron-soft);border-color:color-mix(in srgb,var(--saffron) 40%,var(--line));justify-content:center;align-items:flex-start}
+@media (max-width:960px){.life{grid-template-columns:repeat(2,minmax(0,1fr))}.portrait img{height:320px}}
+@media (max-width:640px){.life{grid-template-columns:1fr}.side .plot-card{width:100%;margin-top:16px}}
 </style>
 </head>
 <body>
 
 <header>
   <nav class="wrap" aria-label="Main">
-    <a href="#top" class="brand" aria-label="Sayehmiri Biostatistics — led by Prof. Kourosh Sayehmiri"><b>Sayehmiri Biostatistics</b><small>Led by Prof. Kourosh Sayehmiri · دکتر کوروش سایه‌میری</small></a>
+    <a href="#top" class="brand" aria-label="Sayehmiri Biostatistics">
+      <svg class="mark" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="10" fill="var(--btn)"/><path d="M9 12h10M9 18h14M9 24h8" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".55"/><path d="M21 24l4-3.2 4 3.2-4 3.2z" fill="var(--saffron)"/></svg>
+      <span class="brand-t"><b>Sayehmiri Biostatistics</b><small>Prof. Kourosh Sayehmiri · دکتر کوروش سایه‌میری</small></span>
+    </a>
     <div class="nav-right">
       <div class="nav-links">
-        <a href="#needs" data-i18n="nav.start">Start here</a>
-        <a href="#services" data-i18n="nav.services">Services</a>
-        <a href="#methods" data-i18n="nav.methods">Methods</a>
-        <a href="#work" data-i18n="nav.work">Publications</a>
+        <a href="#lifecycle" data-i18n="nav.life">Every stage</a>
+        <a href="#mentorship" data-i18n="nav.mentor">Mentorship</a>
+        <a href="#services" data-i18n="nav.services">Consulting</a>
         <a href="#teaching" data-i18n="nav.teach">Teaching</a>
+        <a href="#work" data-i18n="nav.work">Publications</a>
         <a href="#about" data-i18n="nav.about">About</a>
         <a href="#faq" data-i18n="nav.faq">FAQ</a>
       </div>
       <div class="lang" role="group" aria-label="Language">
-        <button data-lang="en">EN</button>
-        <button data-lang="fa">فارسی</button>
-        <button data-lang="ar">عربي</button>
-        <button data-lang="zh">中文</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="fa">فارسی</button>
+        <button type="button" data-lang="ar">عربي</button>
+        <button type="button" data-lang="zh">中文</button>
       </div>
-      <a href="#brief" class="btn btn-primary btn-sm" data-i18n="nav.cta">Request a quote</a>
+      <a href="#apply" class="btn btn-primary btn-sm" data-i18n="nav.cta">Apply / request</a>
     </div>
   </nav>
 </header>
@@ -259,177 +349,189 @@ footer{padding:30px 0 44px;text-align:center;color:var(--muted);font-size:.8rem}
 <!-- HERO -->
 <div class="wrap hero">
   <div>
-    <div class="eyebrow" data-i18n="hero.eyebrow">Professor of Biostatistics · Remote consulting worldwide</div>
-    <h1 data-i18n-html="hero.title">Statistics that hold up <em>under peer review</em>.</h1>
-    <p class="lead" data-i18n="hero.lead">I design studies, analyse data and write the statistical Methods and Results for clinical and public-health research — from protocol to publication, and through reviewer comments.</p>
+    <span class="eyebrow" data-i18n="hero.eyebrow">Professor of Biostatistics · Meta-analysis mentor</span>
+    <h1 data-i18n-html="hero.title">From research question to <em>published meta-analysis</em>.</h1>
+    <p class="lead" data-i18n="hero.lead">I help health researchers in two ways. I mentor you step by step as you carry out your own meta-analysis, and I provide statistical consulting for studies of every design.</p>
     <div class="ctas">
-      <a href="#needs" class="btn btn-primary" data-i18n="hero.cta1">Tell me what you need</a>
-      <a href="#services" class="btn btn-ghost" data-i18n="hero.cta2">Browse services</a>
+      <a href="#mentorship" class="btn btn-saffron" data-i18n="hero.cta1">Join the mentorship</a>
+      <a href="#services" class="btn btn-ghost" data-i18n="hero.cta2">Statistical consulting</a>
     </div>
     <div class="stats">
       <div><b>400+</b><span data-i18n="stat1">published research articles</span></div>
       <div><b>185+</b><span data-i18n="stat2">systematic reviews &amp; meta-analyses</span></div>
-      <div><b>14,000+</b><span data-i18n="stat3">citations</span></div>
-      <div><b>Top 2%</b><span data-i18n="stat4">World's Top 2% Scientists — listed 5 times</span></div>
+      <div><b>27+</b><span data-i18n="stat3">years teaching and training researchers</span></div>
+      <div><b>Top 2%</b><span data-i18n="stat4">World's Top 2% Scientists, listed 5 times</span></div>
     </div>
   </div>
-
+  <div class="side"><figure class="portrait"><img src="data:image/jpeg;base64,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" alt="Portrait of Prof. Kourosh Sayehmiri" width="480" height="521"><figcaption><b>Prof. Kourosh Sayehmiri, PhD</b>Department of Biostatistics, Ilam University of Medical Sciences</figcaption></figure>
   <div class="plot-card" dir="ltr">
-    <svg viewBox="0 0 380 250" role="img" aria-label="Illustrative forest plot of a random-effects meta-analysis">
-      <g font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a6471">
-        <text x="0" y="16" font-weight="500" fill="#13171c">Study</text>
-        <text x="300" y="16" font-weight="500" fill="#13171c">RR [95% CI]</text>
-      </g>
-      <line x1="196" y1="24" x2="196" y2="214" stroke="#c9d1d5" stroke-dasharray="3 3"/>
-      <line x1="80" y1="214" x2="290" y2="214" stroke="#c9d1d5"/>
-      <g font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#5a6471">
-        <text x="92" y="228" text-anchor="middle">0.5</text>
-        <text x="196" y="228" text-anchor="middle">1</text>
-        <text x="282" y="228" text-anchor="middle">2</text>
-        <text x="120" y="244" text-anchor="middle">favours treatment</text>
-        <text x="258" y="244" text-anchor="middle">favours control</text>
-      </g>
-      <!-- rows: x = 196 + 150*log10(RR)/log10(2)*0.58 approx -->
-      <g font-family="IBM Plex Mono, monospace" font-size="9" fill="#13171c">
-        <g class="fp-row" style="animation-delay:.2s"><text x="0" y="42">Study A 2016</text><line x1="120" y1="39" x2="214" y2="39" stroke="#1d5e72" stroke-width="1.5"/><rect x="157" y="35" width="8" height="8" fill="#1d5e72"/><text x="300" y="42">0.72 [0.48–1.09]</text></g>
-        <g class="fp-row" style="animation-delay:.4s"><text x="0" y="68">Study B 2018</text><line x1="150" y1="65" x2="200" y2="65" stroke="#1d5e72" stroke-width="1.5"/><rect x="168" y="60" width="11" height="11" fill="#1d5e72"/><text x="300" y="68">0.81 [0.69–0.97]</text></g>
-        <g class="fp-row" style="animation-delay:.6s"><text x="0" y="94">Study C 2019</text><line x1="170" y1="91" x2="252" y2="91" stroke="#1d5e72" stroke-width="1.5"/><rect x="200" y="87" width="8" height="8" fill="#1d5e72"/><text x="300" y="94">1.05 [0.84–1.58]</text></g>
-        <g class="fp-row" style="animation-delay:.8s"><text x="0" y="120">Study D 2021</text><line x1="112" y1="117" x2="188" y2="117" stroke="#1d5e72" stroke-width="1.5"/><rect x="144" y="113" width="9" height="9" fill="#1d5e72"/><text x="300" y="120">0.64 [0.45–0.94]</text></g>
-        <g class="fp-row" style="animation-delay:1s"><text x="0" y="146">Study E 2023</text><line x1="158" y1="143" x2="216" y2="143" stroke="#1d5e72" stroke-width="1.5"/><rect x="179" y="137" width="12" height="12" fill="#1d5e72"/><text x="300" y="146">0.88 [0.74–1.10]</text></g>
-        <g class="fp-row" style="animation-delay:1.2s"><text x="0" y="172">Study F 2024</text><line x1="132" y1="169" x2="202" y2="169" stroke="#1d5e72" stroke-width="1.5"/><rect x="162" y="165" width="9" height="9" fill="#1d5e72"/><text x="300" y="172">0.76 [0.57–0.99]</text></g>
-        <g class="fp-diamond"><text x="0" y="200" font-weight="600">Pooled (RE)</text><polygon points="160,197 174,190 188,197 174,204" fill="#c47a22"/><text x="300" y="200" font-weight="600">0.78 [0.68–0.90]</text></g>
-      </g>
+    <svg viewBox="0 0 400 252" role="img" aria-label="Illustrative forest plot of a random-effects meta-analysis">
+      <text x="0" y="14" class="hd">Study</text><text x="308" y="14" class="hd">RR [95% CI]</text>
+      <line x1="200" y1="24" x2="200" y2="214" class="fp-null"/>
+      <line x1="92" y1="214" x2="300" y2="214" class="fp-ax"/>
+      <line x1="110" y1="214" x2="110" y2="218" class="fp-ax"/><line x1="200" y1="214" x2="200" y2="218" class="fp-ax"/><line x1="290" y1="214" x2="290" y2="218" class="fp-ax"/>
+      <text x="110" y="229" text-anchor="middle">0.5</text><text x="200" y="229" text-anchor="middle">1</text><text x="290" y="229" text-anchor="middle">2</text>
+      <text x="150" y="246" text-anchor="middle">favours treatment</text><text x="250" y="246" text-anchor="middle">favours control</text>
+      <g class="fp-row" style="animation-delay:.1s"><text x="0" y="42" class="tk">Study A 2016</text><line x1="104.7" y1="39" x2="211.2" y2="39" class="fp-ci"/><rect x="153.3" y="35" width="8" height="8" class="fp-sq"/><text x="308" y="42" class="tk">0.72 [0.48–1.09]</text></g>
+      <g class="fp-row" style="animation-delay:.25s"><text x="0" y="68" class="tk">Study B 2018</text><line x1="151.8" y1="65" x2="196" y2="65" class="fp-ci"/><rect x="166.6" y="59" width="12" height="12" class="fp-sq"/><text x="308" y="68" class="tk">0.81 [0.69–0.97]</text></g>
+      <g class="fp-row" style="animation-delay:.4s"><text x="0" y="94" class="tk">Study C 2019</text><line x1="177.4" y1="91" x2="259.4" y2="91" class="fp-ci"/><rect x="202.8" y="87.5" width="7" height="7" class="fp-sq"/><text x="308" y="94" class="tk">1.05 [0.84–1.58]</text></g>
+      <g class="fp-row" style="animation-delay:.55s"><text x="0" y="120" class="tk">Study D 2021</text><line x1="96.3" y1="117" x2="192" y2="117" class="fp-ci"/><rect x="137.5" y="112.5" width="9" height="9" class="fp-sq"/><text x="308" y="120" class="tk">0.64 [0.45–0.94]</text></g>
+      <g class="fp-row" style="animation-delay:.7s"><text x="0" y="146" class="tk">Study E 2023</text><line x1="160.9" y1="143" x2="212.4" y2="143" class="fp-ci"/><rect x="177.4" y="137" width="12" height="12" class="fp-sq"/><text x="308" y="146" class="tk">0.88 [0.74–1.10]</text></g>
+      <g class="fp-row" style="animation-delay:.85s"><text x="0" y="172" class="tk">Study F 2024</text><line x1="127" y1="169" x2="198.7" y2="169" class="fp-ci"/><rect x="159.9" y="164.5" width="9" height="9" class="fp-sq"/><text x="308" y="172" class="tk">0.76 [0.57–0.99]</text></g>
+      <g class="fp-row" style="animation-delay:1s"><text x="0" y="199" class="hd">Pooled (RE)</text><polygon points="149.9,196 167.7,189 186.3,196 167.7,203" class="fp-d"/><text x="308" y="199" class="hd">0.78 [0.68–0.90]</text></g>
     </svg>
     <div class="plot-cap"><span data-i18n="plot.cap1">Random-effects meta-analysis (illustrative)</span><span>I² = 41% · τ² = 0.02</span></div>
   </div>
-</div>
-
-<!-- TRUST -->
-<div class="trust">
-  <div class="wrap" dir="ltr">
-    <span class="label" data-i18n="trust.label">Peer reviewer for</span>
-    <ul>
-      <li>BMJ Open</li><li>BMC Public Health</li><li>Journal of Affective Disorders</li><li>BMC Medical Research Methodology</li><li>BMC Women's Health</li>
-    </ul>
   </div>
 </div>
 
-<!-- NEEDS -->
-<section id="needs">
+<div class="trust">
+  <div class="wrap" dir="ltr">
+    <span class="label" data-i18n="trust.label">Peer reviewer for</span>
+    <ul><li>BMJ Open</li><li>BMC Public Health</li><li>Journal of Affective Disorders</li><li>BMC Medical Research Methodology</li><li>BMC Women's Health</li></ul>
+  </div>
+</div>
+
+<!-- LIFECYCLE -->
+<section id="lifecycle">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow" data-i18n="needs.eyebrow">Start here</div>
-      <h2 data-i18n="needs.title">Where is your project right now?</h2>
-      <p data-i18n="needs.sub">Pick the situation closest to yours. It pre-fills the request form, so you can describe your project in about two minutes.</p>
+      <span class="eyebrow" data-i18n="l.eyebrow">The research lifecycle</span>
+      <h2 data-i18n="l.title">Supporting researchers at every stage.</h2>
+      <p data-i18n="l.sub">Researchers and authors are central to everything I do. I work alongside you from manuscript preparation and journal selection through publication, discovery, visualization, education, and post-publication engagement.</p>
     </div>
-    <div class="needs">
-      <div class="need"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d5e72" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
-        <h3 data-i18n="n1.t">I'm planning a study</h3><p data-i18n="n1.d">Design, sample-size calculation and a statistical analysis plan for a proposal, grant or ethics submission.</p>
-        <button data-pick="design" data-stage="Planning" data-i18n="pick">This is my situation →</button></div>
-      <div class="need"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d5e72" stroke-width="1.8"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
-        <h3 data-i18n="n2.t">I have data and need it analysed</h3><p data-i18n="n2.d">Data cleaning, choosing the right model, and publication-ready tables and figures.</p>
-        <button data-pick="analysis" data-stage="Data collected" data-i18n="pick">This is my situation →</button></div>
-      <div class="need"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d5e72" stroke-width="1.8"><path d="M3 6h7M3 11h9M3 16h6"/><rect x="11" y="4.5" width="3" height="3" fill="#1d5e72"/><path d="M14 20l3-2.5 3 2.5-3 2.5z" fill="#c47a22" stroke="#c47a22"/><path d="M17 3v14"/></svg></div>
-        <h3 data-i18n="n3.t">I'm doing a systematic review / meta-analysis</h3><p data-i18n="n3.d">Protocol, search strategy, risk of bias, pooling, network meta-analysis and GRADE.</p>
-        <button data-pick="meta" data-stage="Planning" data-design="Systematic review / meta-analysis" data-i18n="pick">This is my situation →</button></div>
-      <div class="need"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d5e72" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M9 10h.01M12 10h.01M15 10h.01"/></svg></div>
-        <h3 data-i18n="n4.t">Reviewers questioned my statistics</h3><p data-i18n="n4.d">Re-analysis and clear, point-by-point responses to statistical reviewer comments.</p>
-        <button data-pick="reviewer" data-stage="Under peer review" data-i18n="pick">This is my situation →</button></div>
-      <div class="need"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d5e72" stroke-width="1.8"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></div>
-        <h3 data-i18n="n5.t">I'm writing an MSc / PhD thesis</h3><p data-i18n="n5.d">Ongoing statistical advice from proposal to defence.</p>
-        <button data-pick="thesis" data-i18n="pick">This is my situation →</button></div>
-      <div class="need"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d5e72" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14.5 14.5c3 0 6.5 1.5 6.5 5.5"/></svg></div>
-        <h3 data-i18n="n6.t">My team wants to learn</h3><p data-i18n="n6.d">Workshops and one-to-one mentorship in biostatistics, Stata/R and meta-analysis.</p>
-        <button data-pick="training" data-i18n="pick">This is my situation →</button></div>
+    <div class="life">
+      <a class="lstage" href="#services"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/></svg></span><span class="no">01</span><h3 data-i18n="l1.t">Manuscript preparation</h3><p data-i18n="l1.d">Methods and Results written to your target journal's style, following CONSORT, STROBE and PRISMA, with references managed in EndNote.</p><span class="go" data-i18n="l.go">Details ↓</span></a>
+      <a class="lstage" href="#mentorship"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><span class="no">02</span><h3 data-i18n="l2.t">Journal selection</h3><p data-i18n="l2.d">Match your paper to the right journal by scope and study type, and prepare a clear cover letter.</p><span class="go" data-i18n="l.go">Details ↓</span></a>
+      <a class="lstage" href="#services"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l16-8-6 16-3-7z"/></svg></span><span class="no">03</span><h3 data-i18n="l3.t">Publication & peer review</h3><p data-i18n="l3.d">Additional analyses and clear, courteous replies to statistical reviewer comments through every revision round.</p><span class="go" data-i18n="l.go">Details ↓</span></a>
+      <a class="lstage" href="#mentorship"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></span><span class="no">04</span><h3 data-i18n="l4.t">Discovery</h3><p data-i18n="l4.d">Search strategies with MeSH terms and Boolean operators across PubMed, Scopus and Web of Science, and keywords that help readers find your paper.</p><span class="go" data-i18n="l.go">Details ↓</span></a>
+      <a class="lstage" href="#methods"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><span class="no">05</span><h3 data-i18n="l5.t">Visualization</h3><p data-i18n="l5.d">Forest and funnel plots, PRISMA flow diagrams, and clean tables and figures that journals expect.</p><span class="go" data-i18n="l.go">Details ↓</span></a>
+      <a class="lstage" href="#teaching"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span><span class="no">06</span><h3 data-i18n="l6.t">Education</h3><p data-i18n="l6.d">Mentorship, workshops, courses and textbooks that teach you the method while you apply it to your own project.</p><span class="go" data-i18n="l.go">Details ↓</span></a>
+      <a class="lstage" href="#work"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></span><span class="no">07</span><h3 data-i18n="l7.t">Post-publication engagement</h3><p data-i18n="l7.d">Updated analyses, answers to readers' questions, and help sharing your findings through Google Scholar and ResearchGate.</p><span class="go" data-i18n="l.go">Details ↓</span></a>
+      <div class="lstage cta"><h3 data-i18n="lc.t">Not sure which stage you are at?</h3><p data-i18n="lc.d">Tell me where your project stands and I will point you to the right next step.</p><a class="btn btn-saffron btn-sm" href="#apply" data-i18n="lc.b">Describe your project</a></div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
+<!-- TWO PATHS -->
+<section id="paths">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow" data-i18n="paths.eyebrow">Two ways to work together</span>
+      <h2 data-i18n="paths.title">Do you want to learn it, or have it done?</h2>
+      <p data-i18n="paths.sub">Choose the line that fits you. It fills in the application form for you.</p>
+    </div>
+    <div class="paths">
+      <div class="path mentor">
+        <span class="tag" data-i18n="pA.tag">Train with me</span>
+        <h3 data-i18n="pA.t">Meta-analysis Mentorship</h3>
+        <p data-i18n="pA.d">You carry out your own meta-analysis, from title to submitted manuscript, with my guidance at every step.</p>
+        <ul class="sits">
+          <li><button type="button" data-pick="mentorship" data-stage="Not started yet" data-design="Systematic review / meta-analysis" data-i18n="sitA1">I want to learn meta-analysis on my own project</button></li>
+          <li><button type="button" data-pick="workshop" data-stage="Not started yet" data-i18n="sitA2">My university or team wants a workshop</button></li>
+        </ul>
+        <a class="more" href="#mentorship" data-i18n="pA.more">See the 8 stages ↓</a>
+      </div>
+      <div class="path">
+        <span class="tag" data-i18n="pB.tag">Work with me</span>
+        <h3 data-i18n="pB.t">Statistical consulting</h3>
+        <p data-i18n="pB.d">I design, analyse and write up the statistics of your study, and support you through peer review.</p>
+        <ul class="sits">
+          <li><button type="button" data-pick="design" data-stage="Planning" data-i18n="sitB1">I'm planning a study</button></li>
+          <li><button type="button" data-pick="analysis" data-stage="Data collected" data-i18n="sitB2">I have data and need it analysed</button></li>
+          <li><button type="button" data-pick="meta" data-design="Systematic review / meta-analysis" data-i18n="sitB3">I need help with my systematic review or meta-analysis</button></li>
+          <li><button type="button" data-pick="reviewer" data-stage="Under peer review" data-i18n="sitB4">Reviewers questioned my statistics</button></li>
+          <li><button type="button" data-pick="thesis" data-i18n="sitB5">I'm writing an MSc or PhD thesis</button></li>
+        </ul>
+        <a class="more" href="#services" data-i18n="pB.more">See all services ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENTORSHIP -->
+<section id="mentorship">
+  <div class="wrap m-grid">
+    <div class="m-intro">
+      <span class="eyebrow" data-i18n="m.eyebrow">Meta-analysis Mentorship</span>
+      <h2 data-i18n="m.title">Learn meta-analysis by doing your own</h2>
+      <p data-i18n="m.p1">You work on your own title: bring your topic, or I suggest a meta-analysis title in your field. Then, stage by stage, you do every part of the work yourself, and I guide and check each step. You finish as the first author of a manuscript ready for a journal, with the skills to lead the next one on your own.</p>
+      <div class="quote"><q data-i18n="m.quote">Learning by doing</q><span data-i18n="m.quote2">Everything you learn, you apply the same week to your own project.</span></div>
+      <p data-i18n="m.p2">I have trained many researchers in medicine, psychology, nursing and other health sciences. Many of them are now among Iran's leading researchers, and several have been listed among the World's Top 2% Scientists.</p>
+      <div class="m-meta">
+        <div><h4 data-i18n="m.who">Who it's for</h4>
+          <div class="m-chips"><span data-i18n="m.w1">Medicine</span><span data-i18n="m.w2">Psychology</span><span data-i18n="m.w3">Nursing &amp; midwifery</span><span data-i18n="m.w4">Public health &amp; epidemiology</span><span data-i18n="m.w5">Dentistry &amp; pharmacy</span><span data-i18n="m.w6">Other health sciences</span></div></div>
+        <div><h4 data-i18n="m.fmt">Format</h4>
+          <ul class="m-fmt"><li data-i18n="m.fmt1">One-to-one or in a small group</li><li data-i18n="m.fmt2">Online or in person</li><li data-i18n="m.fmt3">No statistics background needed</li><li data-i18n="m.fmt4">Moderate English or Persian is enough</li><li data-i18n="m.fmt5">You are the first author of your paper</li></ul></div>
+        <div><h4 data-i18n="m.extra">Also part of the training</h4>
+          <ul class="m-fmt"><li data-i18n="m.x1">Reference management with EndNote</li><li data-i18n="m.x2">Using AI tools at each stage of research</li><li data-i18n="m.x3">Working with Claude to read, write and revise faster, within journals' AI policies</li></ul></div>
+      </div>
+      <button type="button" class="btn btn-saffron" data-pick="mentorship" data-stage="Not started yet" data-design="Systematic review / meta-analysis" data-i18n="m.cta">Apply for the mentorship</button>
+    </div>
+
+    <ol class="steps">
+      <li class="step"><span class="n">01</span><div class="card"><h3 data-i18n="st1.t">Your own research title</h3><p data-i18n="st1.d">You choose your own topic, or I suggest a meta-analysis title in your field. We check that there is a real research gap and enough studies, then turn it into a focused PICO question.</p><div class="got"><b data-i18n="m.got">You finish with</b><span data-i18n="st1.g">A focused question and protocol</span></div></div></li>
+      <li class="step"><span class="n">02</span><div class="card"><h3 data-i18n="st2.t">Search strategy</h3><p data-i18n="st2.d">You build search strings with keywords, MeSH terms and Boolean operators, and run them in PubMed, Scopus, Web of Science, Embase and national databases.</p><div class="got"><b data-i18n="m.got">You finish with</b><span data-i18n="st2.g">A documented search for every database</span></div></div></li>
+      <li class="step"><span class="n">03</span><div class="card"><h3 data-i18n="st3.t">Study selection</h3><p data-i18n="st3.d">You screen titles, abstracts and full texts against your inclusion and exclusion criteria, and record every decision.</p><div class="got"><b data-i18n="m.got">You finish with</b><span data-i18n="st3.g">A PRISMA flow diagram</span></div></div></li>
+      <li class="step"><span class="n">04</span><div class="card"><h3 data-i18n="st4.t">Data extraction</h3><p data-i18n="st4.d">You design an extraction form and extract sample sizes, effect sizes and study characteristics from each included study.</p><div class="got"><b data-i18n="m.got">You finish with</b><span data-i18n="st4.g">A clean extraction sheet, ready for analysis</span></div></div></li>
+      <li class="step"><span class="n">05</span><div class="card"><h3 data-i18n="st5.t">Quality assessment</h3><p data-i18n="st5.d">You assess risk of bias with the right tool for your designs, such as Newcastle–Ottawa, Cochrane RoB 2, JBI or QUADAS-2.</p><div class="got"><b data-i18n="m.got">You finish with</b><span data-i18n="st5.g">A quality-assessment table</span></div></div></li>
+      <li class="step"><span class="n">06</span><div class="card"><h3 data-i18n="st6.t">Data analysis</h3><p data-i18n="st6.d">You run the meta-analysis yourself in Stata or R: pooling, heterogeneity, subgroup analysis, meta-regression and publication bias.</p><div class="got"><b data-i18n="m.got">You finish with</b><span data-i18n="st6.g">Forest and funnel plots and all results</span></div></div></li>
+      <li class="step"><span class="n">07</span><div class="card"><h3 data-i18n="st7.t">Reporting the results</h3><p data-i18n="st7.d">You interpret and write up the results following PRISMA 2020, with the tables and figures journals expect.</p><div class="got"><b data-i18n="m.got">You finish with</b><span data-i18n="st7.g">A results section with figures</span></div></div></li>
+      <li class="step"><span class="n">08</span><div class="card"><h3 data-i18n="st8.t">Manuscript and submission</h3><p data-i18n="st8.d">You write the introduction and discussion, manage references in EndNote, choose the right journal, prepare the cover letter and learn to respond to reviewers.</p><div class="got"><b data-i18n="m.got">You finish with</b><span data-i18n="st8.g">A manuscript submitted to a journal</span></div></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- CONSULTING -->
 <section id="services">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow" data-i18n="svc.eyebrow">Services</div>
-      <h2 data-i18n="svc.title">Take one piece, or the whole pipeline</h2>
-      <p data-i18n="svc.sub">From the first sample-size calculation to the last reviewer response.</p>
+      <span class="eyebrow" data-i18n="svc.eyebrow">Statistical consulting</span>
+      <h2 data-i18n="svc.title">When you need the statistics done for you</h2>
+      <p data-i18n="svc.sub">Take one piece or the whole pipeline, from the first sample-size calculation to the last reviewer response.</p>
     </div>
     <div class="services">
-      <div class="svc"><span class="n">01</span><div><h3 data-i18n="s1.t">Study design &amp; sample size</h3><p data-i18n="s1.d">Clinical trials, cohort, case-control and cross-sectional designs; power and sample-size calculations; statistical analysis plans.</p></div></div>
-      <div class="svc"><span class="n">02</span><div><h3 data-i18n="s2.t">Statistical analysis</h3><p data-i18n="s2.d">From descriptive statistics to multivariable models, with re-runnable syntax in SPSS, Stata, R, SAS or Python.</p></div></div>
-      <div class="svc featured"><span class="n">03</span><div><h3><span data-i18n="s3.t">Systematic review &amp; meta-analysis</span><span class="pill" data-i18n="featured">Most requested</span></h3><p data-i18n="s3.d">Fixed- and random-effects and network meta-analysis, heterogeneity, subgroup and meta-regression, publication bias, forest and funnel plots, diagnostic-accuracy meta-analysis.</p></div></div>
-      <div class="svc"><span class="n">04</span><div><h3 data-i18n="s4.t">Survival &amp; longitudinal analysis</h3><p data-i18n="s4.d">Kaplan–Meier, Cox models with time-dependent covariates, Weibull/AFT models, competing risks, semi-Markov multistate models, mixed models and GEE.</p></div></div>
-      <div class="svc"><span class="n">05</span><div><h3 data-i18n="s5.t">Methods &amp; Results writing</h3><p data-i18n="s5.d">Statistical sections written to your target journal's style and reporting guidelines (CONSORT, STROBE, PRISMA).</p></div></div>
-      <div class="svc"><span class="n">06</span><div><h3 data-i18n="s6.t">Reviewer-response support</h3><p data-i18n="s6.d">Additional analyses and clear replies to statistical comments during revision.</p></div></div>
-      <div class="svc"><span class="n">07</span><div><h3 data-i18n="s7.t">Thesis &amp; research advisory</h3><p data-i18n="s7.d">Statistical advisor for MSc and PhD students and research teams — design review and second opinions.</p></div></div>
-      <div class="svc featured"><span class="n">08</span><div><h3 data-i18n="s8.t">Workshops &amp; meta-analysis mentorship</h3><p data-i18n="s8.d">Hands-on training: search strategy, risk-of-bias assessment, data extraction, pooling and writing results for high-impact journals.</p></div></div>
+      <div class="svc"><h3 data-i18n="s1.t">Study design &amp; sample size</h3><p data-i18n="s1.d">Clinical trials, cohort, case-control and cross-sectional designs; power and sample-size calculations; statistical analysis plans.</p></div>
+      <div class="svc"><h3 data-i18n="s2.t">Statistical analysis</h3><p data-i18n="s2.d">From descriptive statistics to multivariable models, with re-runnable syntax in SPSS, Stata, R, SAS or Python.</p></div>
+      <div class="svc"><h3><span data-i18n="s3.t">Systematic review &amp; meta-analysis</span><span class="pill" data-i18n="featured">Most requested</span></h3><p data-i18n="s3.d">Fixed- and random-effects and network meta-analysis, heterogeneity, subgroup analysis and meta-regression, publication bias, forest and funnel plots, diagnostic-accuracy meta-analysis.</p></div>
+      <div class="svc"><h3 data-i18n="s4.t">Survival &amp; longitudinal analysis</h3><p data-i18n="s4.d">Kaplan–Meier, Cox models with time-dependent covariates, Weibull/AFT models, competing risks, semi-Markov multistate models, mixed models and GEE.</p></div>
+      <div class="svc"><h3 data-i18n="s5.t">Methods &amp; Results writing</h3><p data-i18n="s5.d">Statistical sections written to your target journal's style and reporting guidelines (CONSORT, STROBE, PRISMA).</p></div>
+      <div class="svc"><h3 data-i18n="s6.t">Reviewer-response support</h3><p data-i18n="s6.d">Additional analyses and clear replies to statistical comments during revision.</p></div>
+      <div class="svc"><h3 data-i18n="s7.t">Thesis &amp; research advisory</h3><p data-i18n="s7.d">Statistical advisor for MSc and PhD students and research teams, from proposal to defence.</p></div>
+      <div class="svc"><h3 data-i18n="s8.t">Workshops for universities &amp; teams</h3><p data-i18n="s8.d">Hands-on workshops in biostatistics, Stata/R, survival analysis and meta-analysis, online or on campus.</p></div>
+    </div>
+    <div class="process">
+      <h4 data-i18n="p.title">How a consulting project runs</h4>
+      <div class="pstep"><span>01</span><h5 data-i18n="p1.t">Send your question</h5><p data-i18n="p1.d">A short description, your data (or a sample) and your deadline.</p></div>
+      <div class="pstep"><span>02</span><h5 data-i18n="p2.t">Scope &amp; quote</h5><p data-i18n="p2.d">I reply with recommended methods, a timeline and a quote before any work starts.</p></div>
+      <div class="pstep"><span>03</span><h5 data-i18n="p3.t">Analysis</h5><p data-i18n="p3.d">Full analysis with tables, figures and the syntax, so every result is reproducible.</p></div>
+      <div class="pstep"><span>04</span><h5 data-i18n="p4.t">Write-up &amp; revisions</h5><p data-i18n="p4.d">Methods and Results text, plus support through peer review.</p></div>
     </div>
   </div>
 </section>
 
 <!-- METHODS -->
-<section id="methods">
+<section id="methods" style="padding-top:0">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow" data-i18n="m.eyebrow">Methods</div>
-      <h2 data-i18n="m.title">Models I work with</h2>
-      <p data-i18n="m.sub">For when you already know which method your study needs.</p>
+      <span class="eyebrow" data-i18n="mt.eyebrow">Methods</span>
+      <h2 data-i18n="mt.title">Models I work with</h2>
     </div>
     <div class="methods">
-      <div class="mcat"><h3 data-i18n="m.c1">Evidence synthesis</h3><div class="chips"><span>Pairwise meta-analysis</span><span>Network meta-analysis</span><span>Meta-regression</span><span>Subgroup &amp; sensitivity</span><span>Publication bias</span><span>Diagnostic-accuracy MA</span><span>Risk of bias / GRADE</span><span>Cochrane methods</span></div></div>
-      <div class="mcat"><h3 data-i18n="m.c2">Time-to-event</h3><div class="chips"><span>Kaplan–Meier &amp; log-rank</span><span>Cox regression</span><span>Time-dependent covariates</span><span>Weibull / AFT models</span><span>Competing risks</span><span>Semi-Markov multistate</span><span>Cure models</span><span>Random survival forest</span></div></div>
-      <div class="mcat"><h3 data-i18n="m.c3">Regression &amp; longitudinal</h3><div class="chips"><span>Generalized linear models</span><span>Logistic / ordinal logistic</span><span>Linear mixed models</span><span>GEE</span><span>Nonlinear regression</span><span>Time series (Box–Jenkins)</span><span>Epidemic (SIR) models</span></div></div>
-      <div class="mcat"><h3 data-i18n="m.c4">Multivariate, prediction &amp; ML</h3><div class="chips"><span>Structural equation models</span><span>Factor analysis</span><span>Principal component analysis</span><span>Discriminant function</span><span>ROC analysis</span><span>Classification trees (CART)</span><span>Population attributable fraction</span></div></div>
+      <div class="mcat"><h3 data-i18n="mt.c1">Evidence synthesis</h3><div class="chips"><span>Pairwise meta-analysis</span><span>Network meta-analysis</span><span>Meta-regression</span><span>Subgroup &amp; sensitivity</span><span>Publication bias</span><span>Diagnostic-accuracy MA</span><span>Risk of bias / GRADE</span><span>Cochrane methods</span></div></div>
+      <div class="mcat"><h3 data-i18n="mt.c2">Time-to-event</h3><div class="chips"><span>Kaplan–Meier &amp; log-rank</span><span>Cox regression</span><span>Time-dependent covariates</span><span>Weibull / AFT models</span><span>Competing risks</span><span>Semi-Markov multistate</span><span>Cure models</span><span>Random survival forest</span></div></div>
+      <div class="mcat"><h3 data-i18n="mt.c3">Regression &amp; longitudinal</h3><div class="chips"><span>Generalized linear models</span><span>Logistic / ordinal logistic</span><span>Linear mixed models</span><span>GEE</span><span>Nonlinear regression</span><span>Time series (Box–Jenkins)</span><span>Epidemic (SIR) models</span></div></div>
+      <div class="mcat"><h3 data-i18n="mt.c4">Multivariate, prediction &amp; machine learning</h3><div class="chips"><span>Structural equation models</span><span>Factor analysis</span><span>Principal component analysis</span><span>Discriminant function</span><span>ROC analysis</span><span>Classification trees (CART)</span><span>Population attributable fraction</span></div></div>
     </div>
-    <div class="software" dir="ltr"><b data-i18n="m.sw">Software</b><span>SPSS</span><span>Stata</span><span>R</span><span>SAS</span><span>Python</span><span>RevMan</span><span>Meta-DiSc</span></div>
+    <div class="software" dir="ltr"><b data-i18n="mt.sw">Software</b><span>SPSS</span><span>Stata</span><span>R</span><span>SAS</span><span>Python</span><span>RevMan</span><span>Meta-DiSc</span></div>
   </div>
 </section>
 
-<!-- PROCESS -->
-<section id="process">
-  <div class="wrap">
-    <div class="head">
-      <div class="eyebrow" data-i18n="p.eyebrow">Process</div>
-      <h2 data-i18n="p.title">How a project runs</h2>
-      <p data-i18n="p.sub">The same four steps whether it's a single analysis or a full manuscript.</p>
-    </div>
-    <div class="steps">
-      <div class="step"><span class="n">01</span><h3 data-i18n="p1.t">Send your question</h3><p data-i18n="p1.d">A short description, your data (or a sample) and your deadline.</p></div>
-      <div class="step"><span class="n">02</span><h3 data-i18n="p2.t">Scope &amp; quote</h3><p data-i18n="p2.d">I reply with recommended methods, a timeline and a quote before any work starts.</p></div>
-      <div class="step"><span class="n">03</span><h3 data-i18n="p3.t">Analysis</h3><p data-i18n="p3.d">Full analysis with tables, figures and the syntax, so every result is reproducible.</p></div>
-      <div class="step"><span class="n">04</span><h3 data-i18n="p4.t">Write-up &amp; revisions</h3><p data-i18n="p4.d">Methods and Results text, plus support through peer review.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- PUBLICATIONS -->
-<section id="work">
-  <div class="wrap">
-    <div class="head">
-      <div class="eyebrow" data-i18n="w.eyebrow">Track record</div>
-      <h2 data-i18n="w.title">Selected publications</h2>
-      <p data-i18n="w.sub">A small sample of more than 400 articles. The full list is on Google Scholar.</p>
-    </div>
-    <div class="pubs">
-      <div class="pub"><span class="y">2025</span><div><div class="t">Comparing the effectiveness of rosuvastatin and atorvastatin on LDL, TG and HDL: a systematic review and meta-analysis</div><div class="j">Life Sciences</div></div><span></span></div>
-      <div class="pub"><span class="y">2024</span><div><div class="t">Predicting suicidal behavior outcomes: an analysis of key factors and machine learning models</div><div class="j">BMC Psychiatry 24, 841</div></div><a href="https://doi.org/10.1186/s12888-024-06273-2" target="_blank" rel="noopener">DOI ↗</a></div>
-      <div class="pub"><span class="y">2024</span><div><div class="t">Emotional intelligence, spiritual intelligence and student achievement: a systematic review and meta-analysis</div><div class="j">BMC Medical Education 24, 217</div></div><a href="https://doi.org/10.1186/s12909-024-05208-5" target="_blank" rel="noopener">DOI ↗</a></div>
-      <div class="pub"><span class="y">2020</span><div><div class="t">The relationship between personality traits and marital satisfaction: a systematic review and meta-analysis</div><div class="j">BMC Psychology 8, 15</div></div><span></span></div>
-      <div class="pub"><span class="y">2019</span><div><div class="t">Prevalence of unwanted pregnancy among Iranian women: an updated meta-analysis</div><div class="j">BMC Pregnancy and Childbirth 19, 491</div></div><a href="https://doi.org/10.1186/s12884-019-2640-9" target="_blank" rel="noopener">DOI ↗</a></div>
-      <div class="pub"><span class="y">2017</span><div><div class="t">Mass media interventions for preventing smoking in young people</div><div class="j">Cochrane Database of Systematic Reviews</div></div><a href="https://doi.org/10.1002/14651858.CD001006.pub3" target="_blank" rel="noopener">DOI ↗</a></div>
-      <div class="pub"><span class="y">2008</span><div><div class="t">Prognostic factors of survival after haematopoietic stem cell transplant in ALL: Cox vs accelerated failure time models</div><div class="j">Journal of Experimental &amp; Clinical Cancer Research 27:74</div></div><a href="https://doi.org/10.1186/1756-9966-27-74" target="_blank" rel="noopener">DOI ↗</a></div>
-    </div>
-    <div class="more">
-      <a class="btn btn-ghost btn-sm" href="https://scholar.google.com/citations?user=KaWMGUAAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
-      <a class="btn btn-ghost btn-sm" href="https://www.researchgate.net/profile/Kourosh_Sayehmiri2" target="_blank" rel="noopener">ResearchGate ↗</a>
-    </div>
-  </div>
-</section>
-
-<!-- TEACHING / COURSE MATERIALS -->
+<!-- TEACHING -->
 <section id="teaching">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow" data-i18n="t.eyebrow">For my students</div>
+      <span class="eyebrow" data-i18n="t.eyebrow">For my students</span>
       <h2 data-i18n="t.title">Courses &amp; teaching materials</h2>
       <p data-i18n="t.sub">Syllabi, slides, notes and exercises for the courses I teach at Ilam University of Medical Sciences. Choose your course and download what you need.</p>
     </div>
@@ -447,16 +549,40 @@ footer{padding:30px 0 44px;text-align:center;color:var(--muted);font-size:.8rem}
   </div>
 </section>
 
+<!-- PUBLICATIONS -->
+<section id="work">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow" data-i18n="w.eyebrow">Track record</span>
+      <h2 data-i18n="w.title">Selected publications</h2>
+      <p data-i18n="w.sub">A small sample of more than 400 articles. The full list is on Google Scholar.</p>
+    </div>
+    <div class="pubs">
+      <div class="pub"><span class="y">2025</span><div><div class="t">Comparing the effectiveness of rosuvastatin and atorvastatin on LDL, TG and HDL: a systematic review and meta-analysis</div><div class="j">Life Sciences</div></div><span></span></div>
+      <div class="pub"><span class="y">2024</span><div><div class="t">Predicting suicidal behavior outcomes: an analysis of key factors and machine learning models</div><div class="j">BMC Psychiatry 24, 841</div></div><a href="https://doi.org/10.1186/s12888-024-06273-2" target="_blank" rel="noopener">DOI ↗</a></div>
+      <div class="pub"><span class="y">2024</span><div><div class="t">Emotional intelligence, spiritual intelligence and student achievement: a systematic review and meta-analysis</div><div class="j">BMC Medical Education 24, 217</div></div><a href="https://doi.org/10.1186/s12909-024-05208-5" target="_blank" rel="noopener">DOI ↗</a></div>
+      <div class="pub"><span class="y">2020</span><div><div class="t">The relationship between personality traits and marital satisfaction: a systematic review and meta-analysis</div><div class="j">BMC Psychology 8, 15</div></div><span></span></div>
+      <div class="pub"><span class="y">2019</span><div><div class="t">Prevalence of unwanted pregnancy among Iranian women: an updated meta-analysis</div><div class="j">BMC Pregnancy and Childbirth 19, 491</div></div><a href="https://doi.org/10.1186/s12884-019-2640-9" target="_blank" rel="noopener">DOI ↗</a></div>
+      <div class="pub"><span class="y">2017</span><div><div class="t">Mass media interventions for preventing smoking in young people</div><div class="j">Cochrane Database of Systematic Reviews</div></div><a href="https://doi.org/10.1002/14651858.CD001006.pub3" target="_blank" rel="noopener">DOI ↗</a></div>
+      <div class="pub"><span class="y">2008</span><div><div class="t">Prognostic factors of survival after haematopoietic stem cell transplant in ALL: Cox vs accelerated failure time models</div><div class="j">Journal of Experimental &amp; Clinical Cancer Research 27:74</div></div><a href="https://doi.org/10.1186/1756-9966-27-74" target="_blank" rel="noopener">DOI ↗</a></div>
+    </div>
+    <div class="more">
+      <a class="btn btn-ghost btn-sm" href="https://scholar.google.com/citations?user=KaWMGUAAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
+      <a class="btn btn-ghost btn-sm" href="https://www.researchgate.net/profile/Kourosh_Sayehmiri2" target="_blank" rel="noopener">ResearchGate ↗</a>
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
-<section id="about">
+<section id="about" style="padding-top:0">
   <div class="wrap about">
     <div>
-      <div class="eyebrow" data-i18n="a.eyebrow">About</div>
+      <span class="eyebrow" data-i18n="a.eyebrow">About</span>
       <h2 data-i18n="a.title">Kourosh Sayehmiri, PhD</h2>
-      <p data-i18n="a.p1">Professor of Biostatistics and Head of the Department of Biostatistics at Ilam University of Medical Sciences. For more than 27 years I have designed studies, chosen analysis methods and reported findings for clinical and public-health research — contributing to over 400 published articles and 185+ systematic reviews and meta-analyses, including a Cochrane review.</p>
-      <p data-i18n="a.p2">I hold a PhD and MSc in Biostatistics from Tehran University of Medical Sciences and completed a fellowship in semi-Markov models at the University of Nantes, France. I teach biostatistics, survival analysis, regression, categorical and multivariate data analysis to MSc and PhD students, and have run meta-analysis and statistics workshops at universities in Iran and abroad.</p>
-      <p data-i18n="a.p3">Projects run fully remote: data, questions and drafts move by email, with a call whenever it's quicker to talk.</p>
-      <a class="btn btn-ghost btn-sm" id="cvLink" href="https://drive.google.com/file/d/1j5kOX9DpjhH4ZDkUg_ILBblndv7zmUlu/view?usp=sharing" target="_blank" rel="noopener" data-i18n="a.cv">View full CV ↗</a>
+      <p data-i18n="a.p1">Professor of Biostatistics and Head of the Department of Biostatistics at Ilam University of Medical Sciences. For more than 27 years I have designed studies, chosen analysis methods and reported findings for clinical and public-health research. I have contributed to over 400 published articles and 185+ systematic reviews and meta-analyses, including a Cochrane review.</p>
+      <p data-i18n="a.p2">I hold a PhD and MSc in Biostatistics from Tehran University of Medical Sciences and completed a fellowship in semi-Markov models at the University of Nantes, France. I teach biostatistics, survival analysis, regression and multivariate analysis to MSc and PhD students, and I have run meta-analysis workshops and mentored researchers at universities in Iran and abroad.</p>
+      <p data-i18n="a.p3">Mentorship and consulting both run remotely or in person: files and drafts move by email, with a call whenever it's quicker to talk.</p>
+      <a class="btn btn-ghost btn-sm" href="https://drive.google.com/file/d/1j5kOX9DpjhH4ZDkUg_ILBblndv7zmUlu/view?usp=sharing" target="_blank" rel="noopener" data-i18n="a.cv">View full CV ↗</a>
     </div>
     <dl class="cred">
       <div><dt data-i18n="c1.l">Education</dt><dd data-i18n="c1.v">PhD &amp; MSc Biostatistics, Tehran University of Medical Sciences · Fellowship, University of Nantes</dd></div>
@@ -468,18 +594,20 @@ footer{padding:30px 0 44px;text-align:center;color:var(--muted);font-size:.8rem}
   </div>
 </section>
 
-<!-- BRIEF FORM -->
-<section id="brief">
+<!-- APPLY / REQUEST -->
+<section id="apply">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow" data-i18n="b.eyebrow">Request a quote</div>
-      <h2 data-i18n="b.title">Tell me about your project</h2>
-      <p data-i18n="b.sub">Takes about two minutes. Your brief opens as an email to me — nothing is stored on this website.</p>
+      <span class="eyebrow" data-i18n="b.eyebrow">Apply or request a quote</span>
+      <h2 data-i18n="b.title">Apply for the mentorship or describe your project</h2>
+      <p data-i18n="b.sub">Takes about two minutes. Your message opens as an email to me. Nothing is stored on this website.</p>
     </div>
     <form class="form" id="briefForm" novalidate>
       <fieldset class="field full">
-        <legend data-i18n="f.need">What do you need? (choose any)</legend>
+        <legend data-i18n="f.need">What are you interested in? (choose any)</legend>
         <div class="checks" id="needChecks">
+          <label class="hl"><input type="checkbox" value="mentorship"><span data-i18n="pA.t">Meta-analysis Mentorship</span></label>
+          <label><input type="checkbox" value="workshop"><span data-i18n="s8.t">Workshops for universities &amp; teams</span></label>
           <label><input type="checkbox" value="design"><span data-i18n="s1.t">Study design &amp; sample size</span></label>
           <label><input type="checkbox" value="analysis"><span data-i18n="s2.t">Statistical analysis</span></label>
           <label><input type="checkbox" value="meta"><span data-i18n="s3.t">Systematic review &amp; meta-analysis</span></label>
@@ -487,11 +615,21 @@ footer{padding:30px 0 44px;text-align:center;color:var(--muted);font-size:.8rem}
           <label><input type="checkbox" value="writing"><span data-i18n="s5.t">Methods &amp; Results writing</span></label>
           <label><input type="checkbox" value="reviewer"><span data-i18n="s6.t">Reviewer-response support</span></label>
           <label><input type="checkbox" value="thesis"><span data-i18n="s7.t">Thesis &amp; research advisory</span></label>
-          <label><input type="checkbox" value="training"><span data-i18n="s8.t">Workshops &amp; meta-analysis mentorship</span></label>
         </div>
       </fieldset>
+      <div class="field"><label for="field" data-i18n="f.field">Your field</label>
+        <select id="field">
+          <option value="—" data-i18n="o.fd0">Choose your field</option>
+          <option value="Medicine" data-i18n="m.w1">Medicine</option>
+          <option value="Psychology" data-i18n="m.w2">Psychology</option>
+          <option value="Nursing & midwifery" data-i18n="m.w3">Nursing &amp; midwifery</option>
+          <option value="Public health & epidemiology" data-i18n="m.w4">Public health &amp; epidemiology</option>
+          <option value="Dentistry & pharmacy" data-i18n="m.w5">Dentistry &amp; pharmacy</option>
+          <option value="Other" data-i18n="m.w6">Other health sciences</option>
+        </select></div>
       <div class="field"><label for="stage" data-i18n="f.stage">Project stage</label>
         <select id="stage">
+          <option value="Not started yet" data-i18n="o.st0">Not started yet</option>
           <option value="Planning" data-i18n="o.st1">Planning</option>
           <option value="Data collected" data-i18n="o.st2">Data collected</option>
           <option value="Analysis started" data-i18n="o.st3">Analysis started</option>
@@ -501,29 +639,25 @@ footer{padding:30px 0 44px;text-align:center;color:var(--muted);font-size:.8rem}
       <div class="field"><label for="design" data-i18n="f.design">Study type</label>
         <select id="design">
           <option value="Not sure" data-i18n="o.d0">Not sure yet</option>
+          <option value="Systematic review / meta-analysis" data-i18n="o.d5">Systematic review / meta-analysis</option>
           <option value="Randomized clinical trial" data-i18n="o.d1">Randomized clinical trial</option>
           <option value="Cohort" data-i18n="o.d2">Cohort</option>
           <option value="Case-control" data-i18n="o.d3">Case-control</option>
           <option value="Cross-sectional" data-i18n="o.d4">Cross-sectional</option>
-          <option value="Systematic review / meta-analysis" data-i18n="o.d5">Systematic review / meta-analysis</option>
           <option value="Other" data-i18n="o.d6">Other</option>
-        </select></div>
-      <div class="field"><label for="software" data-i18n="f.sw">Preferred software</label>
-        <select id="software">
-          <option value="No preference" data-i18n="o.sw0">No preference</option>
-          <option>SPSS</option><option>Stata</option><option>R</option><option>SAS</option><option>Python</option><option>RevMan</option>
         </select></div>
       <div class="field"><label for="deadline" data-i18n="f.deadline">Deadline (if any)</label><input type="date" id="deadline"></div>
       <div class="field"><label for="name" data-i18n="f.name">Your name</label><input id="name" autocomplete="name"></div>
       <div class="field"><label for="email" data-i18n="f.email">Your email</label><input id="email" type="email" autocomplete="email" dir="ltr"></div>
-      <div class="field full"><label for="inst" data-i18n="f.inst">Institution / country (optional)</label><input id="inst" autocomplete="organization"></div>
-      <div class="field full"><label for="msg" data-i18n="f.msg">Briefly describe your research question and data</label>
-        <textarea id="msg" data-i18n-ph="f.ph" placeholder="e.g. 3 treatment groups, 240 patients, outcome = 1-year survival; target journal …"></textarea></div>
+      <div class="field full"><label for="inst" data-i18n="f.inst">University / institution and country</label><input id="inst" autocomplete="organization"></div>
+      <div class="field full"><label for="msg" data-i18n="f.msg">Tell me about your topic or project</label>
+        <textarea id="msg" data-i18n-ph="f.ph" placeholder="e.g. I'm a nursing PhD student interested in a meta-analysis on burnout among ICU nurses. Or: 3 treatment groups, 240 patients, outcome = 1-year survival."></textarea></div>
       <div class="form-actions">
-        <button type="submit" class="btn btn-primary" data-i18n="f.send">Send by email</button>
-        <button type="button" class="btn btn-ghost" id="copyBtn" data-i18n="f.copy">Copy brief</button>
+        <button type="submit" class="btn btn-saffron" data-i18n="f.send">Send by email</button>
+        <button type="button" class="btn btn-ghost" id="copyBtn" data-i18n="f.copy">Copy message</button>
         <span class="note" id="formNote" aria-live="polite"></span>
       </div>
+      <p class="mailline"><span data-i18n="f.or">Or write directly to</span> <b id="mailAddr">kourosh86@gmail.com</b></p>
     </form>
   </div>
 </section>
@@ -532,336 +666,53 @@ footer{padding:30px 0 44px;text-align:center;color:var(--muted);font-size:.8rem}
 <section id="faq">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow" data-i18n="q.eyebrow">FAQ</div>
+      <span class="eyebrow" data-i18n="q.eyebrow">FAQ</span>
       <h2 data-i18n="q.title">Common questions</h2>
     </div>
     <div class="faq">
-      <details><summary data-i18n="q1">How much does it cost?</summary><p data-i18n="a1">Every project is quoted individually once I have seen the question and data. You receive a quote before any work begins.</p></details>
-      <details><summary data-i18n="q2">How long does it take?</summary><p data-i18n="a2">It depends on the scope: a single analysis is much quicker than a full systematic review. You'll get a timeline together with the quote.</p></details>
+      <details><summary data-i18n="q7">Do I need a statistics background for the mentorship?</summary><p data-i18n="a7">No. Each stage starts by teaching the method, and then you apply it to your own project. A moderate level of English or Persian is enough to follow the training.</p></details>
+      <details><summary data-i18n="q8">How long does the mentorship take?</summary><p data-i18n="a8">It depends on the size of your topic and how much time you can give each week. We agree a schedule at the start.</p></details>
+      <details><summary data-i18n="q9">Whose name goes on the paper?</summary><p data-i18n="a9">Yours. The paper is your own work and you are its first author. Any other authors are agreed at the start, following ICMJE criteria.</p></details>
+      <details><summary data-i18n="q1">How much does it cost?</summary><p data-i18n="a1">Mentorship and consulting projects are quoted individually. You receive the fee before any work begins.</p></details>
       <details><summary data-i18n="q3">Is my data kept confidential?</summary><p data-i18n="a3">Yes. Your data are used only for your project and are not shared with anyone. Anonymised data are preferred.</p></details>
-      <details><summary data-i18n="q4">Which software will you use?</summary><p data-i18n="a4">Whatever suits your team — SPSS, Stata, R, SAS or Python. You receive the syntax so every analysis can be re-run.</p></details>
+      <details><summary data-i18n="q4">Which software will you use?</summary><p data-i18n="a4">Whatever suits your team: SPSS, Stata, R, SAS or Python. You receive the syntax so every analysis can be re-run.</p></details>
       <details><summary data-i18n="q5">Can you help after I submit my paper?</summary><p data-i18n="a5">Yes. I support additional analyses and responses to statistical reviewer comments during revision.</p></details>
-      <details><summary data-i18n="q6">Do you run workshops for institutions?</summary><p data-i18n="a6">Yes — biostatistics, survival analysis, Stata/R and systematic review &amp; meta-analysis workshops, online or in person.</p></details>
+      <details><summary data-i18n="q6">Do you run workshops for institutions?</summary><p data-i18n="a6">Yes. Biostatistics, survival analysis, Stata/R and systematic review &amp; meta-analysis workshops, online or in person.</p></details>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section>
+<section style="padding-top:0">
   <div class="wrap">
     <div class="contact">
       <div>
-        <h2 data-i18n="ct.title">Have data and a deadline?</h2>
-        <p data-i18n="ct.sub">Send a short description of your study — I'll reply with the scope, a timeline and a quote.</p>
+        <h2 data-i18n="ct.title">Ready to start?</h2>
+        <p data-i18n="ct.sub">Apply for the mentorship or send a short description of your study. I'll reply with the next steps, a timeline and a quote.</p>
         <div class="em" id="contactLine">kourosh86@gmail.com</div>
       </div>
-      <a class="btn" href="#brief" data-i18n="ct.btn">Start your request</a>
+      <a class="btn btn-saffron" href="#apply" data-i18n="ct.btn">Apply or request</a>
     </div>
   </div>
 </section>
 
 </main>
 
-<footer><div class="wrap"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--ink);font-size:.95rem;margin-bottom:4px">Sayehmiri Biostatistics</div><div style="margin-bottom:6px" dir="ltr">Led by Prof. Kourosh Sayehmiri, PhD · Department of Biostatistics, Ilam University of Medical Sciences</div><span>© <span id="yr"></span> Sayehmiri Biostatistics · </span><span data-i18n="footer">Biostatistics consulting — study design, statistical analysis, meta-analysis and manuscript support</span></div></footer>
+<footer><div class="wrap">
+  <div class="fn">Sayehmiri Biostatistics</div>
+  <div dir="ltr">Led by Prof. Kourosh Sayehmiri, PhD · Department of Biostatistics, Ilam University of Medical Sciences</div>
+  <div style="margin-top:6px"><span>© <span id="yr"></span> Sayehmiri Biostatistics · </span><span data-i18n="footer">Meta-analysis mentorship and biostatistics consulting for health researchers</span></div>
+</div></footer>
 
 <script>
 /* ===== Settings you can edit ===== */
 const CONTACT_EMAIL = 'kourosh86@gmail.com';
 const PHONE = '';  // e.g. '+98 918 000 0000' — leave empty to hide
 
-/* ===== Translations ===== */
-const T = {
-en:{},  // English is the text already in the page
-fa:{
-'a.cv':'مشاهده رزومه کامل ↗','nav.teach':'آموزش','t.eyebrow':'برای دانشجویان','t.title':'دروس و منابع آموزشی','t.sub':'طرح درس، اسلاید، جزوه و تمرین دروسی که در دانشگاه علوم پزشکی ایلام تدریس می‌کنم. درس خود را انتخاب کنید و فایل‌ها را دانلود کنید.','t.all':'همه دروس','t.grad':'ارشد و دکتری','t.ug':'کارشناسی و پزشکی','t.books':'کتاب‌های دکتر سایه‌میری','t.note':'این منابع برای مطالعه شخصی دانشجویان است. برای کتاب‌های سایر نویسندگان از کتابخانه استفاده کنید یا نسخه خود را تهیه کنید.',
-'nav.start':'شروع','nav.services':'خدمات','nav.methods':'روش‌ها','nav.work':'مقالات','nav.about':'درباره من','nav.faq':'پرسش‌ها','nav.cta':'درخواست مشاوره',
-'hero.eyebrow':'استاد آمار زیستی · مشاوره از راه دور در سراسر جهان',
-'hero.title':'تحلیل آماری که <em>در داوری</em> سربلند بیرون می‌آید.',
-'hero.lead':'طراحی مطالعه، تحلیل داده و نگارش بخش روش‌ها و نتایج آماری پژوهش‌های بالینی و بهداشت عمومی — از پروپوزال تا انتشار و پاسخ به داوران.',
-'hero.cta1':'نیازتان را بگویید','hero.cta2':'مشاهده خدمات',
-'stat1':'مقاله پژوهشی منتشرشده','stat2':'مرور سیستماتیک و متاآنالیز','stat3':'استناد','stat4':'جزو ۲٪ دانشمندان برتر جهان — ۵ دوره',
-'plot.cap1':'متاآنالیز اثرات تصادفی (نمونه)','trust.label':'داور مجلات',
-'needs.eyebrow':'از اینجا شروع کنید','needs.title':'پروژه شما الان در چه مرحله‌ای است؟','needs.sub':'نزدیک‌ترین وضعیت را انتخاب کنید؛ فرم درخواست به‌صورت خودکار پر می‌شود و در حدود دو دقیقه می‌توانید پروژه‌تان را شرح دهید.',
-'n1.t':'در حال طراحی مطالعه هستم','n1.d':'طراحی، محاسبه حجم نمونه و برنامه تحلیل آماری برای پروپوزال، طرح پژوهشی یا کمیته اخلاق.',
-'n2.t':'داده دارم و تحلیل می‌خواهم','n2.d':'پاکسازی داده، انتخاب مدل مناسب و جداول و نمودارهای آماده انتشار.',
-'n3.t':'مرور سیستماتیک / متاآنالیز انجام می‌دهم','n3.d':'پروتکل، استراتژی جستجو، ارزیابی خطر سوگیری، ترکیب نتایج، متاآنالیز شبکه‌ای و GRADE.',
-'n4.t':'داوران به آمار مقاله‌ام ایراد گرفته‌اند','n4.d':'تحلیل مجدد و پاسخ دقیق و بند‌به‌بند به نظرات آماری داوران.',
-'n5.t':'پایان‌نامه ارشد / دکتری می‌نویسم','n5.d':'مشاوره آماری مستمر از پروپوزال تا دفاع.',
-'n6.t':'تیم ما می‌خواهد یاد بگیرد','n6.d':'کارگاه و آموزش فردی آمار زیستی، Stata/R و متاآنالیز.',
-'pick':'این وضعیت من است ←',
-'svc.eyebrow':'خدمات','svc.title':'یک بخش یا کل مسیر را به من بسپارید','svc.sub':'از اولین محاسبه حجم نمونه تا آخرین پاسخ به داور.',
-'s1.t':'طراحی مطالعه و حجم نمونه','s1.d':'کارآزمایی بالینی، کوهورت، مورد-شاهدی و مقطعی؛ محاسبه توان و حجم نمونه؛ برنامه تحلیل آماری.',
-'s2.t':'تحلیل آماری','s2.d':'از آمار توصیفی تا مدل‌های چندمتغیره، همراه با کد قابل اجرای مجدد در SPSS، Stata، R، SAS یا Python.',
-'s3.t':'مرور سیستماتیک و متاآنالیز','featured':'پرتقاضاترین','s3.d':'متاآنالیز اثرات ثابت، تصادفی و شبکه‌ای، ناهمگونی، زیرگروه و متارگرسیون، سوگیری انتشار، نمودار جنگلی و قیفی، متاآنالیز دقت تشخیصی.',
-'s4.t':'تحلیل بقا و داده‌های طولی','s4.d':'کاپلان-مایر، مدل کاکس با متغیرهای وابسته به زمان، مدل‌های ویبول/AFT، خطرات رقابتی، مدل‌های چندحالته نیمه‌مارکف، مدل‌های آمیخته و GEE.',
-'s5.t':'نگارش روش‌ها و نتایج','s5.d':'نگارش بخش‌های آماری مطابق سبک مجله هدف و راهنماهای گزارش‌دهی (CONSORT، STROBE، PRISMA).',
-'s6.t':'پشتیبانی پاسخ به داوران','s6.d':'تحلیل‌های تکمیلی و پاسخ روشن به نظرات آماری در مرحله اصلاح.',
-'s7.t':'مشاوره پایان‌نامه و پژوهش','s7.d':'مشاور آماری دانشجویان ارشد و دکتری و تیم‌های پژوهشی — بازبینی طراحی و نظر دوم.',
-'s8.t':'کارگاه و راهنمایی متاآنالیز','s8.d':'آموزش عملی: استراتژی جستجو، ارزیابی خطر سوگیری، استخراج داده، ترکیب نتایج و نگارش برای مجلات معتبر.',
-'m.eyebrow':'روش‌ها','m.title':'مدل‌هایی که با آن‌ها کار می‌کنم','m.sub':'برای زمانی که می‌دانید مطالعه‌تان به چه روشی نیاز دارد.',
-'m.c1':'ترکیب شواهد','m.c2':'تحلیل زمان تا رویداد','m.c3':'رگرسیون و داده‌های طولی','m.c4':'چندمتغیره، پیش‌بینی و یادگیری ماشین','m.sw':'نرم‌افزار',
-'p.eyebrow':'فرآیند','p.title':'روند انجام پروژه','p.sub':'چهار گام یکسان، چه یک تحلیل ساده و چه یک مقاله کامل.',
-'p1.t':'سؤال خود را بفرستید','p1.d':'توضیح کوتاه، داده‌ها (یا نمونه‌ای از آن) و مهلت زمانی.',
-'p2.t':'تعیین دامنه و هزینه','p2.d':'پیش از شروع کار، روش‌های پیشنهادی، زمان‌بندی و هزینه را اعلام می‌کنم.',
-'p3.t':'تحلیل','p3.d':'تحلیل کامل با جداول، نمودارها و کد، تا همه نتایج قابل تکرار باشند.',
-'p4.t':'نگارش و اصلاحات','p4.d':'متن روش‌ها و نتایج، به همراه پشتیبانی در طول داوری.',
-'w.eyebrow':'سوابق','w.title':'مقالات منتخب','w.sub':'نمونه‌ای کوچک از بیش از ۴۰۰ مقاله. فهرست کامل در گوگل اسکالر.',
-'a.eyebrow':'درباره من','a.title':'دکتر کوروش سایه‌میری',
-'a.p1':'استاد آمار زیستی و مدیر گروه آمار زیستی دانشگاه علوم پزشکی ایلام. بیش از ۲۷ سال است که برای پژوهش‌های بالینی و بهداشت عمومی مطالعه طراحی می‌کنم، روش تحلیل را انتخاب می‌کنم و یافته‌ها را گزارش می‌دهم — با مشارکت در بیش از ۴۰۰ مقاله منتشرشده و بیش از ۱۸۵ مرور سیستماتیک و متاآنالیز، از جمله یک مرور کاکرین.',
-'a.p2':'دکتری و کارشناسی ارشد آمار زیستی را از دانشگاه علوم پزشکی تهران گرفته‌ام و دوره فلوشیپ مدل‌های نیمه‌مارکف را در دانشگاه نانت فرانسه گذرانده‌ام. آمار زیستی، تحلیل بقا، رگرسیون، تحلیل داده‌های رسته‌ای و چندمتغیره را به دانشجویان ارشد و دکتری تدریس می‌کنم و کارگاه‌های متعدد متاآنالیز و آمار را در دانشگاه‌های ایران و خارج برگزار کرده‌ام.',
-'a.p3':'پروژه‌ها کاملاً از راه دور انجام می‌شوند: داده‌ها، پرسش‌ها و پیش‌نویس‌ها از طریق ایمیل، و در صورت نیاز تماس تلفنی.',
-'c1.l':'تحصیلات','c1.v':'دکتری و کارشناسی ارشد آمار زیستی، دانشگاه علوم پزشکی تهران · فلوشیپ، دانشگاه نانت فرانسه',
-'c2.l':'سمت فعلی','c2.v':'استاد و مدیر گروه آمار زیستی، دانشگاه علوم پزشکی ایلام (از ۱۳۹۶)',
-'c3.l':'سوابق مدیریتی','c3.v':'مدیر پژوهش دانشگاه علوم پزشکی ایلام (۲۰۱۵–۲۰۱۸) · رئیس مرکز تحقیقات آسیب‌های روانی-اجتماعی',
-'c4.l':'افتخارات','c4.v':'جزو ۲٪ دانشمندان برتر جهان (استنفورد/الزویر) ۲۰۲۰، ۲۰۲۲، ۲۰۲۳، ۲۰۲۴، ۲۰۲۵ · پژوهشگر برتر مکرر دانشگاه',
-'c5.l':'زبان‌های کاری','c5.v':'انگلیسی · فارسی',
-'b.eyebrow':'درخواست مشاوره','b.title':'پروژه‌تان را برایم شرح دهید','b.sub':'حدود دو دقیقه زمان می‌برد. شرح پروژه به‌صورت ایمیل برای من باز می‌شود — هیچ اطلاعاتی در این سایت ذخیره نمی‌شود.',
-'f.need':'به چه چیزی نیاز دارید؟ (چند گزینه مجاز است)','f.stage':'مرحله پروژه','f.design':'نوع مطالعه','f.sw':'نرم‌افزار مورد نظر','f.deadline':'مهلت (در صورت وجود)',
-'f.name':'نام شما','f.email':'ایمیل شما','f.inst':'دانشگاه / کشور (اختیاری)','f.msg':'سؤال پژوهشی و داده‌های خود را کوتاه شرح دهید',
-'f.ph':'مثلاً: ۳ گروه درمانی، ۲۴۰ بیمار، پیامد = بقای یک‌ساله؛ مجله هدف …','f.send':'ارسال با ایمیل','f.copy':'کپی متن',
-'o.st1':'طراحی','o.st2':'داده‌ها جمع‌آوری شده','o.st3':'تحلیل شروع شده','o.st4':'پیش‌نویس مقاله آماده است','o.st5':'در حال داوری',
-'o.d0':'هنوز مطمئن نیستم','o.d1':'کارآزمایی بالینی تصادفی','o.d2':'کوهورت','o.d3':'مورد-شاهدی','o.d4':'مقطعی','o.d5':'مرور سیستماتیک / متاآنالیز','o.d6':'سایر','o.sw0':'فرقی نمی‌کند',
-'msg.err':'لطفاً نام، ایمیل و شرح کوتاهی وارد کنید.','msg.copied':'کپی شد — آن را در هر ایمیل یا پیامی بچسبانید.','msg.opened':'برنامه ایمیل شما باز شد. اگر باز نشد، از «کپی متن» استفاده کنید.',
-'q.eyebrow':'پرسش‌ها','q.title':'پرسش‌های رایج',
-'q1':'هزینه چقدر است؟','a1':'هزینه هر پروژه پس از بررسی سؤال و داده‌ها به‌صورت جداگانه اعلام می‌شود و پیش از شروع کار آن را دریافت می‌کنید.',
-'q2':'چقدر زمان می‌برد؟','a2':'بستگی به دامنه کار دارد؛ یک تحلیل ساده بسیار سریع‌تر از یک مرور سیستماتیک کامل است. زمان‌بندی همراه با هزینه اعلام می‌شود.',
-'q3':'آیا داده‌های من محرمانه می‌ماند؟','a3':'بله. داده‌ها فقط برای پروژه شما استفاده می‌شوند و با هیچ‌کس به اشتراک گذاشته نمی‌شوند. داده‌های بی‌نام ترجیح داده می‌شوند.',
-'q4':'از چه نرم‌افزاری استفاده می‌کنید؟','a4':'هر نرم‌افزاری که برای تیم شما مناسب است — SPSS، Stata، R، SAS یا Python — و کد تحلیل را هم دریافت می‌کنید.',
-'q5':'پس از ارسال مقاله هم کمک می‌کنید؟','a5':'بله. در مرحله اصلاح، تحلیل‌های تکمیلی و پاسخ به نظرات آماری داوران را انجام می‌دهم.',
-'q6':'برای دانشگاه‌ها و مؤسسات کارگاه برگزار می‌کنید؟','a6':'بله — کارگاه آمار زیستی، تحلیل بقا، Stata/R و مرور سیستماتیک و متاآنالیز، به‌صورت آنلاین یا حضوری.',
-'ct.title':'داده و مهلت دارید؟','ct.sub':'توضیح کوتاهی از مطالعه‌تان بفرستید — دامنه کار، زمان‌بندی و هزینه را اعلام می‌کنم.','ct.btn':'شروع درخواست',
-'footer':'مشاوره آمار زیستی — طراحی مطالعه، تحلیل آماری، متاآنالیز و پشتیبانی نگارش مقاله'
-},
-ar:{
-'a.cv':'عرض السيرة الذاتية الكاملة ↗','nav.teach':'التدريس','t.eyebrow':'لطلابي','t.title':'المقررات والمواد التعليمية','t.sub':'خطط المقررات والشرائح والمذكرات والتمارين للمقررات التي أدرّسها في جامعة إيلام للعلوم الطبية. اختر مقررك وحمّل ما تحتاجه.','t.all':'كل المقررات','t.grad':'الماجستير والدكتوراه','t.ug':'البكالوريوس وطلاب الطب','t.books':'كتب د. سايه ميري','t.note':'هذه المواد للدراسة الشخصية للطلاب. للكتب المرجعية لمؤلفين آخرين يرجى استخدام المكتبة أو شراء نسختك.',
-'nav.start':'ابدأ هنا','nav.services':'الخدمات','nav.methods':'الطرائق','nav.work':'المنشورات','nav.about':'نبذة','nav.faq':'الأسئلة','nav.cta':'اطلب عرض سعر',
-'hero.eyebrow':'أستاذ الإحصاء الحيوي · استشارات عن بُعد حول العالم',
-'hero.title':'إحصاء يصمد <em>أمام تحكيم المراجعين</em>.',
-'hero.lead':'أصمّم الدراسات وأحلّل البيانات وأكتب قسمي الطرائق والنتائج الإحصائية للأبحاث السريرية وأبحاث الصحة العامة — من البروتوكول حتى النشر والرد على المراجعين.',
-'hero.cta1':'أخبرني بما تحتاجه','hero.cta2':'تصفّح الخدمات',
-'stat1':'بحثاً علمياً منشوراً','stat2':'مراجعة منهجية وتحليلاً تلوياً','stat3':'استشهاد','stat4':'ضمن أفضل ٢٪ من علماء العالم — ٥ مرات',
-'plot.cap1':'تحليل تلوي بالتأثيرات العشوائية (توضيحي)','trust.label':'محكّم في مجلات',
-'needs.eyebrow':'ابدأ هنا','needs.title':'في أي مرحلة مشروعك الآن؟','needs.sub':'اختر الحالة الأقرب إليك؛ ستُملأ استمارة الطلب تلقائياً لتصف مشروعك في نحو دقيقتين.',
-'n1.t':'أخطط لدراسة','n1.d':'التصميم وحساب حجم العينة وخطة التحليل الإحصائي لمقترح بحثي أو منحة أو لجنة أخلاقيات.',
-'n2.t':'لدي بيانات وأحتاج إلى تحليلها','n2.d':'تنظيف البيانات واختيار النموذج المناسب وجداول وأشكال جاهزة للنشر.',
-'n3.t':'أُجري مراجعة منهجية / تحليلاً تلوياً','n3.d':'البروتوكول واستراتيجية البحث وتقييم خطر التحيز والدمج والتحليل التلوي الشبكي وGRADE.',
-'n4.t':'المراجعون انتقدوا التحليل الإحصائي','n4.d':'إعادة التحليل وردود واضحة نقطة بنقطة على الملاحظات الإحصائية.',
-'n5.t':'أكتب رسالة ماجستير / دكتوراه','n5.d':'إرشاد إحصائي مستمر من المقترح حتى المناقشة.',
-'n6.t':'فريقي يريد أن يتعلم','n6.d':'ورش عمل وإرشاد فردي في الإحصاء الحيوي وStata/R والتحليل التلوي.',
-'pick':'هذه حالتي ←',
-'svc.eyebrow':'الخدمات','svc.title':'جزء واحد أو المسار بالكامل','svc.sub':'من أول حساب لحجم العينة حتى آخر رد على المراجعين.',
-'s1.t':'تصميم الدراسة وحجم العينة','s1.d':'التجارب السريرية ودراسات الأتراب والحالات والشواهد والمقطعية؛ حساب القوة وحجم العينة؛ خطط التحليل الإحصائي.',
-'s2.t':'التحليل الإحصائي','s2.d':'من الإحصاء الوصفي إلى النماذج متعددة المتغيرات، مع شيفرة قابلة لإعادة التشغيل في SPSS أو Stata أو R أو SAS أو Python.',
-'s3.t':'المراجعة المنهجية والتحليل التلوي','featured':'الأكثر طلباً','s3.d':'التحليل التلوي بالتأثيرات الثابتة والعشوائية والشبكي، عدم التجانس، المجموعات الفرعية والانحدار التلوي، تحيز النشر، مخططات الغابة والقمع، والتحليل التلوي لدقة التشخيص.',
-'s4.t':'تحليل البقاء والبيانات الطولية','s4.d':'كابلان-ماير، نماذج كوكس بمتغيرات معتمدة على الزمن، نماذج ويبل/AFT، المخاطر المتنافسة، نماذج متعددة الحالات شبه ماركوفية، النماذج المختلطة وGEE.',
-'s5.t':'كتابة الطرائق والنتائج','s5.d':'أقسام إحصائية مكتوبة وفق أسلوب المجلة المستهدفة وإرشادات التقارير (CONSORT وSTROBE وPRISMA).',
-'s6.t':'دعم الرد على المراجعين','s6.d':'تحليلات إضافية وردود واضحة على الملاحظات الإحصائية أثناء التعديل.',
-'s7.t':'إرشاد الرسائل والبحوث','s7.d':'مستشار إحصائي لطلاب الماجستير والدكتوراه والفرق البحثية — مراجعة التصميم ورأي ثانٍ.',
-'s8.t':'ورش عمل وإرشاد في التحليل التلوي','s8.d':'تدريب عملي: استراتيجية البحث، تقييم خطر التحيز، استخراج البيانات، الدمج، وكتابة النتائج للمجلات عالية التأثير.',
-'m.eyebrow':'الطرائق','m.title':'النماذج التي أعمل بها','m.sub':'عندما تعرف مسبقاً الطريقة التي تحتاجها دراستك.',
-'m.c1':'تجميع الأدلة','m.c2':'تحليل الزمن حتى الحدث','m.c3':'الانحدار والبيانات الطولية','m.c4':'متعدد المتغيرات والتنبؤ وتعلّم الآلة','m.sw':'البرمجيات',
-'p.eyebrow':'آلية العمل','p.title':'كيف يسير المشروع','p.sub':'الخطوات الأربع نفسها سواء كان تحليلاً واحداً أو مخطوطة كاملة.',
-'p1.t':'أرسل سؤالك','p1.d':'وصف موجز وبياناتك (أو عينة منها) والموعد النهائي.',
-'p2.t':'النطاق وعرض السعر','p2.d':'أرد بالطرائق المقترحة والجدول الزمني وعرض السعر قبل بدء أي عمل.',
-'p3.t':'التحليل','p3.d':'تحليل كامل مع الجداول والأشكال والشيفرة لتكون كل النتائج قابلة للتكرار.',
-'p4.t':'الكتابة والتعديلات','p4.d':'نص الطرائق والنتائج، مع الدعم خلال التحكيم.',
-'w.eyebrow':'السجل العلمي','w.title':'منشورات مختارة','w.sub':'عينة صغيرة من أكثر من ٤٠٠ بحث. القائمة الكاملة على Google Scholar.',
-'a.eyebrow':'نبذة','a.title':'د. كوروش سايه ميري',
-'a.p1':'أستاذ الإحصاء الحيوي ورئيس قسم الإحصاء الحيوي في جامعة إيلام للعلوم الطبية. منذ أكثر من ٢٧ عاماً أصمّم الدراسات وأختار طرائق التحليل وأعرض النتائج للأبحاث السريرية وأبحاث الصحة العامة، وقد شاركت في أكثر من ٤٠٠ بحث منشور وأكثر من ١٨٥ مراجعة منهجية وتحليلاً تلوياً، منها مراجعة كوكرين.',
-'a.p2':'حاصل على الدكتوراه والماجستير في الإحصاء الحيوي من جامعة طهران للعلوم الطبية، وأكملت زمالة في النماذج شبه الماركوفية في جامعة نانت بفرنسا. أدرّس الإحصاء الحيوي وتحليل البقاء والانحدار وتحليل البيانات الفئوية ومتعددة المتغيرات لطلاب الماجستير والدكتوراه، وقدّمت ورش عمل عديدة في التحليل التلوي والإحصاء داخل إيران وخارجها.',
-'a.p3':'تُدار المشاريع عن بُعد بالكامل: البيانات والأسئلة والمسودات عبر البريد الإلكتروني، مع مكالمة عند الحاجة.',
-'c1.l':'التعليم','c1.v':'دكتوراه وماجستير في الإحصاء الحيوي، جامعة طهران للعلوم الطبية · زمالة، جامعة نانت',
-'c2.l':'المنصب الحالي','c2.v':'أستاذ ورئيس قسم الإحصاء الحيوي، جامعة إيلام للعلوم الطبية (منذ ٢٠١٧)',
-'c3.l':'مناصب سابقة','c3.v':'مدير البحث العلمي، جامعة إيلام للعلوم الطبية (٢٠١٥–٢٠١٨) · مدير مركز أبحاث الإصابات النفسية والاجتماعية',
-'c4.l':'التكريم','c4.v':'ضمن أفضل ٢٪ من علماء العالم (ستانفورد/إلسفير) ٢٠٢٠، ٢٠٢٢، ٢٠٢٣، ٢٠٢٤، ٢٠٢٥ · باحث متميز في الجامعة مرات عدة',
-'c5.l':'لغات العمل','c5.v':'الإنجليزية · الفارسية',
-'b.eyebrow':'اطلب عرض سعر','b.title':'حدّثني عن مشروعك','b.sub':'يستغرق نحو دقيقتين. يُفتح وصف مشروعك كرسالة بريد إلكتروني إليّ — لا يُخزَّن أي شيء على هذا الموقع.',
-'f.need':'ماذا تحتاج؟ (اختر ما يناسبك)','f.stage':'مرحلة المشروع','f.design':'نوع الدراسة','f.sw':'البرنامج المفضل','f.deadline':'الموعد النهائي (إن وجد)',
-'f.name':'اسمك','f.email':'بريدك الإلكتروني','f.inst':'المؤسسة / البلد (اختياري)','f.msg':'صف باختصار سؤالك البحثي وبياناتك',
-'f.ph':'مثال: ٣ مجموعات علاجية، ٢٤٠ مريضاً، النتيجة = البقاء لسنة؛ المجلة المستهدفة …','f.send':'إرسال بالبريد','f.copy':'نسخ الوصف',
-'o.st1':'التخطيط','o.st2':'تم جمع البيانات','o.st3':'بدأ التحليل','o.st4':'المسودة جاهزة','o.st5':'قيد التحكيم',
-'o.d0':'لست متأكداً بعد','o.d1':'تجربة سريرية عشوائية','o.d2':'دراسة أتراب','o.d3':'حالات وشواهد','o.d4':'مقطعية','o.d5':'مراجعة منهجية / تحليل تلوي','o.d6':'أخرى','o.sw0':'لا تفضيل',
-'msg.err':'يرجى إدخال الاسم والبريد الإلكتروني ووصف موجز.','msg.copied':'تم النسخ — الصقه في أي رسالة.','msg.opened':'تم فتح تطبيق البريد. إن لم يُفتح، استخدم «نسخ الوصف».',
-'q.eyebrow':'الأسئلة','q.title':'أسئلة شائعة',
-'q1':'كم التكلفة؟','a1':'يُسعَّر كل مشروع على حدة بعد الاطلاع على السؤال والبيانات، وتحصل على عرض السعر قبل بدء العمل.',
-'q2':'كم يستغرق العمل؟','a2':'يعتمد على النطاق؛ فالتحليل الواحد أسرع بكثير من مراجعة منهجية كاملة. تحصل على جدول زمني مع عرض السعر.',
-'q3':'هل تبقى بياناتي سرية؟','a3':'نعم. تُستخدم البيانات لمشروعك فقط ولا تُشارك مع أحد. يُفضَّل إرسال بيانات مجهولة الهوية.',
-'q4':'ما البرنامج الذي ستستخدمه؟','a4':'ما يناسب فريقك — SPSS أو Stata أو R أو SAS أو Python — مع تسليم الشيفرة لإعادة التحليل.',
-'q5':'هل تساعد بعد إرسال البحث؟','a5':'نعم. أدعم التحليلات الإضافية والرد على الملاحظات الإحصائية خلال التعديل.',
-'q6':'هل تقدّم ورش عمل للمؤسسات؟','a6':'نعم — ورش في الإحصاء الحيوي وتحليل البقاء وStata/R والمراجعة المنهجية والتحليل التلوي، عبر الإنترنت أو حضورياً.',
-'ct.title':'لديك بيانات وموعد نهائي؟','ct.sub':'أرسل وصفاً موجزاً لدراستك — سأرد بالنطاق والجدول الزمني وعرض السعر.','ct.btn':'ابدأ طلبك',
-'footer':'استشارات الإحصاء الحيوي — تصميم الدراسات والتحليل الإحصائي والتحليل التلوي ودعم المخطوطات'
-},
-zh:{
-'a.cv':'查看完整简历 ↗','nav.teach':'教学','t.eyebrow':'致我的学生','t.title':'课程与教学资料','t.sub':'我在伊拉姆医科大学所授课程的教学大纲、课件、讲义和练习。选择课程即可下载所需资料。','t.all':'全部课程','t.grad':'硕士与博士','t.ug':'本科与医学生','t.books':'Sayehmiri 教授编著教材','t.note':'资料仅供学生个人学习。其他作者的教材请通过图书馆借阅或自行购买。',
-'nav.start':'从这里开始','nav.services':'服务','nav.methods':'方法','nav.work':'论文','nav.about':'关于','nav.faq':'常见问题','nav.cta':'获取报价',
-'hero.eyebrow':'生物统计学教授 · 面向全球的远程咨询',
-'hero.title':'经得起<em>同行评审</em>的统计分析。',
-'hero.lead':'为临床与公共卫生研究进行研究设计、数据分析，并撰写统计方法与结果部分——从研究方案到发表，直至回复审稿意见。',
-'hero.cta1':'告诉我您的需求','hero.cta2':'浏览服务',
-'stat1':'篇已发表研究论文','stat2':'篇系统综述与Meta分析','stat3':'次引用','stat4':'五次入选全球前2%顶尖科学家',
-'plot.cap1':'随机效应Meta分析（示意图）','trust.label':'担任审稿人的期刊',
-'needs.eyebrow':'从这里开始','needs.title':'您的项目目前处于哪个阶段？','needs.sub':'选择最接近您情况的一项，系统会自动预填申请表，约两分钟即可描述您的项目。',
-'n1.t':'我正在规划一项研究','n1.d':'为课题申请、基金或伦理审查提供研究设计、样本量计算和统计分析计划。',
-'n2.t':'我有数据，需要分析','n2.d':'数据清理、选择合适的模型，以及可直接发表的表格和图形。',
-'n3.t':'我在做系统综述 / Meta分析','n3.d':'研究方案、检索策略、偏倚风险评估、合并分析、网状Meta分析和GRADE。',
-'n4.t':'审稿人质疑了我的统计方法','n4.d':'重新分析，并逐条清晰回复统计相关审稿意见。',
-'n5.t':'我在撰写硕士 / 博士论文','n5.d':'从开题到答辩的持续统计指导。',
-'n6.t':'我的团队想学习','n6.d':'生物统计、Stata/R与Meta分析的工作坊和一对一指导。',
-'pick':'这就是我的情况 →',
-'svc.eyebrow':'服务','svc.title':'单项委托，或全流程交给我','svc.sub':'从第一次样本量计算到最后一次回复审稿人。',
-'s1.t':'研究设计与样本量','s1.d':'临床试验、队列、病例对照和横断面研究设计；检验效能与样本量计算；统计分析计划。',
-'s2.t':'统计分析','s2.d':'从描述性统计到多变量模型，提供可在SPSS、Stata、R、SAS或Python中重复运行的代码。',
-'s3.t':'系统综述与Meta分析','featured':'最受欢迎','s3.d':'固定/随机效应与网状Meta分析、异质性、亚组与Meta回归、发表偏倚、森林图和漏斗图、诊断准确性Meta分析。',
-'s4.t':'生存分析与纵向数据分析','s4.d':'Kaplan–Meier、含时依协变量的Cox模型、Weibull/AFT模型、竞争风险、半马尔可夫多状态模型、混合模型与GEE。',
-'s5.t':'方法与结果撰写','s5.d':'按照目标期刊风格和报告规范（CONSORT、STROBE、PRISMA）撰写统计部分。',
-'s6.t':'审稿回复支持','s6.d':'修稿阶段的补充分析以及对统计意见的清晰回复。',
-'s7.t':'论文与科研顾问','s7.d':'为硕博研究生和科研团队提供统计顾问服务——设计审查与第二意见。',
-'s8.t':'工作坊与Meta分析指导','s8.d':'实操培训：检索策略、偏倚风险评估、数据提取、合并分析以及面向高影响力期刊的结果撰写。',
-'m.eyebrow':'方法','m.title':'我常用的模型','m.sub':'适用于您已明确研究所需方法的情况。',
-'m.c1':'证据合成','m.c2':'生存分析','m.c3':'回归与纵向数据','m.c4':'多变量、预测与机器学习','m.sw':'软件',
-'p.eyebrow':'流程','p.title':'项目如何进行','p.sub':'无论是单项分析还是完整稿件，都遵循相同的四个步骤。',
-'p1.t':'发送您的问题','p1.d':'简要说明、数据（或样例数据）以及截止日期。',
-'p2.t':'确定范围与报价','p2.d':'开始工作前，我会告知推荐方法、时间安排和报价。',
-'p3.t':'分析','p3.d':'完整分析，附表格、图形和代码，确保所有结果可重复。',
-'p4.t':'撰写与修改','p4.d':'方法与结果文本，并在同行评审期间提供支持。',
-'w.eyebrow':'学术成果','w.title':'代表性论文','w.sub':'400余篇论文中的一小部分。完整列表见Google Scholar。',
-'a.eyebrow':'关于','a.title':'Kourosh Sayehmiri 博士',
-'a.p1':'伊拉姆医科大学生物统计学教授、生物统计系主任。27年多来，我为临床与公共卫生研究设计研究、选择分析方法并呈现结果，参与发表400余篇论文和185篇以上系统综述与Meta分析，其中包括一篇Cochrane综述。',
-'a.p2':'我在德黑兰医科大学获得生物统计学博士和硕士学位，并在法国南特大学完成半马尔可夫模型方向的访学研修。我为硕博研究生讲授生物统计、生存分析、回归、分类数据与多变量分析，并在伊朗国内外高校举办过多场Meta分析与统计工作坊。',
-'a.p3':'项目全程远程进行：数据、问题和草稿通过电子邮件往来，必要时通话沟通。',
-'c1.l':'教育背景','c1.v':'德黑兰医科大学生物统计学博士、硕士 · 法国南特大学研修',
-'c2.l':'现任职务','c2.v':'伊拉姆医科大学生物统计学教授、系主任（2017年至今）',
-'c3.l':'曾任职务','c3.v':'伊拉姆医科大学科研处处长（2015–2018）· 心理社会伤害研究中心主任',
-'c4.l':'荣誉','c4.v':'全球前2%顶尖科学家（斯坦福/爱思唯尔）2020、2022、2023、2024、2025 · 多次获评校级优秀研究者',
-'c5.l':'工作语言','c5.v':'英语 · 波斯语',
-'b.eyebrow':'获取报价','b.title':'介绍一下您的项目','b.sub':'约需两分钟。您的项目简介将以电子邮件形式发给我——本网站不存储任何信息。',
-'f.need':'您需要什么？（可多选）','f.stage':'项目阶段','f.design':'研究类型','f.sw':'首选软件','f.deadline':'截止日期（如有）',
-'f.name':'您的姓名','f.email':'您的邮箱','f.inst':'单位 / 国家（可选）','f.msg':'请简要描述您的研究问题和数据',
-'f.ph':'例如：3个治疗组，240名患者，结局为1年生存率；目标期刊……','f.send':'通过邮件发送','f.copy':'复制简介',
-'o.st1':'规划中','o.st2':'数据已收集','o.st3':'已开始分析','o.st4':'稿件已起草','o.st5':'同行评审中',
-'o.d0':'尚不确定','o.d1':'随机对照试验','o.d2':'队列研究','o.d3':'病例对照研究','o.d4':'横断面研究','o.d5':'系统综述 / Meta分析','o.d6':'其他','o.sw0':'无偏好',
-'msg.err':'请填写姓名、邮箱和简要说明。','msg.copied':'已复制——可粘贴到任何邮件或消息中。','msg.opened':'已打开您的邮件应用。如未打开，请使用“复制简介”。',
-'q.eyebrow':'常见问题','q.title':'常见问题',
-'q1':'费用是多少？','a1':'每个项目在了解问题和数据后单独报价，开始工作前您会收到报价。',
-'q2':'需要多长时间？','a2':'取决于工作范围；单项分析比完整的系统综述快得多。时间安排会随报价一并告知。',
-'q3':'我的数据会保密吗？','a3':'会。数据仅用于您的项目，不会与任何人共享。建议提供去标识化数据。',
-'q4':'使用什么软件？','a4':'根据您团队的需要——SPSS、Stata、R、SAS或Python——并提供分析代码以便重复运行。',
-'q5':'投稿后还能提供帮助吗？','a5':'可以。修稿期间我提供补充分析并协助回复统计相关审稿意见。',
-'q6':'是否为机构举办工作坊？','a6':'是的——生物统计、生存分析、Stata/R以及系统综述与Meta分析工作坊，线上或线下均可。',
-'ct.title':'有数据，也有截止日期？','ct.sub':'发送研究的简要说明——我会回复工作范围、时间安排和报价。','ct.btn':'开始申请',
-'footer':'生物统计咨询——研究设计、统计分析、Meta分析与稿件支持'
-}};
-T.en['msg.err']='Please add your name, email and a short description.';
-T.en['msg.copied']='Copied — paste it into any email or message.';
-T.en['msg.opened']='Your email app should now be open. If not, use "Copy brief".';
-
-/* Capture English originals */
-const els = document.querySelectorAll('[data-i18n],[data-i18n-html],[data-i18n-ph]');
-els.forEach(el=>{
-  if(el.dataset.i18n) T.en[el.dataset.i18n] ??= el.textContent;
-  if(el.dataset.i18nHtml) T.en[el.dataset.i18nHtml] ??= el.innerHTML;
-  if(el.dataset.i18nPh) T.en[el.dataset.i18nPh] ??= el.placeholder;
-});
-let lang='en';
-const t = k => (T[lang] && T[lang][k]) ?? T.en[k] ?? k;
-
-function setLang(l){
-  lang = T[l] ? l : 'en';
-  els.forEach(el=>{
-    if(el.dataset.i18n) el.textContent = t(el.dataset.i18n);
-    if(el.dataset.i18nHtml) el.innerHTML = t(el.dataset.i18nHtml);
-    if(el.dataset.i18nPh) el.placeholder = t(el.dataset.i18nPh);
-  });
-  const root=document.documentElement;
-  root.lang = lang;
-  root.dir = (lang==='fa'||lang==='ar') ? 'rtl' : 'ltr';
-  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
-  try{localStorage.setItem('ks-lang',lang)}catch(e){}
-  if(window.renderCourses) renderCourses();
-}
-document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
-let initial='en';
-try{
-  const q=new URLSearchParams(location.search).get('lang');
-  initial = q || localStorage.getItem('ks-lang') || ((navigator.language||'').slice(0,2)) || 'en';
-}catch(e){}
-setLang(initial);
-
-/* Contact line + year */
-document.getElementById('yr').textContent = new Date().getFullYear();
-document.getElementById('contactLine').textContent = CONTACT_EMAIL + (PHONE ? '  ·  ' + PHONE : '');
-
-/* "This is my situation" → pre-fill form */
-document.querySelectorAll('[data-pick]').forEach(btn=>btn.addEventListener('click',()=>{
-  document.querySelectorAll('#needChecks input').forEach(c=>c.checked = c.value===btn.dataset.pick);
-  if(btn.dataset.stage) document.getElementById('stage').value = btn.dataset.stage;
-  if(btn.dataset.design) document.getElementById('design').value = btn.dataset.design;
-  document.getElementById('brief').scrollIntoView({behavior:'smooth'});
-  setTimeout(()=>document.getElementById('msg').focus({preventScroll:true}),600);
-}));
-
-/* Build brief (always in English for the consultant) */
-const NEED_EN = {design:'Study design & sample size',analysis:'Statistical analysis',meta:'Systematic review & meta-analysis',survival:'Survival & longitudinal analysis',writing:'Methods & Results writing',reviewer:'Reviewer-response support',thesis:'Thesis & research advisory',training:'Workshops & mentorship'};
-const v = id => document.getElementById(id).value.trim();
-function buildBrief(){
-  const needs=[...document.querySelectorAll('#needChecks input:checked')].map(c=>NEED_EN[c.value]);
-  return [
-    'Project brief — via website',
-    '',
-    'Name: '+v('name'),
-    'Email: '+v('email'),
-    'Institution / country: '+(v('inst')||'—'),
-    'Services needed: '+(needs.join(', ')||'Not specified'),
-    'Project stage: '+v('stage'),
-    'Study type: '+v('design'),
-    'Preferred software: '+v('software'),
-    'Deadline: '+(v('deadline')||'—'),
-    'Site language: '+lang,
-    '',
-    'Description:',
-    v('msg')
-  ].join('\n');
-}
-const note=document.getElementById('formNote');
-function say(key,cls){note.textContent=t(key);note.className='note '+(cls||'')}
-function valid(){
-  const ok = v('name') && /\S+@\S+\.\S+/.test(v('email')) && v('msg').length>5;
-  if(!ok) say('msg.err','err');
-  return ok;
-}
-document.getElementById('briefForm').addEventListener('submit',e=>{
-  e.preventDefault();
-  if(!valid()) return;
-  const subject='Statistics consulting request — '+v('name');
-  location.href='mailto:'+CONTACT_EMAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(buildBrief());
-  say('msg.opened','ok');
-});
-document.getElementById('copyBtn').addEventListener('click',async()=>{
-  if(!valid()) return;
-  const text=buildBrief();
-  try{await navigator.clipboard.writeText(text)}
-  catch(e){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove()}
-  say('msg.copied','ok');
-});
-</script>
-<script>
 /* ===== COURSE MATERIALS — edit this list =====
-   To add a file: put the PDF in a folder named "materials" next to this page,
-   then add it to the course's files list, for example:
-     files:[ {type:'syllabus', url:'materials/survival-syllabus.pdf'},
-             {type:'slides',   url:'materials/survival-slides.pdf'} ]
-   You can also paste a Google Drive share link as the url.
-   type can be: syllabus, slides, notes, exercises, exam, data — or use label:'Any text'.
-   A course with no files shows "Materials coming soon".
-
-   GOOGLE DRIVE (easiest): make one Drive folder per course, set sharing to
-   "Anyone with the link — Viewer", copy the link and paste it as folder:'...'
-   Example:
-     {level:'grad', title:'Survival Analysis', who:'MSc Biostatistics', years:5,
-      folder:'https://drive.google.com/drive/folders/XXXXXXXX', files:[]},
-   Single Drive files work as url:'https://drive.google.com/file/d/XXXX/view'. */
-const CV_URL = 'https://drive.google.com/file/d/1j5kOX9DpjhH4ZDkUg_ILBblndv7zmUlu/view?usp=sharing';
+   GOOGLE DRIVE (easiest): make one Drive folder per course, share it as
+   "Anyone with the link — Viewer", and paste the link as folder:'...'
+   Single files: files:[{type:'slides', url:'https://drive.google.com/file/d/XXXX/view'}]
+   type can be: syllabus, slides, notes, exercises, exam, data — or label:'Any text'. */
 const COURSES = [
   {level:'grad', title:'Survival Analysis', who:'MSc Biostatistics', years:5, files:[]},
   {level:'grad', title:'Generalized Linear Models', who:'MSc Biostatistics', years:5, files:[]},
@@ -880,7 +731,6 @@ const COURSES = [
   {level:'ug', title:'Nonparametric Statistics', who:'BSc Statistics', files:[]},
   {level:'ug', title:'Introductory Statistics', who:'Public health, nursing, midwifery, environmental health, psychology', files:[]}
 ];
-/* Your own books. Add url:'materials/file.pdf' only if the publisher allows free sharing. */
 const BOOKS = [
   {title:'Applied Biostatistics', info:'Ilam UMS · 2005, 2nd ed. 2014, 3rd ed. 2016', url:'https://drive.google.com/file/d/1zHLlxNL8DIrQ9CJ6Z0wbCLpMJamgCHY8/view?usp=sharing'},
   {title:'Statistics for Medicine', info:'With Asadollahi K. & Hashemi J. · Ilam UMS · 2014', url:''},
@@ -888,36 +738,367 @@ const BOOKS = [
   {title:'Survival Random Forest', info:'Ilam UMS · 2021', url:''}
 ];
 
-const TT = {
- en:{'t.folder':'Course folder','t.syllabus':'Syllabus','t.slides':'Slides','t.notes':'Lecture notes','t.exercises':'Exercises','t.exam':'Past exams','t.data':'Datasets','t.soon':'Materials coming soon','t.years':'years taught','t.download':'Download','t.avail':'Ask in class for a copy'},
- fa:{'t.folder':'پوشه درس','t.syllabus':'طرح درس','t.slides':'اسلایدها','t.notes':'جزوه','t.exercises':'تمرین‌ها','t.exam':'سؤالات امتحانی','t.data':'داده‌ها','t.soon':'به‌زودی بارگذاری می‌شود','t.years':'سال تدریس','t.download':'دانلود','t.avail':'برای دریافت نسخه در کلاس بپرسید'},
- ar:{'t.folder':'مجلد المقرر','t.syllabus':'خطة المقرر','t.slides':'الشرائح','t.notes':'المذكرات','t.exercises':'التمارين','t.exam':'امتحانات سابقة','t.data':'البيانات','t.soon':'المواد قريباً','t.years':'سنوات التدريس','t.download':'تحميل','t.avail':'اطلب نسخة في الصف'},
- zh:{'t.folder':'课程文件夹','t.syllabus':'教学大纲','t.slides':'课件','t.notes':'讲义','t.exercises':'练习','t.exam':'往年试题','t.data':'数据集','t.soon':'资料即将上传','t.years':'年教学','t.download':'下载','t.avail':'请在课堂上索取'}
-};
-const tc = k => (TT[lang]&&TT[lang][k]) || TT.en[k] || k;
+/* ===== Translations (English is the text already in the page) ===== */
+const T = {
+en:{
+'msg.err':'Please add your name, a valid email and a short description.',
+'msg.copied':'Copied. Paste it into any email or message.',
+'msg.opened':'Your email app should now be open. If it isn\'t, use "Copy message".',
+'t.folder':'Course folder','t.syllabus':'Syllabus','t.slides':'Slides','t.notes':'Lecture notes','t.exercises':'Exercises','t.exam':'Past exams','t.data':'Datasets','t.soon':'Materials coming soon','t.years':'years taught','t.download':'Download','t.avail':'Ask in class for a copy'
+},
+fa:{
+'nav.life':'همراهی در همه مراحل','l.eyebrow':'چرخه پژوهش','l.title':'همراهی پژوهشگران در هر مرحله.','l.sub':'پژوهشگران و نویسندگان محور کار من هستند. از آماده‌سازی مقاله و انتخاب مجله تا انتشار، کشف و دیده‌شدن، مصورسازی، آموزش و تعامل پس از انتشار، در کنارتان هستم.','l1.t':'آماده‌سازی مقاله','l1.d':'بخش روش‌ها و نتایج مطابق سبک مجله هدف و راهنماهای CONSORT، STROBE و PRISMA نوشته می‌شود و منابع با EndNote مدیریت می‌شوند.','l2.t':'انتخاب مجله','l2.d':'مقاله شما بر اساس حوزه مجله و نوع مطالعه با مجله مناسب تطبیق داده می‌شود و نامه همراه (کاور لتر) آماده می‌شود.','l3.t':'انتشار و داوری','l3.d':'تحلیل‌های تکمیلی و پاسخ روشن و محترمانه به ایرادهای آماری داوران در هر دور اصلاحات.','l4.t':'جست‌وجو و کشف','l4.d':'راهبرد جست‌وجو با MeSH و عملگرهای بولی در PubMed، Scopus و Web of Science، و انتخاب کلیدواژه‌هایی که خوانندگان را به مقاله شما می‌رسانند.','l5.t':'مصورسازی داده‌ها','l5.d':'نمودار جنگل، نمودار قیفی، دیاگرام PRISMA و جدول‌ها و شکل‌های استاندارد مورد انتظار مجلات.','l6.t':'آموزش','l6.d':'منتورشیپ، کارگاه، دوره‌های درسی و کتاب‌هایی که روش را در حین انجام پروژه خودتان به شما می‌آموزند.','l7.t':'تعامل پس از انتشار','l7.d':'به‌روزرسانی تحلیل‌ها، پاسخ به پرسش‌های خوانندگان و کمک به معرفی یافته‌ها از طریق Google Scholar و ResearchGate.','l.go':'جزئیات ↓','lc.t':'نمی‌دانید در کدام مرحله‌اید؟','lc.d':'مرحله پروژه‌تان را بگویید تا گام بعدی مناسب را پیشنهاد کنم.','lc.b':'پروژه خود را شرح دهید',
+'nav.mentor':'دوره منتورشیپ','nav.services':'مشاوره آماری','nav.teach':'آموزش','nav.work':'مقالات','nav.about':'درباره من','nav.faq':'پرسش‌ها','nav.cta':'ثبت‌نام / درخواست',
+'hero.eyebrow':'استاد آمار زیستی · منتور متاآنالیز',
+'hero.title':'از سؤال پژوهشی تا <em>متاآنالیز منتشرشده</em>.',
+'hero.lead':'به پژوهشگران علوم سلامت به دو روش کمک می‌کنم: شما را گام‌به‌گام راهنمایی می‌کنم تا متاآنالیز خودتان را انجام دهید، و برای مطالعات با هر نوع طراحی، مشاوره آماری ارائه می‌دهم.',
+'hero.cta1':'ثبت‌نام در دوره منتورشیپ','hero.cta2':'مشاوره آماری',
+'stat1':'مقاله پژوهشی منتشرشده','stat2':'مرور سیستماتیک و متاآنالیز','stat3':'سال تدریس و تربیت پژوهشگر','stat4':'جزو ۲٪ دانشمندان برتر جهان، ۵ دوره',
+'plot.cap1':'متاآنالیز اثرات تصادفی (نمونه)','trust.label':'داور مجلات',
+'paths.eyebrow':'دو مسیر همکاری','paths.title':'می‌خواهید یاد بگیرید یا کار برایتان انجام شود؟','paths.sub':'گزینه‌ای را که به شما نزدیک‌تر است انتخاب کنید؛ فرم درخواست به‌صورت خودکار پر می‌شود.',
+'pA.tag':'با من بیاموزید','pA.t':'دوره منتورشیپ متاآنالیز','pA.d':'متاآنالیز خودتان را از انتخاب عنوان تا ارسال مقاله، با راهنمایی من در هر مرحله، خودتان انجام می‌دهید.',
+'sitA1':'می‌خواهم متاآنالیز را روی پروژه خودم یاد بگیرم','sitA2':'دانشگاه یا تیم ما کارگاه می‌خواهد','pA.more':'مشاهده ۸ مرحله ↓',
+'pB.tag':'با من همکاری کنید','pB.t':'مشاوره آماری','pB.d':'طراحی، تحلیل و نگارش بخش آماری مطالعه شما را انجام می‌دهم و در مرحله داوری همراهتان هستم.',
+'sitB1':'در حال طراحی مطالعه هستم','sitB2':'داده دارم و تحلیل می‌خواهم','sitB3':'برای مرور سیستماتیک یا متاآنالیزم کمک می‌خواهم','sitB4':'داوران به آمار مقاله‌ام ایراد گرفته‌اند','sitB5':'پایان‌نامه ارشد یا دکتری می‌نویسم','pB.more':'مشاهده همه خدمات ↓',
+'m.eyebrow':'دوره منتورشیپ متاآنالیز','m.title':'متاآنالیز را با انجام متاآنالیز خودتان یاد بگیرید',
+'m.p1':'روی عنوان خودتان کار می‌کنید: موضوع خود را بیاورید یا من یک عنوان متاآنالیز در رشته‌تان پیشنهاد می‌کنم. سپس مرحله‌به‌مرحله، تمام کار را خودتان انجام می‌دهید و من هر گام را راهنمایی و بررسی می‌کنم. در پایان، نویسنده اول مقاله‌ای آماده ارسال به مجله هستید و مهارت لازم برای انجام متاآنالیز بعدی به‌تنهایی را دارید.',
+'m.quote':'یادگیری با انجام دادن','m.quote2':'هر چه یاد می‌گیرید، همان هفته روی پروژه خودتان به کار می‌برید.',
+'m.p2':'پژوهشگران بسیاری را در رشته‌های پزشکی، روان‌شناسی، پرستاری و سایر رشته‌های علوم سلامت آموزش داده‌ام. بسیاری از آن‌ها امروز از پژوهشگران برتر ایران هستند و چند نفر از آن‌ها در فهرست ۲٪ دانشمندان برتر جهان قرار گرفته‌اند.',
+'m.who':'مناسب برای','m.w1':'پزشکی','m.w2':'روان‌شناسی','m.w3':'پرستاری و مامایی','m.w4':'بهداشت عمومی و اپیدمیولوژی','m.w5':'دندان‌پزشکی و داروسازی','m.w6':'سایر رشته‌های علوم سلامت',
+'m.fmt':'شیوه برگزاری','m.fmt1':'فردی یا در گروه کوچک','m.fmt2':'آنلاین یا حضوری','m.fmt3':'بدون نیاز به دانش آماری',
+'m.fmt4':'سطح متوسط زبان انگلیسی یا فارسی کافی است',
+'m.fmt5':'شما نویسنده اول مقاله خود هستید',
+'m.extra':'آموزش‌های همراه دوره',
+'m.x1':'مدیریت منابع با EndNote',
+'m.x2':'استفاده از ابزارهای هوش مصنوعی در هر مرحله پژوهش',
+'m.x3':'کار با Claude برای مطالعه، نگارش و اصلاح سریع‌تر، مطابق سیاست‌های مجلات درباره هوش مصنوعی',
+'m.cta':'ثبت‌نام در دوره منتورشیپ','m.got':'خروجی این مرحله',
+'st1.t':'عنوان پژوهش خودتان','st1.d':'موضوع خود را انتخاب می‌کنید یا من یک عنوان متاآنالیز در رشته‌تان پیشنهاد می‌کنم. وجود خلأ پژوهشی و تعداد کافی مطالعه را بررسی می‌کنیم و سپس آن را به یک سؤال PICO دقیق تبدیل می‌کنیم.','st1.g':'سؤال پژوهشی دقیق و پروتکل',
+'st2.t':'استراتژی جستجو','st2.d':'با کلیدواژه‌ها، اصطلاحات MeSH و عملگرهای بولی، عبارت جستجو می‌سازید و در PubMed، Scopus، Web of Science، Embase و پایگاه‌های داخلی جستجو می‌کنید.','st2.g':'جستجوی مستند برای هر پایگاه',
+'st3.t':'انتخاب مطالعات','st3.d':'عنوان، چکیده و متن کامل مقالات را بر اساس معیارهای ورود و خروج غربالگری می‌کنید و همه تصمیم‌ها را ثبت می‌کنید.','st3.g':'نمودار جریان PRISMA',
+'st4.t':'استخراج داده','st4.d':'فرم استخراج داده طراحی می‌کنید و حجم نمونه، اندازه اثر و ویژگی‌های هر مطالعه را استخراج می‌کنید.','st4.g':'جدول داده آماده تحلیل',
+'st5.t':'ارزیابی کیفیت','st5.d':'خطر سوگیری را با ابزار مناسب طراحی مطالعات می‌سنجید؛ مانند نیوکاسل-اتاوا، Cochrane RoB 2، JBI یا QUADAS-2.','st5.g':'جدول ارزیابی کیفیت',
+'st6.t':'تحلیل داده','st6.d':'متاآنالیز را خودتان در Stata یا R اجرا می‌کنید: ترکیب نتایج، ناهمگونی، تحلیل زیرگروه، متارگرسیون و سوگیری انتشار.','st6.g':'نمودار جنگلی و قیفی و همه نتایج',
+'st7.t':'گزارش نتایج','st7.d':'نتایج را مطابق PRISMA 2020 تفسیر و گزارش می‌کنید، با جداول و نمودارهایی که مجلات انتظار دارند.','st7.g':'بخش نتایج همراه با نمودارها',
+'st8.t':'نگارش و ارسال مقاله','st8.d':'مقدمه و بحث را می‌نویسید، منابع را با EndNote مدیریت می‌کنید، مجله مناسب را انتخاب می‌کنید، نامه به سردبیر را آماده می‌کنید و پاسخ به داوران را یاد می‌گیرید.','st8.g':'مقاله ارسال‌شده به مجله',
+'svc.eyebrow':'مشاوره آماری','svc.title':'وقتی می‌خواهید آمار مطالعه‌تان را به متخصص بسپارید','svc.sub':'یک بخش یا کل مسیر، از اولین محاسبه حجم نمونه تا آخرین پاسخ به داور.',
+'s1.t':'طراحی مطالعه و حجم نمونه','s1.d':'کارآزمایی بالینی، کوهورت، مورد-شاهدی و مقطعی؛ محاسبه توان و حجم نمونه؛ برنامه تحلیل آماری.',
+'s2.t':'تحلیل آماری','s2.d':'از آمار توصیفی تا مدل‌های چندمتغیره، همراه با کد قابل اجرای مجدد در SPSS، Stata، R، SAS یا Python.',
+'s3.t':'مرور سیستماتیک و متاآنالیز','featured':'پرتقاضاترین','s3.d':'متاآنالیز اثرات ثابت، تصادفی و شبکه‌ای، ناهمگونی، زیرگروه و متارگرسیون، سوگیری انتشار، نمودار جنگلی و قیفی، متاآنالیز دقت تشخیصی.',
+'s4.t':'تحلیل بقا و داده‌های طولی','s4.d':'کاپلان-مایر، مدل کاکس با متغیرهای وابسته به زمان، مدل‌های ویبول/AFT، خطرات رقابتی، مدل‌های چندحالته نیمه‌مارکف، مدل‌های آمیخته و GEE.',
+'s5.t':'نگارش روش‌ها و نتایج','s5.d':'نگارش بخش‌های آماری مطابق سبک مجله هدف و راهنماهای گزارش‌دهی (CONSORT، STROBE، PRISMA).',
+'s6.t':'پشتیبانی پاسخ به داوران','s6.d':'تحلیل‌های تکمیلی و پاسخ روشن به نظرات آماری در مرحله اصلاح.',
+'s7.t':'مشاوره پایان‌نامه و پژوهش','s7.d':'مشاور آماری دانشجویان ارشد و دکتری و تیم‌های پژوهشی، از پروپوزال تا دفاع.',
+'s8.t':'کارگاه برای دانشگاه‌ها و تیم‌ها','s8.d':'کارگاه‌های عملی آمار زیستی، Stata/R، تحلیل بقا و متاآنالیز، آنلاین یا حضوری.',
+'p.title':'روند انجام پروژه مشاوره',
+'p1.t':'سؤال خود را بفرستید','p1.d':'توضیح کوتاه، داده‌ها (یا نمونه‌ای از آن) و مهلت زمانی.',
+'p2.t':'تعیین دامنه و هزینه','p2.d':'پیش از شروع کار، روش‌های پیشنهادی، زمان‌بندی و هزینه را اعلام می‌کنم.',
+'p3.t':'تحلیل','p3.d':'تحلیل کامل با جداول، نمودارها و کد، تا همه نتایج قابل تکرار باشند.',
+'p4.t':'نگارش و اصلاحات','p4.d':'متن روش‌ها و نتایج، به همراه پشتیبانی در طول داوری.',
+'mt.eyebrow':'روش‌ها','mt.title':'مدل‌هایی که با آن‌ها کار می‌کنم','mt.c1':'ترکیب شواهد','mt.c2':'تحلیل زمان تا رویداد','mt.c3':'رگرسیون و داده‌های طولی','mt.c4':'چندمتغیره، پیش‌بینی و یادگیری ماشین','mt.sw':'نرم‌افزار',
+'t.eyebrow':'برای دانشجویان','t.title':'دروس و منابع آموزشی','t.sub':'طرح درس، اسلاید، جزوه و تمرین دروسی که در دانشگاه علوم پزشکی ایلام تدریس می‌کنم. درس خود را انتخاب کنید و فایل‌ها را دانلود کنید.','t.all':'همه دروس','t.grad':'ارشد و دکتری','t.ug':'کارشناسی و پزشکی','t.books':'کتاب‌های دکتر سایه‌میری','t.note':'این منابع برای مطالعه شخصی دانشجویان است. برای کتاب‌های سایر نویسندگان از کتابخانه استفاده کنید یا نسخه خود را تهیه کنید.',
+'t.folder':'پوشه درس','t.syllabus':'طرح درس','t.slides':'اسلایدها','t.notes':'جزوه','t.exercises':'تمرین‌ها','t.exam':'سؤالات امتحانی','t.data':'داده‌ها','t.soon':'به‌زودی بارگذاری می‌شود','t.years':'سال تدریس','t.download':'دانلود','t.avail':'برای دریافت نسخه در کلاس بپرسید',
+'w.eyebrow':'سوابق','w.title':'مقالات منتخب','w.sub':'نمونه‌ای کوچک از بیش از ۴۰۰ مقاله. فهرست کامل در گوگل اسکالر.',
+'a.eyebrow':'درباره من','a.title':'دکتر کوروش سایه‌میری',
+'a.p1':'استاد آمار زیستی و مدیر گروه آمار زیستی دانشگاه علوم پزشکی ایلام. بیش از ۲۷ سال است که برای پژوهش‌های بالینی و بهداشت عمومی مطالعه طراحی می‌کنم، روش تحلیل را انتخاب می‌کنم و یافته‌ها را گزارش می‌دهم. در بیش از ۴۰۰ مقاله منتشرشده و بیش از ۱۸۵ مرور سیستماتیک و متاآنالیز، از جمله یک مرور کاکرین، مشارکت داشته‌ام.',
+'a.p2':'دکتری و کارشناسی ارشد آمار زیستی را از دانشگاه علوم پزشکی تهران گرفته‌ام و دوره فلوشیپ مدل‌های نیمه‌مارکف را در دانشگاه نانت فرانسه گذرانده‌ام. آمار زیستی، تحلیل بقا، رگرسیون و تحلیل چندمتغیره را به دانشجویان ارشد و دکتری تدریس می‌کنم و در دانشگاه‌های ایران و خارج از کشور کارگاه متاآنالیز برگزار کرده و پژوهشگران را راهنمایی کرده‌ام.',
+'a.p3':'دوره منتورشیپ و مشاوره، هر دو، به‌صورت آنلاین یا حضوری انجام می‌شوند: فایل‌ها و پیش‌نویس‌ها از طریق ایمیل، و در صورت نیاز تماس تلفنی.',
+'a.cv':'مشاهده رزومه کامل ↗',
+'c1.l':'تحصیلات','c1.v':'دکتری و کارشناسی ارشد آمار زیستی، دانشگاه علوم پزشکی تهران · فلوشیپ، دانشگاه نانت فرانسه',
+'c2.l':'سمت فعلی','c2.v':'استاد و مدیر گروه آمار زیستی، دانشگاه علوم پزشکی ایلام (از ۱۳۹۶)',
+'c3.l':'سوابق مدیریتی','c3.v':'مدیر پژوهش دانشگاه علوم پزشکی ایلام (۱۳۹۴–۱۳۹۷) · رئیس مرکز تحقیقات آسیب‌های روانی-اجتماعی',
+'c4.l':'افتخارات','c4.v':'جزو ۲٪ دانشمندان برتر جهان (استنفورد/الزویر) ۲۰۲۰، ۲۰۲۲، ۲۰۲۳، ۲۰۲۴، ۲۰۲۵ · پژوهشگر برتر مکرر دانشگاه',
+'c5.l':'زبان‌های کاری','c5.v':'انگلیسی · فارسی',
+'b.eyebrow':'ثبت‌نام یا درخواست مشاوره','b.title':'در دوره منتورشیپ ثبت‌نام کنید یا پروژه‌تان را شرح دهید','b.sub':'حدود دو دقیقه زمان می‌برد. پیام شما به‌صورت ایمیل برای من باز می‌شود و هیچ اطلاعاتی در این سایت ذخیره نمی‌شود.',
+'f.need':'به چه چیزی علاقه‌مندید؟ (چند گزینه مجاز است)','f.field':'رشته شما','o.fd0':'رشته خود را انتخاب کنید','f.stage':'مرحله پروژه','f.design':'نوع مطالعه','f.deadline':'مهلت (در صورت وجود)',
+'f.name':'نام شما','f.email':'ایمیل شما','f.inst':'دانشگاه / مؤسسه و کشور','f.msg':'درباره موضوع یا پروژه‌تان بنویسید',
+'f.ph':'مثلاً: دانشجوی دکتری پرستاری هستم و به متاآنالیز درباره فرسودگی شغلی پرستاران ICU علاقه دارم. یا: ۳ گروه درمانی، ۲۴۰ بیمار، پیامد = بقای یک‌ساله.',
+'f.send':'ارسال با ایمیل','f.copy':'کپی پیام','f.or':'یا مستقیم بنویسید به',
+'o.st0':'هنوز شروع نشده','o.st1':'طراحی','o.st2':'داده‌ها جمع‌آوری شده','o.st3':'تحلیل شروع شده','o.st4':'پیش‌نویس مقاله آماده است','o.st5':'در حال داوری',
+'o.d0':'هنوز مطمئن نیستم','o.d1':'کارآزمایی بالینی تصادفی','o.d2':'کوهورت','o.d3':'مورد-شاهدی','o.d4':'مقطعی','o.d5':'مرور سیستماتیک / متاآنالیز','o.d6':'سایر',
+'msg.err':'لطفاً نام، ایمیل معتبر و توضیح کوتاهی وارد کنید.','msg.copied':'کپی شد. آن را در هر ایمیل یا پیامی بچسبانید.','msg.opened':'برنامه ایمیل شما باید باز شده باشد. اگر باز نشد، از «کپی پیام» استفاده کنید.',
+'q.eyebrow':'پرسش‌ها','q.title':'پرسش‌های رایج',
+'q7':'برای دوره منتورشیپ به دانش آماری نیاز دارم؟','a7':'خیر. هر مرحله با آموزش روش شروع می‌شود و سپس آن را روی پروژه خودتان به کار می‌برید. سطح متوسط زبان انگلیسی یا فارسی برای همراهی با دوره کافی است.',
+'q8':'دوره منتورشیپ چقدر طول می‌کشد؟','a8':'به گستردگی موضوع و زمانی که در هفته می‌گذارید بستگی دارد. برنامه زمانی را در ابتدای دوره با هم تنظیم می‌کنیم.',
+'q9':'نام چه کسی روی مقاله می‌آید؟','a9':'نام شما. مقاله حاصل کار خودتان است و شما نویسنده اول آن هستید. سایر نویسندگان در ابتدای کار و مطابق معیارهای ICMJE توافق می‌شوند.',
+'q1':'هزینه چقدر است؟','a1':'هزینه دوره منتورشیپ و پروژه‌های مشاوره به‌صورت جداگانه اعلام می‌شود و پیش از شروع کار آن را دریافت می‌کنید.',
+'q3':'آیا داده‌های من محرمانه می‌ماند؟','a3':'بله. داده‌ها فقط برای پروژه شما استفاده می‌شوند و با هیچ‌کس به اشتراک گذاشته نمی‌شوند. داده‌های بی‌نام ترجیح داده می‌شوند.',
+'q4':'از چه نرم‌افزاری استفاده می‌کنید؟','a4':'هر نرم‌افزاری که برای تیم شما مناسب است: SPSS، Stata، R، SAS یا Python. کد تحلیل را هم دریافت می‌کنید.',
+'q5':'پس از ارسال مقاله هم کمک می‌کنید؟','a5':'بله. در مرحله اصلاح، تحلیل‌های تکمیلی و پاسخ به نظرات آماری داوران را انجام می‌دهم.',
+'q6':'برای دانشگاه‌ها و مؤسسات کارگاه برگزار می‌کنید؟','a6':'بله. کارگاه آمار زیستی، تحلیل بقا، Stata/R و مرور سیستماتیک و متاآنالیز، به‌صورت آنلاین یا حضوری.',
+'ct.title':'آماده شروع هستید؟','ct.sub':'در دوره منتورشیپ ثبت‌نام کنید یا توضیح کوتاهی از مطالعه‌تان بفرستید. مراحل بعد، زمان‌بندی و هزینه را اعلام می‌کنم.','ct.btn':'ثبت‌نام یا درخواست',
+'footer':'منتورشیپ متاآنالیز و مشاوره آمار زیستی برای پژوهشگران علوم سلامت'
+},
+ar:{
+'nav.life':'دعم في كل المراحل','l.eyebrow':'دورة حياة البحث','l.title':'دعم الباحثين في كل مرحلة.','l.sub':'الباحثون والمؤلفون هم محور عملي. أرافقكم من إعداد المخطوطة واختيار المجلة، إلى النشر والاكتشاف والتمثيل البصري والتعليم والتفاعل بعد النشر.','l1.t':'إعداد المخطوطة','l1.d':'كتابة قسمي المنهجية والنتائج وفق أسلوب المجلة المستهدفة وإرشادات CONSORT وSTROBE وPRISMA، مع إدارة المراجع عبر EndNote.','l2.t':'اختيار المجلة','l2.d':'مطابقة بحثكم مع المجلة المناسبة بحسب نطاقها ونوع الدراسة، وإعداد رسالة تغطية واضحة.','l3.t':'النشر والتحكيم','l3.d':'تحليلات إضافية وردود واضحة ومهذبة على ملاحظات المحكّمين الإحصائية في كل جولة تعديل.','l4.t':'البحث والاكتشاف','l4.d':'استراتيجيات بحث بمصطلحات MeSH والمعاملات المنطقية في PubMed وScopus وWeb of Science، واختيار كلمات مفتاحية تساعد القراء على الوصول إلى بحثكم.','l5.t':'التمثيل البصري','l5.d':'مخططات الغابة والقمع ومخطط تدفق PRISMA وجداول وأشكال نظيفة تتوافق مع متطلبات المجلات.','l6.t':'التعليم','l6.d':'برنامج إرشاد وورش عمل ومقررات وكتب تعلّمكم المنهج أثناء تطبيقه على مشروعكم.','l7.t':'التفاعل بعد النشر','l7.d':'تحديث التحليلات والإجابة عن أسئلة القراء والمساعدة في مشاركة النتائج عبر Google Scholar وResearchGate.','l.go':'التفاصيل ↓','lc.t':'لستم متأكدين من مرحلتكم؟','lc.d':'أخبروني بمرحلة مشروعكم وسأرشدكم إلى الخطوة التالية.','lc.b':'صِفوا مشروعكم',
+'nav.mentor':'برنامة الإرشاد','nav.services':'الاستشارات الإحصائية','nav.teach':'التدريس','nav.work':'المنشورات','nav.about':'نبذة','nav.faq':'الأسئلة','nav.cta':'التسجيل / الطلب',
+'hero.eyebrow':'أستاذ الإحصاء الحيوي · مرشد في التحليل التلوي',
+'hero.title':'من السؤال البحثي إلى <em>تحليل تلوي منشور</em>.',
+'hero.lead':'أساعد باحثي العلوم الصحية بطريقتين: أرشدك خطوة بخطوة لتُنجز تحليلك التلوي بنفسك، وأقدّم استشارات إحصائية للدراسات بمختلف تصاميمها.',
+'hero.cta1':'انضم إلى برنامج الإرشاد','hero.cta2':'الاستشارات الإحصائية',
+'stat1':'بحثاً علمياً منشوراً','stat2':'مراجعة منهجية وتحليلاً تلوياً','stat3':'عاماً في التدريس وتأهيل الباحثين','stat4':'ضمن أفضل ٢٪ من علماء العالم، ٥ مرات',
+'plot.cap1':'تحليل تلوي بالتأثيرات العشوائية (توضيحي)','trust.label':'محكّم في مجلات',
+'paths.eyebrow':'طريقتان للعمل معاً','paths.title':'هل تريد أن تتعلّم، أم أن يُنجَز العمل لك؟','paths.sub':'اختر ما يناسبك؛ ستُملأ استمارة الطلب تلقائياً.',
+'pA.tag':'تعلّم معي','pA.t':'برنامج الإرشاد في التحليل التلوي','pA.d':'تُنجز تحليلك التلوي بنفسك، من اختيار العنوان حتى إرسال المخطوطة، مع إرشادي في كل خطوة.',
+'sitA1':'أريد تعلّم التحليل التلوي على مشروعي الخاص','sitA2':'جامعتي أو فريقي يريد ورشة عمل','pA.more':'المراحل الثماني ↓',
+'pB.tag':'اعمل معي','pB.t':'الاستشارات الإحصائية','pB.d':'أصمّم وأحلّل وأكتب الجانب الإحصائي لدراستك، وأرافقك خلال التحكيم.',
+'sitB1':'أخطط لدراسة','sitB2':'لدي بيانات وأحتاج إلى تحليلها','sitB3':'أحتاج مساعدة في مراجعتي المنهجية أو تحليلي التلوي','sitB4':'المراجعون انتقدوا التحليل الإحصائي','sitB5':'أكتب رسالة ماجستير أو دكتوراه','pB.more':'جميع الخدمات ↓',
+'m.eyebrow':'برنامج الإرشاد في التحليل التلوي','m.title':'تعلّم التحليل التلوي بإنجاز تحليلك الخاص',
+'m.p1':'تعمل على عنوانك الخاص: أحضر موضوعك، أو أقترح عليك عنوان تحليل تلوي في مجال تخصصك. ثم، مرحلة بعد مرحلة، تُنجز كل أجزاء العمل بنفسك، وأنا أرشد كل خطوة وأراجعها. في النهاية تكون المؤلف الأول لمخطوطة جاهزة للمجلة، ولديك المهارة لقيادة التحليل التالي بمفردك.',
+'m.quote':'التعلّم بالممارسة','m.quote2':'كل ما تتعلّمه تطبّقه في الأسبوع نفسه على مشروعك.',
+'m.p2':'درّبت كثيراً من الباحثين في الطب وعلم النفس والتمريض وسائر العلوم الصحية. كثير منهم اليوم من أبرز الباحثين في إيران، وأُدرج عدد منهم ضمن قائمة أفضل ٢٪ من علماء العالم.',
+'m.who':'لمن هذا البرنامج','m.w1':'الطب','m.w2':'علم النفس','m.w3':'التمريض والقبالة','m.w4':'الصحة العامة وعلم الوبائيات','m.w5':'طب الأسنان والصيدلة','m.w6':'علوم صحية أخرى',
+'m.fmt':'الصيغة','m.fmt1':'فردياً أو ضمن مجموعة صغيرة','m.fmt2':'عبر الإنترنت أو حضورياً','m.fmt3':'لا يلزم أي خلفية إحصائية',
+'m.fmt4':'يكفي مستوى متوسط في الإنجليزية أو الفارسية',
+'m.fmt5':'أنت المؤلف الأول لبحثك',
+'m.extra':'يشمل التدريب أيضاً',
+'m.x1':'إدارة المراجع باستخدام EndNote',
+'m.x2':'استخدام أدوات الذكاء الاصطناعي في كل مرحلة من البحث',
+'m.x3':'العمل مع Claude لتسريع القراءة والكتابة والتعديل، وفق سياسات المجلات بشأن الذكاء الاصطناعي',
+'m.cta':'سجّل في برنامج الإرشاد','m.got':'ناتج هذه المرحلة',
+'st1.t':'عنوان بحثك الخاص','st1.d':'تختار موضوعك بنفسك، أو أقترح عليك عنوان تحليل تلوي في مجال تخصصك. نتحقق من وجود فجوة بحثية وعدد كافٍ من الدراسات، ثم نصوغه كسؤال PICO محدد.','st1.g':'سؤال بحثي محدد وبروتوكول',
+'st2.t':'استراتيجية البحث','st2.d':'تبني عبارات البحث بالكلمات المفتاحية ومصطلحات MeSH والعوامل المنطقية، وتنفّذها في PubMed وScopus وWeb of Science وEmbase وقواعد البيانات الوطنية.','st2.g':'بحث موثّق لكل قاعدة بيانات',
+'st3.t':'اختيار الدراسات','st3.d':'تفرز العناوين والملخصات والنصوص الكاملة وفق معايير الإدراج والاستبعاد، وتوثّق كل قرار.','st3.g':'مخطط تدفق PRISMA',
+'st4.t':'استخراج البيانات','st4.d':'تصمّم استمارة الاستخراج وتستخرج أحجام العينات وأحجام التأثير وخصائص كل دراسة.','st4.g':'جدول بيانات جاهز للتحليل',
+'st5.t':'تقييم الجودة','st5.d':'تقيّم خطر التحيز بالأداة المناسبة لتصاميم الدراسات، مثل نيوكاسل-أوتاوا أو Cochrane RoB 2 أو JBI أو QUADAS-2.','st5.g':'جدول تقييم الجودة',
+'st6.t':'تحليل البيانات','st6.d':'تُجري التحليل التلوي بنفسك في Stata أو R: الدمج، عدم التجانس، تحليل المجموعات الفرعية، الانحدار التلوي وتحيز النشر.','st6.g':'مخططات الغابة والقمع وجميع النتائج',
+'st7.t':'كتابة النتائج','st7.d':'تفسّر النتائج وتكتبها وفق PRISMA 2020، مع الجداول والأشكال التي تتوقعها المجلات.','st7.g':'قسم النتائج مع الأشكال',
+'st8.t':'المخطوطة والإرسال','st8.d':'تكتب المقدمة والمناقشة، وتدير المراجع في EndNote، وتختار المجلة المناسبة، وتعدّ خطاب التقديم، وتتعلّم الرد على المراجعين.','st8.g':'مخطوطة مُرسلة إلى مجلة',
+'svc.eyebrow':'الاستشارات الإحصائية','svc.title':'عندما تحتاج إلى من يُنجز الإحصاء لدراستك','svc.sub':'جزء واحد أو المسار كاملاً، من أول حساب لحجم العينة حتى آخر رد على المراجعين.',
+'s1.t':'تصميم الدراسة وحجم العينة','s1.d':'التجارب السريرية ودراسات الأتراب والحالات والشواهد والمقطعية؛ حساب القوة وحجم العينة؛ خطط التحليل الإحصائي.',
+'s2.t':'التحليل الإحصائي','s2.d':'من الإحصاء الوصفي إلى النماذج متعددة المتغيرات، مع شيفرة قابلة لإعادة التشغيل في SPSS أو Stata أو R أو SAS أو Python.',
+'s3.t':'المراجعة المنهجية والتحليل التلوي','featured':'الأكثر طلباً','s3.d':'التحليل التلوي بالتأثيرات الثابتة والعشوائية والشبكي، عدم التجانس، المجموعات الفرعية والانحدار التلوي، تحيز النشر، مخططات الغابة والقمع، والتحليل التلوي لدقة التشخيص.',
+'s4.t':'تحليل البقاء والبيانات الطولية','s4.d':'كابلان-ماير، نماذج كوكس بمتغيرات معتمدة على الزمن، نماذج ويبل/AFT، المخاطر المتنافسة، النماذج شبه الماركوفية متعددة الحالات، النماذج المختلطة وGEE.',
+'s5.t':'كتابة الطرائق والنتائج','s5.d':'أقسام إحصائية وفق أسلوب المجلة المستهدفة وإرشادات التقارير (CONSORT وSTROBE وPRISMA).',
+'s6.t':'دعم الرد على المراجعين','s6.d':'تحليلات إضافية وردود واضحة على الملاحظات الإحصائية أثناء التعديل.',
+'s7.t':'إرشاد الرسائل والبحوث','s7.d':'مستشار إحصائي لطلاب الماجستير والدكتوراه والفرق البحثية، من المقترح حتى المناقشة.',
+'s8.t':'ورش عمل للجامعات والفرق','s8.d':'ورش عملية في الإحصاء الحيوي وStata/R وتحليل البقاء والتحليل التلوي، عبر الإنترنت أو حضورياً.',
+'p.title':'كيف يسير مشروع الاستشارة',
+'p1.t':'أرسل سؤالك','p1.d':'وصف موجز وبياناتك (أو عينة منها) والموعد النهائي.',
+'p2.t':'النطاق وعرض السعر','p2.d':'أرد بالطرائق المقترحة والجدول الزمني وعرض السعر قبل بدء أي عمل.',
+'p3.t':'التحليل','p3.d':'تحليل كامل مع الجداول والأشكال والشيفرة لتكون كل النتائج قابلة للتكرار.',
+'p4.t':'الكتابة والتعديلات','p4.d':'نص الطرائق والنتائج، مع الدعم خلال التحكيم.',
+'mt.eyebrow':'الطرائق','mt.title':'النماذج التي أعمل بها','mt.c1':'تجميع الأدلة','mt.c2':'تحليل الزمن حتى الحدث','mt.c3':'الانحدار والبيانات الطولية','mt.c4':'متعدد المتغيرات والتنبؤ وتعلّم الآلة','mt.sw':'البرمجيات',
+'t.eyebrow':'لطلابي','t.title':'المقررات والمواد التعليمية','t.sub':'خطط المقررات والشرائح والمذكرات والتمارين للمقررات التي أدرّسها في جامعة إيلام للعلوم الطبية. اختر مقررك وحمّل ما تحتاجه.','t.all':'كل المقررات','t.grad':'الماجستير والدكتوراه','t.ug':'البكالوريوس وطلاب الطب','t.books':'كتب د. سايه ميري','t.note':'هذه المواد للدراسة الشخصية للطلاب. للكتب المرجعية لمؤلفين آخرين يرجى استخدام المكتبة أو شراء نسختك.',
+'t.folder':'مجلد المقرر','t.syllabus':'خطة المقرر','t.slides':'الشرائح','t.notes':'المذكرات','t.exercises':'التمارين','t.exam':'امتحانات سابقة','t.data':'البيانات','t.soon':'المواد قريباً','t.years':'سنوات التدريس','t.download':'تحميل','t.avail':'اطلب نسخة في الصف',
+'w.eyebrow':'السجل العلمي','w.title':'منشورات مختارة','w.sub':'عينة صغيرة من أكثر من ٤٠٠ بحث. القائمة الكاملة على Google Scholar.',
+'a.eyebrow':'نبذة','a.title':'أ.د. كوروش سايه ميري',
+'a.p1':'أستاذ الإحصاء الحيوي ورئيس قسم الإحصاء الحيوي في جامعة إيلام للعلوم الطبية. منذ أكثر من ٢٧ عاماً أصمّم الدراسات وأختار طرائق التحليل وأعرض النتائج للأبحاث السريرية وأبحاث الصحة العامة. شاركت في أكثر من ٤٠٠ بحث منشور وأكثر من ١٨٥ مراجعة منهجية وتحليلاً تلوياً، منها مراجعة كوكرين.',
+'a.p2':'حاصل على الدكتوراه والماجستير في الإحصاء الحيوي من جامعة طهران للعلوم الطبية، وأكملت زمالة في النماذج شبه الماركوفية في جامعة نانت بفرنسا. أدرّس الإحصاء الحيوي وتحليل البقاء والانحدار والتحليل متعدد المتغيرات لطلاب الماجستير والدكتوراه، وقدّمت ورش عمل في التحليل التلوي وأرشدت باحثين في جامعات داخل إيران وخارجها.',
+'a.p3':'يُقدَّم الإرشاد والاستشارات عن بُعد أو حضورياً: الملفات والمسودات عبر البريد الإلكتروني، مع مكالمة عند الحاجة.',
+'a.cv':'عرض السيرة الذاتية الكاملة ↗',
+'c1.l':'التعليم','c1.v':'دكتوراه وماجستير في الإحصاء الحيوي، جامعة طهران للعلوم الطبية · زمالة، جامعة نانت',
+'c2.l':'المنصب الحالي','c2.v':'أستاذ ورئيس قسم الإحصاء الحيوي، جامعة إيلام للعلوم الطبية (منذ ٢٠١٧)',
+'c3.l':'مناصب سابقة','c3.v':'مدير البحث العلمي، جامعة إيلام للعلوم الطبية (٢٠١٥–٢٠١٨) · مدير مركز أبحاث الإصابات النفسية والاجتماعية',
+'c4.l':'التكريم','c4.v':'ضمن أفضل ٢٪ من علماء العالم (ستانفورد/إلسفير) ٢٠٢٠، ٢٠٢٢، ٢٠٢٣، ٢٠٢٤، ٢٠٢٥ · باحث متميز في الجامعة مرات عدة',
+'c5.l':'لغات العمل','c5.v':'الإنجليزية · الفارسية',
+'b.eyebrow':'التسجيل أو طلب عرض سعر','b.title':'سجّل في برنامج الإرشاد أو صِف مشروعك','b.sub':'يستغرق نحو دقيقتين. تُفتح رسالتك كبريد إلكتروني إليّ، ولا يُخزَّن أي شيء على هذا الموقع.',
+'f.need':'بماذا تهتم؟ (اختر ما يناسبك)','f.field':'تخصصك','o.fd0':'اختر تخصصك','f.stage':'مرحلة المشروع','f.design':'نوع الدراسة','f.deadline':'الموعد النهائي (إن وجد)',
+'f.name':'اسمك','f.email':'بريدك الإلكتروني','f.inst':'الجامعة / المؤسسة والبلد','f.msg':'حدّثني عن موضوعك أو مشروعك',
+'f.ph':'مثال: أنا طالب دكتوراه في التمريض وأرغب في تحليل تلوي عن الاحتراق الوظيفي لدى ممرضي العناية المركزة. أو: ٣ مجموعات علاجية، ٢٤٠ مريضاً، النتيجة = البقاء لسنة.',
+'f.send':'إرسال بالبريد','f.copy':'نسخ الرسالة','f.or':'أو راسلني مباشرة على',
+'o.st0':'لم يبدأ بعد','o.st1':'التخطيط','o.st2':'تم جمع البيانات','o.st3':'بدأ التحليل','o.st4':'المسودة جاهزة','o.st5':'قيد التحكيم',
+'o.d0':'لست متأكداً بعد','o.d1':'تجربة سريرية عشوائية','o.d2':'دراسة أتراب','o.d3':'حالات وشواهد','o.d4':'مقطعية','o.d5':'مراجعة منهجية / تحليل تلوي','o.d6':'أخرى',
+'msg.err':'يرجى إدخال الاسم وبريد إلكتروني صحيح ووصف موجز.','msg.copied':'تم النسخ. الصقه في أي بريد أو رسالة.','msg.opened':'يُفترض أن تطبيق البريد قد فُتح. إن لم يُفتح، استخدم «نسخ الرسالة».',
+'q.eyebrow':'الأسئلة','q.title':'أسئلة شائعة',
+'q7':'هل أحتاج إلى خلفية إحصائية لبرنامج الإرشاد؟','a7':'لا. تبدأ كل مرحلة بشرح الطريقة، ثم تطبّقها على مشروعك. يكفي مستوى متوسط في الإنجليزية أو الفارسية لمتابعة التدريب.',
+'q8':'كم يستغرق برنامج الإرشاد؟','a8':'يعتمد على حجم موضوعك والوقت الذي تخصصه أسبوعياً. نتفق على جدول زمني في البداية.',
+'q9':'من يكون مؤلف البحث؟','a9':'اسمك. البحث ثمرة عملك وأنت مؤلفه الأول. يُتفق على أي مؤلفين آخرين في البداية وفق معايير ICMJE.',
+'q1':'كم التكلفة؟','a1':'يُسعَّر برنامج الإرشاد ومشاريع الاستشارة كلٌّ على حدة، وتعرف الرسوم قبل بدء العمل.',
+'q3':'هل تبقى بياناتي سرية؟','a3':'نعم. تُستخدم البيانات لمشروعك فقط ولا تُشارك مع أحد. يُفضَّل إرسال بيانات مجهولة الهوية.',
+'q4':'ما البرنامج الذي ستستخدمه؟','a4':'ما يناسب فريقك: SPSS أو Stata أو R أو SAS أو Python، مع تسليم الشيفرة لإعادة التحليل.',
+'q5':'هل تساعد بعد إرسال البحث؟','a5':'نعم. أدعم التحليلات الإضافية والرد على الملاحظات الإحصائية خلال التعديل.',
+'q6':'هل تقدّم ورش عمل للمؤسسات؟','a6':'نعم. ورش في الإحصاء الحيوي وتحليل البقاء وStata/R والمراجعة المنهجية والتحليل التلوي، عبر الإنترنت أو حضورياً.',
+'ct.title':'هل أنت مستعد للبدء؟','ct.sub':'سجّل في برنامج الإرشاد أو أرسل وصفاً موجزاً لدراستك، وسأرد بالخطوات التالية والجدول الزمني وعرض السعر.','ct.btn':'التسجيل أو الطلب',
+'footer':'الإرشاد في التحليل التلوي والاستشارات في الإحصاء الحيوي لباحثي العلوم الصحية'
+},
+zh:{
+'nav.life':'全流程支持','l.eyebrow':'研究全流程','l.title':'全程支持研究者，覆盖每一个阶段。','l.sub':'研究者和作者始终是我工作的核心。从稿件准备、期刊选择，到发表、检索发现、可视化、教育培训以及发表后的学术交流，我与您同行。','l1.t':'稿件准备','l1.d':'按目标期刊的风格撰写方法与结果部分，遵循CONSORT、STROBE和PRISMA规范，并用EndNote管理参考文献。','l2.t':'期刊选择','l2.d':'根据期刊范围和研究类型匹配合适的期刊，并准备清晰的投稿信。','l3.t':'发表与同行评审','l3.d':'在每一轮修回中提供补充分析，并对统计相关审稿意见给出清晰、礼貌的回复。','l4.t':'检索与发现','l4.d':'使用MeSH词和布尔运算符，在PubMed、Scopus和Web of Science中构建检索策略，并选择有助于读者找到您论文的关键词。','l5.t':'数据可视化','l5.d':'森林图、漏斗图、PRISMA流程图，以及符合期刊要求的规范表格和图表。','l6.t':'教育与培训','l6.d':'导师计划、工作坊、课程和教材，让您在自己的课题中边学边用。','l7.t':'发表后交流','l7.d':'更新分析、回答读者提问，并协助通过Google Scholar和ResearchGate分享研究成果。','l.go':'了解详情 ↓','lc.t':'不确定自己处于哪个阶段？','lc.d':'告诉我您的项目进展，我会为您指出合适的下一步。','lc.b':'描述您的项目',
+'nav.mentor':'导师计划','nav.services':'统计咨询','nav.teach':'教学','nav.work':'论文','nav.about':'关于','nav.faq':'常见问题','nav.cta':'报名 / 咨询',
+'hero.eyebrow':'生物统计学教授 · Meta分析导师',
+'hero.title':'从研究问题到<em>发表的Meta分析</em>。',
+'hero.lead':'我以两种方式帮助健康科学研究者：一步步指导您亲手完成自己的Meta分析；并为各类设计的研究提供统计咨询。',
+'hero.cta1':'加入导师计划','hero.cta2':'统计咨询',
+'stat1':'篇已发表研究论文','stat2':'篇系统综述与Meta分析','stat3':'年教学与科研人才培养','stat4':'五次入选全球前2%顶尖科学家',
+'plot.cap1':'随机效应Meta分析（示意图）','trust.label':'担任审稿人的期刊',
+'paths.eyebrow':'两种合作方式','paths.title':'您想自己学会，还是请我来完成？','paths.sub':'选择最符合您情况的一项，系统会自动预填申请表。',
+'pA.tag':'跟我学','pA.t':'Meta分析导师计划','pA.d':'在我每一步的指导下，您亲手完成自己的Meta分析——从选题到投稿。',
+'sitA1':'我想通过自己的课题学习Meta分析','sitA2':'我们的大学或团队需要工作坊','pA.more':'查看8个阶段 ↓',
+'pB.tag':'与我合作','pB.t':'统计咨询','pB.d':'我为您的研究进行统计设计、分析和撰写，并在同行评审期间提供支持。',
+'sitB1':'我正在规划一项研究','sitB2':'我有数据，需要分析','sitB3':'我的系统综述或Meta分析需要帮助','sitB4':'审稿人质疑了我的统计方法','sitB5':'我在撰写硕士或博士论文','pB.more':'查看全部服务 ↓',
+'m.eyebrow':'Meta分析导师计划','m.title':'在完成自己的Meta分析中学会Meta分析',
+'m.p1':'您研究自己的题目：可以带来自己的选题，也可以由我推荐您所在领域的Meta分析题目。随后，您将逐个阶段亲手完成全部工作，我负责指导并检查每一步。最终，您将以第一作者身份完成一篇可投稿的论文，并具备独立完成下一项Meta分析的能力。',
+'m.quote':'做中学','m.quote2':'所学内容，当周即应用于您自己的课题。',
+'m.p2':'我培养了大量医学、心理学、护理及其他健康科学领域的研究者。其中许多人已成为伊朗的顶尖研究人员，多人入选全球前2%顶尖科学家榜单。',
+'m.who':'适合人群','m.w1':'医学','m.w2':'心理学','m.w3':'护理与助产','m.w4':'公共卫生与流行病学','m.w5':'口腔与药学','m.w6':'其他健康科学',
+'m.fmt':'形式','m.fmt1':'一对一或小组','m.fmt2':'线上或线下','m.fmt3':'无需统计学基础',
+'m.fmt4':'中等水平的英语或波斯语即可',
+'m.fmt5':'您是论文的第一作者',
+'m.extra':'培训还包括',
+'m.x1':'使用EndNote管理参考文献',
+'m.x2':'在研究各阶段使用人工智能工具',
+'m.x3':'借助Claude更快地阅读、写作和修改，并遵守期刊的人工智能政策',
+'m.cta':'报名导师计划','m.got':'本阶段成果',
+'st1.t':'您自己的研究题目','st1.d':'您自选题目，或由我推荐您所在领域的Meta分析题目。我们确认存在研究空白且有足够的研究，然后将其构建为明确的PICO问题。','st1.g':'明确的研究问题与研究方案',
+'st2.t':'检索策略','st2.d':'您使用关键词、MeSH主题词和布尔运算符构建检索式，并在PubMed、Scopus、Web of Science、Embase及本国数据库中检索。','st2.g':'各数据库的完整检索记录',
+'st3.t':'文献筛选','st3.d':'您根据纳入和排除标准筛选题目、摘要和全文，并记录每一个决定。','st3.g':'PRISMA流程图',
+'st4.t':'数据提取','st4.d':'您设计数据提取表，从每项纳入研究中提取样本量、效应量和研究特征。','st4.g':'可直接分析的数据表',
+'st5.t':'质量评价','st5.d':'您根据研究设计选择合适的工具评价偏倚风险，例如NOS、Cochrane RoB 2、JBI或QUADAS-2。','st5.g':'质量评价表',
+'st6.t':'数据分析','st6.d':'您在Stata或R中亲自完成Meta分析：效应合并、异质性、亚组分析、Meta回归和发表偏倚。','st6.g':'森林图、漏斗图及全部结果',
+'st7.t':'结果报告','st7.d':'您按照PRISMA 2020解读并撰写结果，配上期刊要求的表格和图形。','st7.g':'含图表的结果部分',
+'st8.t':'撰写论文与投稿','st8.d':'您撰写引言和讨论，用EndNote管理参考文献，选择合适的期刊，准备投稿信，并学习如何回复审稿人。','st8.g':'已投稿的论文',
+'svc.eyebrow':'统计咨询','svc.title':'当您需要专业人士完成统计工作时','svc.sub':'单项委托或全流程服务，从第一次样本量计算到最后一次回复审稿人。',
+'s1.t':'研究设计与样本量','s1.d':'临床试验、队列、病例对照和横断面研究设计；检验效能与样本量计算；统计分析计划。',
+'s2.t':'统计分析','s2.d':'从描述性统计到多变量模型，提供可在SPSS、Stata、R、SAS或Python中重复运行的代码。',
+'s3.t':'系统综述与Meta分析','featured':'最受欢迎','s3.d':'固定/随机效应与网状Meta分析、异质性、亚组与Meta回归、发表偏倚、森林图和漏斗图、诊断准确性Meta分析。',
+'s4.t':'生存分析与纵向数据分析','s4.d':'Kaplan–Meier、含时依协变量的Cox模型、Weibull/AFT模型、竞争风险、半马尔可夫多状态模型、混合模型与GEE。',
+'s5.t':'方法与结果撰写','s5.d':'按照目标期刊风格和报告规范（CONSORT、STROBE、PRISMA）撰写统计部分。',
+'s6.t':'审稿回复支持','s6.d':'修稿阶段的补充分析以及对统计意见的清晰回复。',
+'s7.t':'论文与科研顾问','s7.d':'为硕博研究生和科研团队提供统计顾问服务，从开题到答辩。',
+'s8.t':'面向高校与团队的工作坊','s8.d':'生物统计、Stata/R、生存分析与Meta分析的实操工作坊，线上或线下均可。',
+'p.title':'咨询项目流程',
+'p1.t':'发送您的问题','p1.d':'简要说明、数据（或样例数据）以及截止日期。',
+'p2.t':'确定范围与报价','p2.d':'开始工作前，我会告知推荐方法、时间安排和报价。',
+'p3.t':'分析','p3.d':'完整分析，附表格、图形和代码，确保所有结果可重复。',
+'p4.t':'撰写与修改','p4.d':'方法与结果文本，并在同行评审期间提供支持。',
+'mt.eyebrow':'方法','mt.title':'我常用的模型','mt.c1':'证据合成','mt.c2':'生存分析','mt.c3':'回归与纵向数据','mt.c4':'多变量、预测与机器学习','mt.sw':'软件',
+'t.eyebrow':'致我的学生','t.title':'课程与教学资料','t.sub':'我在伊拉姆医科大学所授课程的教学大纲、课件、讲义和练习。选择课程即可下载所需资料。','t.all':'全部课程','t.grad':'硕士与博士','t.ug':'本科与医学生','t.books':'Sayehmiri 教授编著教材','t.note':'资料仅供学生个人学习。其他作者的教材请通过图书馆借阅或自行购买。',
+'t.folder':'课程文件夹','t.syllabus':'教学大纲','t.slides':'课件','t.notes':'讲义','t.exercises':'练习','t.exam':'往年试题','t.data':'数据集','t.soon':'资料即将上传','t.years':'年教学','t.download':'下载','t.avail':'请在课堂上索取',
+'w.eyebrow':'学术成果','w.title':'代表性论文','w.sub':'400余篇论文中的一小部分。完整列表见Google Scholar。',
+'a.eyebrow':'关于','a.title':'Kourosh Sayehmiri 教授',
+'a.p1':'伊拉姆医科大学生物统计学教授、生物统计系主任。27年多来，我为临床与公共卫生研究设计研究、选择分析方法并呈现结果，参与发表400余篇论文和185篇以上系统综述与Meta分析，其中包括一篇Cochrane综述。',
+'a.p2':'我在德黑兰医科大学获得生物统计学博士和硕士学位，并在法国南特大学完成半马尔可夫模型方向的研修。我为硕博研究生讲授生物统计、生存分析、回归与多变量分析，并在伊朗国内外高校举办Meta分析工作坊、指导研究者。',
+'a.p3':'导师计划和统计咨询均可线上或线下进行：文件和草稿通过电子邮件往来，必要时通话沟通。',
+'a.cv':'查看完整简历 ↗',
+'c1.l':'教育背景','c1.v':'德黑兰医科大学生物统计学博士、硕士 · 法国南特大学研修',
+'c2.l':'现任职务','c2.v':'伊拉姆医科大学生物统计学教授、系主任（2017年至今）',
+'c3.l':'曾任职务','c3.v':'伊拉姆医科大学科研处处长（2015–2018）· 心理社会伤害研究中心主任',
+'c4.l':'荣誉','c4.v':'全球前2%顶尖科学家（斯坦福/爱思唯尔）2020、2022、2023、2024、2025 · 多次获评校级优秀研究者',
+'c5.l':'工作语言','c5.v':'英语 · 波斯语',
+'b.eyebrow':'报名或获取报价','b.title':'报名导师计划，或介绍您的项目','b.sub':'约需两分钟。您的信息将以电子邮件形式发给我，本网站不存储任何信息。',
+'f.need':'您感兴趣的是？（可多选）','f.field':'您的专业领域','o.fd0':'请选择您的领域','f.stage':'项目阶段','f.design':'研究类型','f.deadline':'截止日期（如有）',
+'f.name':'您的姓名','f.email':'您的邮箱','f.inst':'大学 / 单位及国家','f.msg':'请介绍您的题目或项目',
+'f.ph':'例如：我是护理学博士生，想做一项关于ICU护士职业倦怠的Meta分析。或：3个治疗组，240名患者，结局为1年生存率。',
+'f.send':'通过邮件发送','f.copy':'复制信息','f.or':'或直接发邮件至',
+'o.st0':'尚未开始','o.st1':'规划中','o.st2':'数据已收集','o.st3':'已开始分析','o.st4':'稿件已起草','o.st5':'同行评审中',
+'o.d0':'尚不确定','o.d1':'随机对照试验','o.d2':'队列研究','o.d3':'病例对照研究','o.d4':'横断面研究','o.d5':'系统综述 / Meta分析','o.d6':'其他',
+'msg.err':'请填写姓名、有效邮箱和简要说明。','msg.copied':'已复制，可粘贴到任何邮件或消息中。','msg.opened':'您的邮件应用应已打开。如未打开，请使用“复制信息”。',
+'q.eyebrow':'常见问题','q.title':'常见问题',
+'q7':'参加导师计划需要统计学基础吗？','a7':'不需要。每个阶段先讲解方法，然后您将其应用到自己的课题中。具备中等水平的英语或波斯语即可跟上培训。',
+'q8':'导师计划需要多长时间？','a8':'取决于题目的规模以及您每周可投入的时间。我们会在开始时共同商定时间安排。',
+'q9':'论文署名归谁？','a9':'您。论文是您自己的成果，您是第一作者。其他作者在开始时按照ICMJE标准商定。',
+'q1':'费用是多少？','a1':'导师计划和咨询项目均单独报价，开始工作前您会收到费用说明。',
+'q3':'我的数据会保密吗？','a3':'会。数据仅用于您的项目，不会与任何人共享。建议提供去标识化数据。',
+'q4':'使用什么软件？','a4':'根据您团队的需要：SPSS、Stata、R、SAS或Python，并提供分析代码以便重复运行。',
+'q5':'投稿后还能提供帮助吗？','a5':'可以。修稿期间我提供补充分析并协助回复统计相关审稿意见。',
+'q6':'是否为机构举办工作坊？','a6':'是的。生物统计、生存分析、Stata/R以及系统综述与Meta分析工作坊，线上或线下均可。',
+'ct.title':'准备好开始了吗？','ct.sub':'报名导师计划，或发送研究的简要说明。我会回复后续步骤、时间安排和报价。','ct.btn':'报名或咨询',
+'footer':'面向健康科学研究者的Meta分析导师计划与生物统计咨询'
+}};
+
+/* Capture English originals from the page */
+const els = document.querySelectorAll('[data-i18n],[data-i18n-html],[data-i18n-ph]');
+els.forEach(el=>{
+  if(el.dataset.i18n && !(el.dataset.i18n in T.en)) T.en[el.dataset.i18n] = el.textContent;
+  if(el.dataset.i18nHtml && !(el.dataset.i18nHtml in T.en)) T.en[el.dataset.i18nHtml] = el.innerHTML;
+  if(el.dataset.i18nPh && !(el.dataset.i18nPh in T.en)) T.en[el.dataset.i18nPh] = el.placeholder;
+});
+let lang = 'en';
+const t = k => (T[lang] && T[lang][k]) ?? T.en[k] ?? k;
+
+function setLang(l){
+  lang = T[l] ? l : 'en';
+  els.forEach(el=>{
+    if(el.dataset.i18n) el.textContent = t(el.dataset.i18n);
+    if(el.dataset.i18nHtml) el.innerHTML = t(el.dataset.i18nHtml);
+    if(el.dataset.i18nPh) el.placeholder = t(el.dataset.i18nPh);
+  });
+  const root = document.documentElement;
+  root.lang = lang;
+  root.dir = (lang==='fa'||lang==='ar') ? 'rtl' : 'ltr';
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+  try{ localStorage.setItem(LANG_KEY, lang) }catch(e){}
+  renderCourses();
+}
+
+/* Courses */
 const FD = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>';
 const DL = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>';
-const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-let level='all';
+const esc = s => String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let level = 'all';
 function renderCourses(){
-  const list=document.getElementById('courseList'); if(!list) return;
+  const list = document.getElementById('courseList');
   list.innerHTML = COURSES.filter(c=>level==='all'||c.level===level).map(c=>{
-    const folder = c.folder ? `<a class="cfile" href="${esc(c.folder)}" target="_blank" rel="noopener">${FD}${tc('t.folder')}</a>` : '';
-    const files = folder + (c.files||[]).filter(f=>f.url).map(f=>
-      `<a class="cfile" href="${esc(f.url)}" target="_blank" rel="noopener">${DL}${esc(f.label||tc('t.'+f.type))}</a>`).join('');
-    return `<div class="crow"><div><div class="ct">${esc(c.title)}</div>${c.years?`<div class="cy">${c.years} ${tc('t.years')}</div>`:''}</div>
-      <div class="ca">${esc(c.who)}</div>
-      <div class="cfiles">${files||`<span class="csoon">${tc('t.soon')}</span>`}</div></div>`;
+    const folder = c.folder ? `<a class="cfile" href="${esc(c.folder)}" target="_blank" rel="noopener">${FD}${t('t.folder')}</a>` : '';
+    const files = folder + (c.files||[]).filter(f=>f.url).map(f=>`<a class="cfile" href="${esc(f.url)}" target="_blank" rel="noopener">${DL}${esc(f.label||t('t.'+f.type))}</a>`).join('');
+    return `<div class="crow"><div><div class="ct">${esc(c.title)}</div>${c.years?`<div class="cy">${c.years} ${t('t.years')}</div>`:''}</div><div class="ca">${esc(c.who)}</div><div class="cfiles">${files||`<span class="csoon">${t('t.soon')}</span>`}</div></div>`;
   }).join('');
   document.getElementById('bookList').innerHTML = BOOKS.map(b=>
-    `<div class="tbook"><div><b>${esc(b.title)}</b><span>${esc(b.info)}</span></div>${b.url?`<a class="cfile" href="${esc(b.url)}" target="_blank" rel="noopener">${DL}${tc('t.download')}</a>`:`<span class="csoon">${tc('t.avail')}</span>`}</div>`).join('');
+    `<div class="tbook"><div><b>${esc(b.title)}</b><span>${esc(b.info)}</span></div>${b.url?`<a class="cfile" href="${esc(b.url)}" target="_blank" rel="noopener">${DL}${t('t.download')}</a>`:`<span class="csoon">${t('t.avail')}</span>`}</div>`).join('');
 }
 document.querySelectorAll('.tfilter button').forEach(b=>b.addEventListener('click',()=>{
-  level=b.dataset.level;
-  document.querySelectorAll('.tfilter button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  level = b.dataset.level;
+  document.querySelectorAll('.tfilter button').forEach(x=>x.setAttribute('aria-pressed', x===b));
   renderCourses();
 }));
-renderCourses();
+
+/* Language start */
+const LANG_KEY = 'ks-lang-cn';
+const DEFAULT_LANG = 'zh';  // '' = follow the visitor's browser language
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+let initial = DEFAULT_LANG || 'en';
+try{
+  const q = new URLSearchParams(location.search).get('lang');
+  initial = q || localStorage.getItem(LANG_KEY) || DEFAULT_LANG;
+}catch(e){}
+setLang(initial);
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+document.getElementById('contactLine').textContent = CONTACT_EMAIL + (PHONE ? '  ·  ' + PHONE : '');
+document.getElementById('mailAddr').textContent = CONTACT_EMAIL;
+
+/* Situation buttons → pre-fill the form */
+document.querySelectorAll('[data-pick]').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('#needChecks input').forEach(c=>c.checked = c.value===btn.dataset.pick);
+  if(btn.dataset.stage) document.getElementById('stage').value = btn.dataset.stage;
+  if(btn.dataset.design) document.getElementById('design').value = btn.dataset.design;
+  document.getElementById('apply').scrollIntoView({behavior:'smooth'});
+  setTimeout(()=>document.getElementById('field').focus({preventScroll:true}), 600);
+}));
+
+/* Build the message (always in English for Prof. Sayehmiri) */
+const NEED_EN = {mentorship:'Meta-analysis mentorship', workshop:'Workshop', design:'Study design & sample size', analysis:'Statistical analysis', meta:'Systematic review & meta-analysis', survival:'Survival & longitudinal analysis', writing:'Methods & Results writing', reviewer:'Reviewer-response support', thesis:'Thesis & research advisory'};
+const v = id => document.getElementById(id).value.trim();
+function buildBrief(){
+  const needs = [...document.querySelectorAll('#needChecks input:checked')].map(c=>NEED_EN[c.value]);
+  return ['Request via website','',
+    'Name: '+v('name'),'Email: '+v('email'),'University / country: '+(v('inst')||'—'),
+    'Interested in: '+(needs.join(', ')||'Not specified'),'Field: '+v('field'),
+    'Project stage: '+v('stage'),'Study type: '+v('design'),'Deadline: '+(v('deadline')||'—'),
+    'Site language: '+lang,'','Message:',v('msg')].join('\n');
+}
+const note = document.getElementById('formNote');
+function say(key, cls){ note.textContent = t(key); note.className = 'note ' + (cls||''); }
+function valid(){
+  const ok = v('name') && /\S+@\S+\.\S+/.test(v('email')) && v('msg').length > 5;
+  if(!ok) say('msg.err','err');
+  return ok;
+}
+document.getElementById('briefForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  if(!valid()) return;
+  const needs = [...document.querySelectorAll('#needChecks input:checked')].map(c=>c.value);
+  const subject = (needs.includes('mentorship') ? 'Mentorship application — ' : 'Statistics consulting request — ') + v('name');
+  location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(buildBrief());
+  say('msg.opened','ok');
+});
+document.getElementById('copyBtn').addEventListener('click', async ()=>{
+  if(!valid()) return;
+  const text = buildBrief();
+  try{ await navigator.clipboard.writeText(text); }
+  catch(e){ const ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy')}catch(_){} ta.remove(); }
+  say('msg.copied','ok');
+});
 </script>
 </body>
 </html>
