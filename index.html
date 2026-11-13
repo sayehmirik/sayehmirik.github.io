@@ -266,7 +266,9 @@ footer{padding-block:30px 46px;text-align:center;color:var(--muted);font-size:.8
 footer .fn{font-family:var(--display);font-weight:600;color:var(--ink);font-size:1.05rem;margin-bottom:4px}
 
 /* Responsive */
-@media (max-width:1020px){.nav-links{display:none}}
+.nav-links a{white-space:nowrap}
+.nav-links{gap:18px}
+@media (max-width:1180px){.nav-links{display:none}}
 @media (max-width:960px){
   .hero,.about,.m-grid{grid-template-columns:1fr;gap:36px}
   .m-intro{position:static}
@@ -300,7 +302,7 @@ footer .fn{font-family:var(--display);font-weight:600;color:var(--ink);font-size
 .portrait img{display:block;width:100%;height:360px;object-fit:cover;object-position:50% 14%}
 .portrait figcaption{position:absolute;inset:auto 0 0 0;padding:34px 20px 14px;color:#fff;background:linear-gradient(0deg,rgba(14,20,50,.82),rgba(14,20,50,0));font-size:.82rem;line-height:1.35;direction:ltr;text-align:left}
 .portrait figcaption b{display:block;font-family:var(--display);font-size:1.05rem;font-weight:600}
-.side .plot-card{position:relative;width:88%;margin:-56px 0 0 auto}
+.side .plot-card{width:100%;margin:20px 0 0}
 #lifecycle{background:var(--surface);border-block:1px solid var(--line)}
 .life{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .lstage{position:relative;background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:22px 20px;display:flex;flex-direction:column;gap:8px;transition:transform .2s,border-color .2s}
